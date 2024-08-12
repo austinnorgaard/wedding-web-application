@@ -1,0 +1,29 @@
+#FooterMainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footerbreak {
+    width: 10%;
+    margin: none;
+    padding: none;
+}
+
+#footerinitials {
+    font-family: Abhaya Libre;
+    color: #5E5E58;
+    letter-spacing: 1px;
+    font-size: 3.5vw;
+    margin-bottom: 1vh;
+    
+}
+
+#footerdate {
+    font-family: Abhaya Libre;
+    color: #5E5E58;
+    font-size: 1.5vw;
+    letter-spacing: 2px;
+    margin-bottom: 5vh;
+    margin-top: 1vh;
+}

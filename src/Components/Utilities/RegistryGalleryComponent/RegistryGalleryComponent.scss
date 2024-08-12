@@ -1,0 +1,329 @@
+#RegistryGalleryMainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.RegistryProviderContainer {
+    width: 90%;
+    height: 40%;
+    min-height: 35%;
+    border-color: rgb(97, 80, 68);
+    border-width: 0.1vw;
+    border-style: solid;
+    background-color: white;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.RegistryProviders {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    height: 100%;
+    width: 100%;
+}
+
+.RegistryProviders > * {
+    border: 1px solid rgb(94, 94, 88, 0.2);
+    box-shadow: 0px 0px 10px 0px rgb(94, 94, 88, 0.2);
+    border-radius: 5px;
+    transition: all 0.25s;
+    text-decoration: none;
+    text-decoration-color: transparent;
+    color:#5E5E58;
+    max-height: 100%;
+    min-height: 100%;
+    min-width: 18%;
+    max-width: 18%;
+    margin-right: 2%; 
+}
+
+.RegistryProviders > *:hover {
+    box-shadow: 0px 0px 10px 6px rgb(94, 94, 88, 0.2);
+}
+
+.RegistryProviders > *:hover .shopproviderbutton {
+    background-color: rgb(94, 94, 88, 0.1);
+}
+
+.RegistryProviderContainer > h1 {
+    margin-left: 1%;
+    margin-top: 3%;
+    color: black;
+    font-family: "Abhaya Libre";
+    font-weight: 600;
+    font-size: 2.2vw;
+}
+
+.RegistryWishlistContainer {
+    width: 90%;
+    min-height: 100%;
+    border-color: rgb(97, 80, 68);
+    border-width: 0.1vw;
+    border-style: solid;
+    background-color: white;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6%;
+}
+
+.RegistryWishlistHeader {
+    width: 100%;
+    height: 7%;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.RegistryWishlistHeader > h1 {
+    margin-left: 1%;
+    margin-top: 3%;
+    color: black;
+    font-family: "Abhaya Libre";
+    font-weight: 600;
+    font-size: 2.2vw;
+}
+
+.RegistryWishlistHeader > .RegistrySortBox {
+    width: 12%;
+    height: 5%;
+    margin-right: 2%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+}
+
+.RegistrySortBox > img {
+    max-width: 1%;
+    position: absolute;
+    margin-left: 8.2%;
+    margin-top: 1.4%;
+}
+
+.RegistrySortBox > label {
+    margin-left: 0.5%;
+    font-size: 0.9vw;
+    color: #5E5E58;
+    z-index: 1;
+    font-family: "Abhaya Libre";
+    position: absolute;
+}
+
+#sort {
+    position: relative;
+    border: none;
+}
+
+select#sort {
+    appearance: none;
+    font-size: 1.25vw;
+    font-weight: 500;
+    color: #5E5E58;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 100%;
+    height: 100%;
+    padding: 15% 10% 5% 4%;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.RegistryWishlistItemsContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 6%;
+    margin-bottom: 4%;
+    width: 98%;
+    height: 100%;
+}
+
+.RegistryWishlistFilters, .RegistryWishlistFilters > * {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3%;
+    width: 100%;
+}
+
+#filterlabel {
+    font-size: 1.2vw;
+    margin-left: 5%;
+    margin-top: 0;
+    margin-bottom: 0;
+    align-self: flex-start;
+    width: fit-content;
+}
+
+.CheckRow {
+    width: 100%;
+    height: min-content;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#pricefilterheader, #storefilterheader, #statusfilterheader {
+    font-family: "Spectral";
+    color: black;
+    font-size: 1.5vw;
+    font-weight: 600;
+    margin-bottom: 1.3%;
+    width: 100%;
+}
+
+.RegistryWishlistFilters {
+    flex-shrink: 1;
+    flex-basis: 15%;
+    justify-content: start;
+    height: fit-content;
+}
+
+.RegistryWishlistItems {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    margin-left: 2%;
+    max-width: 80%;
+    height: 100%;
+}
+
+.RegistryWishlistItems > * {
+    flex: 0 0 25%; /* explanation below */
+    margin-bottom: 4%;
+    height: 20%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid transparent;
+    transition: all 0.25s;
+    text-decoration: none;
+    text-decoration-color: transparent;
+    color:#5E5E58
+}
+
+.RegistryWishlistItems > *:hover {
+    border-color: #5E5E58;
+    border-radius: 5px;
+}
+
+input {
+    font-size: 16px;
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin-right: 2%;
+    color: currentColor;
+    min-width: 1vw;
+    min-height: 1vw;
+    width: auto;
+    height: auto;
+    border: 0.05em solid currentColor;
+    border-radius: 15%;
+    display: grid;
+    place-content: center;
+}
+
+input::before {
+    content: "";
+    width: 0.8vw;
+    height: 0.8vw;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 0.1em 0.1em var(--form-control-color);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+}
+
+input:checked::before {
+    transform: scale(1);
+}
+
+.providerbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.providerlogo {
+    max-width: 80%;
+    margin-top: 35%;
+}
+
+.shopproviderbutton {
+    margin-bottom: 10%;
+    text-decoration: none;
+    color: black;
+    border: 0.2vw solid black;
+    border-radius: 25px;
+    padding: 4% 8% 4% 8%;
+    text-decoration-color: transparent;
+    transition: all 0.15s;
+    font-size: 1vw;
+}
+
+#sertalogo{
+    font-weight: 600;
+    font-size: 1.8vw;
+    margin-top: 30%;
+    color: black;
+    text-decoration: none;
+}
+
+.shopproviderbutton:hover {
+    background-color: black !important;
+    color: white;
+    box-shadow: 0px 0px 6px 2px rgb(94, 94, 88, 0.4);
+}
+
+#item > img {
+    max-width: 90%;
+    max-height: 60%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+}
+
+#item > h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-self: flex-start !important;
+    max-width: 100%;
+    font-size: 1.25vw;
+    font-weight: 500;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 5%;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#itemprice {
+    font-weight: bolder !important;
+}
+
+a {
+    text-decoration: none !important;
+}

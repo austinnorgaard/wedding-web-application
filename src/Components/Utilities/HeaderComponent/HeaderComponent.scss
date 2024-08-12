@@ -1,0 +1,108 @@
+#HeaderMainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -4%;
+    text-align: center;
+}
+
+#bgleaves {
+    min-width: 100%;
+    min-height: 10%;
+}
+
+.HeaderText#mobileText {
+    display: none;
+    visibility: hidden;
+}
+
+.HeaderText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    margin-top: -15%;
+    margin-bottom: 9%;
+}
+
+#headernames {
+    margin-bottom: 1.6%;
+    font-size: 3.5vw;
+}
+
+#headersavethedate, #countdown {
+    font-size: 1.5vw;
+}
+
+#headernames, #headersavethedate, #countdown {
+    letter-spacing: 3.2px;
+    text-transform: uppercase;
+    color: #5E5E58;
+    font-family: Abhaya Libre;
+}
+
+#bgLogo {
+    display: none;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .Header {
+        position: absolute;
+        margin-top: 0;
+        top: 0;
+        left: 0;
+        height: calc(10 * 1vw)'%';
+        width: 100%;
+        right: 0;
+        background-color: #F5F1EB;
+        padding-left: 10%;
+    }
+
+    #bgLogo {
+        display: block;
+        visibility: visible;
+        width: 15vw;
+        height: 15vw;
+        margin-right: 2%;
+    }
+
+    .HeaderText#mobileText {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 4%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        visibility: visible;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .HeaderText#mobileText>#headertext {
+        height: 100%;
+        width: 100%;
+        color: black;
+    }
+
+    .HeaderText#desktopText {
+        display: none;
+        visibility: hidden;
+    }
+
+    #HeaderMainContainer {
+        margin-top: 0;
+        height: 100%;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    #bgleaves {
+        display: none;
+        visibility: hidden;
+    }
+}
