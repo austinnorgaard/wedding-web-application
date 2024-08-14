@@ -15,7 +15,7 @@
         "rewrite": "/custom-forbidden-page.html"
       },
       "404": {
-        "rewrite": "/<*>"
+        "rewrite": "/index.htmml"
       }
     }
   }

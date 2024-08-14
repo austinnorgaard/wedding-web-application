@@ -49,12 +49,11 @@ function App() {
     let path = '/registry';
     navigate(path);
   }
-
   
 
   return (
     <div className="App" id="app">
-      <HomePage />
+      <HomePage/>
     </div>
   );
 }
