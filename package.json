@@ -2,21 +2,21 @@
     "name": "wedding_site",
     "version": "0.1.0",
     "private": true,
-    "engines": { 
+    "engines": {
         "npm": ">=7.0.0",
         "node": "=20.9.0"
     },
     "dependencies": {
-        "axios": "^1.7.3",
-        "json": "^11.0.0",
-        "sass": "^1.77.8",
         "@testing-library/jest-dom": "^5.17.0",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
+        "axios": "^1.7.3",
+        "json": "^11.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.19.0",
         "react-scripts": "5.0.1",
+        "sass": "^1.77.8",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
@@ -42,9 +42,10 @@
         ]
     },
     "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+        "@babel/plugin-transform-private-property-in-object": "^7.24.7",
         "constructs": "^10.3.0",
         "esbuild": "^0.23.0",
-        "tsx": "^4.17.0",
-        "@babel/plugin-proposal-private-property-in-object": ""
+        "tsx": "^4.17.0"
     }
 }
