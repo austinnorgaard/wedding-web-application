@@ -1,5 +1,6 @@
 import './FAQPageComponent.scss';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
+import FAQList from '../../Utilities/FAQListComponent/FAQListComponent';
 
 function FAQPage() {
   return (
@@ -7,7 +8,7 @@ function FAQPage() {
       
       <div className="MainContainer" id="FAQMainContainer">
         <MenuBar />
-        <h1>FAQ Title</h1>
+        <FAQList />
       </div>
     </div>
   );
