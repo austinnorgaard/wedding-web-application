@@ -43,7 +43,7 @@
 
 @media screen and (max-width: 768px) {
     .MenuBar {
-        height: 19vw;
+        height: 100%;
         width: 100%;
         z-index: 10;
     }
@@ -64,23 +64,19 @@
     .clicked#menuButton {
         visibility: visible;
         display: block;
-        height: 7.5%;
-        width: 7.5%;
-        margin: 0;
-        margin-top: 3.5%;
+        width: 8%;
+        margin-top: 4%;
         margin-left: 2%;
-        margin-bottom: 4%;
+        margin-bottom: 5%;
     }
 
     .unclicked#menuButton {
         visibility: visible;
         display: block;
-        position: absolute;
-        height: 7.5%;
-        width: 7.5%;
-        margin-top: 5.5%;
+        position: relative;
+        width: 8%;
+        margin-top: 7.5%;
         margin-left: 2%;
-        
     }
 
     #menuButton > img {
@@ -94,7 +90,8 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        min-width: 100%;
+        width: 100%;
+        height: 100%;
     }
 
     .MenuBarMainContainer#menuUnclicked a {

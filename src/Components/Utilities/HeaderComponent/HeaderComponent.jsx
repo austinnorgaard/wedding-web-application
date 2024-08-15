@@ -14,10 +14,10 @@ function Header() {
       
       <div className="MainContainer" id="HeaderMainContainer">
         <img id="bgleaves" src={leaves} alt="bgleaves"/>
-        <img id="bgLogo" src={logo} alt="bgLogo"/>
-        <div className="HeaderText" id="mobileText">
+        <a href="/"><img id="bgLogo" src={logo} alt="bgLogo"/></a>
+        <a href="/" className="HeaderText" id="mobileText">
           <h1 id="headernames">Austin &amp; Jessica</h1>
-        </div>
+        </a>
         <div className='HeaderText' id="desktopText">
           <h1 id="headernames">Austin &amp; Jessica</h1>
           <div id="headersavethedate">Friday, February 14, 2025</div>

@@ -30,8 +30,12 @@ function RegistryGallery(props) {
               <Link to="https://www.amazon.com/wedding/a/registry/2PMC8XDS4JY6F?tag=wedch-995-20" target='_blank' className="shopproviderbutton">Shop Registry</Link>
             </Link>
             <Link to="https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link" target="_blank" className="providerbox">
-              <p className="providerlogo" id="sertalogo">Serta</p>
+              <img className="providerlogo" id="sertalogo" src="https://ringofire.com/wp-content/uploads/2020/10/Serta_Logo.png" alt="serta logo"/>
               <Link to="https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link" target='_blank' className="shopproviderbutton">Shop Registry</Link>
+            </Link>
+            <Link to="https://ring.com/products/video-doorbell-pro-2" target="_blank" className="providerbox">
+              <img className='providerlogo' id="ringlogo" src="https://download.logo.wine/logo/Ring_Inc./Ring_Inc.-Logo.wine.png" alt="ring logo"/>
+              <Link to="https://ring.com/products/video-doorbell-pro-2" target='_blank' className="shopproviderbutton">Shop Registry</Link>
             </Link>
           </div>
         </div>
