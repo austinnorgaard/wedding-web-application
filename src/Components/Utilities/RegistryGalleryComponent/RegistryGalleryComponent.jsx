@@ -93,6 +93,16 @@ function RegistryGallery(props) {
               </div>
             </div>
             <div className="RegistryWishlistItems" id="registryItems">
+              <Link to="https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link" target='_blank' id="item">
+                <img src="https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000" alt="serta bed"/>
+                <h4 id="itemtitle">Serta iComfortECO Foam Mattress</h4>
+                <h4 id="itemprice">$3099.00</h4>
+              </Link>
+              <Link to="https://ring.com/products/video-doorbell-pro-2" target='_blank' id="item">
+                <img src="https://images.ctfassets.net/a3peezndovsu/variant-31961428492377/e8d3f08c98ee484eef46c383b85cb785/variant-31961428492377.jpg" alt="Ring Camera"/>
+                <h4 id="itemtitle">Ring Wired Doorbell Pro</h4>
+                <h4 id="itemprice">$229.99</h4>
+              </Link>
               {items.map((item, key) => (
                 <Link to={"https://www.amazon.com" + item.productUrl} target='_blank' id="item" index={key}>
                   <img src={item.imageUrl} alt={item.productTitle}/>
@@ -100,11 +110,6 @@ function RegistryGallery(props) {
                   <h4 id="itemprice">{item.itemPrice.displayString}</h4>
                 </Link>
               ))}
-              <Link to="https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link" target='_blank' id="item">
-                <img src="https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000" alt="serta bed"/>
-                <h4 id="itemtitle">iComfortECO Foam Mattress</h4>
-                <h4 id="itemprice">$3099.00</h4>
-              </Link>
             </div>
           </div>
         </div>

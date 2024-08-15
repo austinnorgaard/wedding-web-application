@@ -15,6 +15,7 @@ import ToDoPage from './Components/Pages/ToDoPageComponent/ToDoPageComponent';
 import RegistryPage from './Components/Pages/RegistryPageComponent/RegistryPageComponent';
 import Header from './Components/Utilities/HeaderComponent/HeaderComponent';
 import Footer from './Components/Utilities/FooterComponent/FooterComponent';
+import VenmoPage from './Components/Pages/VenmoPageComponent/VenmoPageComponent';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: "/registry",
     element: <RegistryPage/>,
+  },
+  {
+    path: "/venmo",
+    element: <VenmoPage/>,
   }
 ]);
 
