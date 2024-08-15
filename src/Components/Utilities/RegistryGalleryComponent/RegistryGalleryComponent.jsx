@@ -26,7 +26,7 @@ function RegistryGallery(props) {
           <h1>Gift Providers</h1>
           <div className='RegistryProviders'>
             <Link to="https://www.amazon.com/wedding/a/registry/2PMC8XDS4JY6F?tag=wedch-995-20" target='_blank' className="providerbox">
-              <img className="providerlogo" src={amazonlogo} alt="amazon registry logo"/>
+              <img className="providerlogo" id="amazonlogo" src={amazonlogo} alt="amazon registry logo"/>
               <Link to="https://www.amazon.com/wedding/a/registry/2PMC8XDS4JY6F?tag=wedch-995-20" target='_blank' className="shopproviderbutton">Shop Registry</Link>
             </Link>
             <Link to="https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link" target="_blank" className="providerbox">

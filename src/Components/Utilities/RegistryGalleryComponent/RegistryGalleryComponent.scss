@@ -52,7 +52,7 @@
 .RegistryProviderContainer > h1 {
     margin-left: 1%;
     margin-top: 3%;
-    color: black;
+    color: #5E5E58;
     font-family: "Abhaya Libre";
     font-weight: 600;
     font-size: 2.2vw;
@@ -85,7 +85,7 @@
 .RegistryWishlistHeader > h1 {
     margin-left: 1%;
     margin-top: 3%;
-    color: black;
+    color: #5E5E58;
     font-family: "Abhaya Libre";
     font-weight: 600;
     font-size: 2.2vw;
@@ -160,6 +160,7 @@ select#sort {
     margin-bottom: 0;
     align-self: flex-start;
     width: fit-content;
+    color: #5E5E58;
 }
 
 .CheckRow {
@@ -174,7 +175,7 @@ select#sort {
 
 #pricefilterheader, #storefilterheader, #statusfilterheader {
     font-family: "Spectral";
-    color: black;
+    color: #5E5E58;
     font-size: 1.5vw;
     font-weight: 600;
     margin-bottom: 1.3%;
@@ -227,12 +228,12 @@ input {
     background-color: #fff;
     /* Not removed via appearance */
     margin-right: 2%;
-    color: currentColor;
+    color: #5E5E58;
     min-width: 1vw;
     min-height: 1vw;
     width: auto;
     height: auto;
-    border: 0.05em solid currentColor;
+    border: 0.05em solid #5E5E58;
     border-radius: 15%;
     display: grid;
     place-content: center;
@@ -248,11 +249,12 @@ input::before {
     transition: 120ms transform ease-in-out;
     box-shadow: inset 0.1em 0.1em var(--form-control-color);
     /* Windows High Contrast Mode */
-    background-color: CanvasText;
+    background-color: #5E5E58;
 }
 
 input:checked::before {
     transform: scale(1);
+    color: #5E5E58
 }
 
 .providerbox {
@@ -272,8 +274,8 @@ input:checked::before {
 .shopproviderbutton {
     margin-bottom: 10%;
     text-decoration: none;
-    color: black;
-    border: 0.2vw solid black;
+    color: #5E5E58;
+    border: 0.2vw solid #5E5E58;
     border-radius: 25px;
     padding: 4% 8% 4% 8%;
     text-decoration-color: transparent;
@@ -281,24 +283,29 @@ input:checked::before {
     font-size: 1vw;
 }
 
+#amazonlogo {
+    -webkit-filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
+    filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
+}
+
 #ringlogo {
     max-width: 50%;
     margin-top: 25%;
-    -webkit-filter: brightness(0) invert(0); /* Safari/Chrome */
-    filter: brightness(0) invert(0);
+    -webkit-filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
+    filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
 }
 
 #sertalogo {
-    -webkit-filter: invert(100%); /* Safari/Chrome */
-    filter: invert(100%);
     max-width: 55%;
     max-height: 70%;
     margin-top: 22.5%;
     margin-bottom: 20%;
+    -webkit-filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
+    filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
 }
 
 .shopproviderbutton:hover {
-    background-color: black !important;
+    background-color: #5E5E58 !important;
     color: white;
     box-shadow: 0px 0px 6px 2px rgb(94, 94, 88, 0.4);
 }
@@ -322,7 +329,7 @@ input:checked::before {
     padding-left: 5%;
     padding-right: 5%;
     margin-bottom: 5%;
-    color: black;
+    color: #5E5E58;
     font-family: Arial, Helvetica, sans-serif;
 }
 

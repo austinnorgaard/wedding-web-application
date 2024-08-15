@@ -19,7 +19,7 @@
     width: 90%;
     height: 100%;
     min-height: 40%;
-    border-color: rgb(97, 80, 68);
+    border-color: #5E5E58;
     border-width: 0.1vw;
     border-style: solid;
     background-color: white;
@@ -32,6 +32,7 @@
     margin-top: 4%;
     align-self: center;
     font-family: "Abhaya Libre";
+    color: #5E5E58;
 }
 
 #questionsList {
@@ -49,7 +50,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 2%;
-    border-color: rgb(97, 80, 68);
+    border-color: #5E5E58;
     border-width: 0.1vw;
     border-style: solid;
     width: 70%;
@@ -64,6 +65,7 @@
     padding: none;
     font-family: "Abhaya Libre";
     font-weight: 600;
+    color: #5E5E58
 }
 
 .Answer {
@@ -71,4 +73,5 @@
     padding: none;
     font-family: "Abhaya Libre";
     font-size: larger;
+    color: #5E5E58;
 }
