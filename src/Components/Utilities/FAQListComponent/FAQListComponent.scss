@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: fit-content + 5%;
+    margin-bottom: 4%;
 }
 
 #FAQListMainContainer {
@@ -11,12 +12,12 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: fit-content + 5%;
 }
 
 .QuestionsContainer {
     width: 90%;
-    height: 40%;
+    height: 100%;
     min-height: 40%;
     border-color: rgb(97, 80, 68);
     border-width: 0.1vw;
@@ -28,13 +29,46 @@
 }
 
 #FAQTitle {
-    margin-top: 2%;
+    margin-top: 4%;
     align-self: center;
+    font-family: "Abhaya Libre";
 }
 
 #questionsList {
     display: flex;
     flex-direction: column;
-    margin-top: 4%;
+    align-items: flex-start;
     margin-left: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 100%;
+    width: 100%;
+}
+
+.QuestionButton {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+    border-color: rgb(97, 80, 68);
+    border-width: 0.1vw;
+    border-style: solid;
+    width: 70%;
+    height: 12rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.Question {
+    margin: none;
+    padding: none;
+    font-family: "Abhaya Libre";
+    font-weight: 600;
+}
+
+.Answer {
+    margin: none;
+    padding: none;
+    font-family: "Abhaya Libre";
+    font-size: larger;
 }

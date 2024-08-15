@@ -28,7 +28,7 @@ function MenuBar() {
   return (
     <div className="MenuBar" id={main_class}>
       
-      <div class="MenuBarMainContainer" id={main_class}>
+      <div className="MenuBarMainContainer" id={main_class}>
         <button className={button} onClick={updateMenu} id="menuButton"><img src={icon} alt="hamburgerMenu"/></button>
         <Link onClick={updateMenu} to="/" id="homelink">Home</Link>
         <Link onClick={updateMenu} to="/story" id="storylink">Our Story</Link>

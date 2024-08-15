@@ -3,6 +3,7 @@ import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import FAQList from '../../Utilities/FAQListComponent/FAQListComponent';
 
 function FAQPage() {
+
   return (
     <div className="FAQPage">
       
