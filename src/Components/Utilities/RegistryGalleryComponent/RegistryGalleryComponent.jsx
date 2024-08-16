@@ -56,7 +56,7 @@ function RegistryGallery(props) {
           <div className='RegistryWishlistHeader'>
             <div className='RegistryWishlistHeaderText'>
               <h1>Our Wish List</h1>
-              <button className="FilterButton" id={filterMenuID} onClick={updateFilterMenu}>Filters<img src={downarrow} className="FilterButtonArrow" id={filterMenuID}alt="arrowdown"/></button>
+              <button className="FilterButton" id={filterMenuID} onClick={updateFilterMenu}>Filters</button>
             </div>
             <div className='RegistrySortBox'>
               <label for="sort">Sort by</label>
