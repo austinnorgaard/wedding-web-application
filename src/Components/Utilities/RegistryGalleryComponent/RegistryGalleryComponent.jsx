@@ -7,6 +7,19 @@ import axios from "axios";
 
 function RegistryGallery(props) {
   const [items, setItems] = useState([]);
+  const [filterMenuID, setFilterMenuID] = useState ("filterUnclicked");
+  const [click, setClicked] = useState (false);
+
+  // Toggle button/menu
+  function updateFilterMenu () {
+    if (!click) {
+        setFilterMenuID ("filterClicked");
+    }
+    else {
+        setFilterMenuID ("filterUnclicked");
+    }
+    setClicked (!click);
+}
 
   useEffect(() => {
     axios.get('https://weddingapi.norgaardfamily.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false', {id: 1})
@@ -41,7 +54,10 @@ function RegistryGallery(props) {
         </div>
         <div className='RegistryWishlistContainer'>
           <div className='RegistryWishlistHeader'>
-            <h1>Our Wish List</h1>
+            <div className='RegistryWishlistHeaderText'>
+              <h1>Our Wish List</h1>
+              <button className="FilterButton" id={filterMenuID} onClick={updateFilterMenu}>Filters<img src={downarrow} className="FilterButtonArrow" id={filterMenuID}alt="arrowdown"/></button>
+            </div>
             <div className='RegistrySortBox'>
               <label for="sort">Sort by</label>
               <select name="sort" id="sort">
@@ -52,7 +68,7 @@ function RegistryGallery(props) {
               <img src={downarrow} alt="arrowdown"/>
             </div>
           </div>
-          <div className='RegistryWishlistItemsContainer'>
+          <div className='RegistryWishlistItemsContainer' id={filterMenuID}>
             <div className='RegistryWishlistFilters'>
               <div id="pricefilter">
                 <h1 id="pricefilterheader">Price</h1>
