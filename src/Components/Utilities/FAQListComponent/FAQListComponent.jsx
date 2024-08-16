@@ -1,5 +1,6 @@
 import './FAQListComponent.scss';
 import faqlist from "../../../faqlist.txt";
+import faqimage from "../../../faqbg.webp";
 import { useState } from 'react';
 
 function FAQList() {
@@ -58,7 +59,10 @@ function FAQList() {
       
       <div className="MainContainer" id="FAQListMainContainer">
         <div className="QuestionsContainer">
-          <h1 id="FAQTitle">Frequently Asked Questions (FAQs)</h1>
+          <div className="FaqHeader" id="faqHead">
+            <div id="faqHeaderImage"></div>
+            <h1 id="FAQTitle">Frequently Asked Questions (FAQs)</h1>
+          </div>
           <div className='OrderedList' id="questionsList">
           {questionList.map((question, key) => (
             <div className="QuestionButton" id={"Question"+key} index={key}>
