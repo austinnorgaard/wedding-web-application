@@ -40,7 +40,8 @@ function RegistryGallery() {
       productUrl: "https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link",
       imageUrl: "https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000",
       productPrice: 3099.00,
-      qtyNeeded: quantityNeeded[0].value
+      qtyNeeded: quantityNeeded[0].value,
+      priority: 1
     },
     {
       storeName: "Ring",
@@ -48,7 +49,8 @@ function RegistryGallery() {
       productUrl: "https://ring.com/products/video-doorbell-pro-2",
       imageUrl: "https://images.ctfassets.net/a3peezndovsu/variant-31961428492377/e8d3f08c98ee484eef46c383b85cb785/variant-31961428492377.jpg",
       productPrice: 229.99,
-      qtyNeeded: quantityNeeded[1].value
+      qtyNeeded: quantityNeeded[1].value,
+      priority: 2
     }
   ]);
   const sortFilters = [
@@ -61,7 +63,7 @@ function RegistryGallery() {
   function onFilterChange (value) {
     setFilterType(value);
     if (value === "feat") {
-      setStoreItems(storeItems);
+      setStoreItems(storeItems.sort((a, b) => a.priority < b.priority ? -1 : 1));
     }
     else if (value === "htl") {
       setStoreItems(storeItems.sort((a, b) => a.productPrice > b.productPrice ? -1.00 : 1.00));
@@ -119,15 +121,21 @@ function RegistryGallery() {
       setItems(response.data.result.minimalRegistryItems); 
     }
   }).then (function (value) {
-    items.map((item, key) => (
+    items.map((item, key) => {
+      let prio = key+3;
+      if (item.mustHave === true) {
+        prio = 3;
+      }
       storeItems.push({
         storeName: "amazon", 
         productName: item.productTitle, 
         productUrl: "https://www.amazon.com" + item.productUrl, 
         imageUrl: item.imageUrl, 
         productPrice: item.itemPrice.amount, 
-        qtyNeeded: item.qtyNeeded})
-    ))
+        qtyNeeded: item.qtyNeeded,
+        priority: prio
+      })
+    })
     setLoad("loaded")})
   }, [load]);
 
