@@ -21,9 +21,30 @@ function RegistryGallery() {
     { label: "$150+", value: ["150.00", "999999999.99"] }
   ];
   const storeOptions = [
-    { label: "Amazon", value: "amazon" },
-    { label: "Serta", value: "Serta" },
-    { label: "Ring", value: "Ring" }
+    { 
+      label: "Venmo", 
+      value: "Venmo",
+      registryLink: "/venmo",
+      registryImage: venmoqr
+    },
+    { 
+      label: "Amazon", 
+      value: "amazon",
+      registryLink: "https://www.amazon.com/wedding/a/registry/2PMC8XDS4JY6F?tag=wedch-995-20",
+      registryImage: amazonlogo
+    },
+    { 
+      label: "Serta", 
+      value: "Serta",
+      registryLink: "https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link",
+      registryImage: "https://ringofire.com/wp-content/uploads/2020/10/Serta_Logo.png" 
+    },
+    { 
+      label: "Ring", 
+      value: "Ring",
+      registryLink: "https://ring.com/products/video-doorbell-pro-2",
+      registryImage: "https://download.logo.wine/logo/Ring_Inc./Ring_Inc.-Logo.wine.png"
+    }
   ];
   const statusOptions = [
     { label: "Available", value: "available" },
@@ -38,7 +59,7 @@ function RegistryGallery() {
   const [storeItems, setStoreItems] = useState ([
     { 
       storeName: "Venmo",
-      productName: "Newlywed House Funds", 
+      productName: "Newlywed House Funds",
       productUrl: "/venmo",
       imageUrl: venmoqr,
       productPrice: 5000,
@@ -141,7 +162,7 @@ function RegistryGallery() {
       }
       storeItems.push({
         storeName: "amazon", 
-        productName: item.productTitle, 
+        productName: item.productTitle,
         productUrl: "https://www.amazon.com" + item.productUrl, 
         imageUrl: item.imageUrl, 
         productPrice: item.itemPrice.amount, 
@@ -162,18 +183,12 @@ function RegistryGallery() {
         <div className="RegistryProviderContainer">
           <h1>Gift Providers</h1>
           <div className='RegistryProviders'>
-            <Link to="https://www.amazon.com/wedding/a/registry/2PMC8XDS4JY6F?tag=wedch-995-20" target='_blank' className="providerbox">
-              <img className="providerlogo" id="amazonlogo" src={amazonlogo} alt="amazon registry logo"/>
-              <Link to="https://www.amazon.com/wedding/a/registry/2PMC8XDS4JY6F?tag=wedch-995-20" target='_blank' className="shopproviderbutton">Shop Registry</Link>
+            {storeOptions.map((store, key) => (
+              <Link to={store.registryLink} target='_blank' className="providerbox">
+              <img className="providerlogo" id={store.value.toLowerCase()+"logo"} src={store.registryImage} alt={store.label + " registry logo"}/>
+              <Link to={store.registryLink} target='_blank' className="shopproviderbutton">Shop Registry</Link>
             </Link>
-            <Link to="https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link" target="_blank" className="providerbox">
-              <img className="providerlogo" id="sertalogo" src="https://ringofire.com/wp-content/uploads/2020/10/Serta_Logo.png" alt="serta logo"/>
-              <Link to="https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link" target='_blank' className="shopproviderbutton">Shop Registry</Link>
-            </Link>
-            <Link to="https://ring.com/products/video-doorbell-pro-2" target="_blank" className="providerbox">
-              <img className='providerlogo' id="ringlogo" src="https://download.logo.wine/logo/Ring_Inc./Ring_Inc.-Logo.wine.png" alt="ring logo"/>
-              <Link to="https://ring.com/products/video-doorbell-pro-2" target='_blank' className="shopproviderbutton">Shop Registry</Link>
-            </Link>
+            ))}
           </div>
         </div>
         <div className='RegistryWishlistContainer'>

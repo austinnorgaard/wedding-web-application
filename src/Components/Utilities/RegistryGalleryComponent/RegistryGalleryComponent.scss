@@ -316,6 +316,11 @@ input:checked::before {
     filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
 }
 
+#venmologo {
+    max-width: 50%;
+    margin-top: 15%;
+}
+
 .shopproviderbutton:hover {
     background-color: #5E5E58 !important;
     color: white;
