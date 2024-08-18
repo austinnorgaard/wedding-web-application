@@ -58,6 +58,7 @@ function RegistryGallery() {
     { label: "Price high to low", value: "htl" },
     { label: "Price low to high", value: "lth" }
   ]
+  // eslint-disable-next-line
   const [filterType, setFilterType] = useState("feat");
 
   function onFilterChange (value) {
@@ -121,6 +122,7 @@ function RegistryGallery() {
       setItems(response.data.result.minimalRegistryItems); 
     }
   }).then (function (value) {
+    // eslint-disable-next-line
     items.map((item, key) => {
       let prio = key+3;
       if (item.mustHave === true) {
@@ -137,7 +139,8 @@ function RegistryGallery() {
       })
     })
     setLoad("loaded")})
-  }, [load]);
+  }, // eslint-disable-next-line
+  [load]);
 
   console.log(storeItems);
 
