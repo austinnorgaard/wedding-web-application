@@ -1,0 +1,106 @@
+.Venmo {
+    width: 100%;
+    height: 100%;
+    margin-bottom: -20vh;
+}
+
+#VenmoMainContainer {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    margin-bottom: 10vh;
+}
+
+#VenmoMainContainer > * {
+    width: 25%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid transparent;
+    transition: all 0.25s;
+    text-decoration: none;
+    text-decoration-color: transparent;
+    color:#5E5E58;
+    border-radius: 5px;
+}
+
+#venmoitem > img {
+    max-width: 100%;
+    max-height: 100%;
+    padding-top: 10%;
+    object-fit: contain;
+    object-position: 10% 80%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.VenmoTextContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: -6%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+#venmogoal {
+    font-size: 1.7vw;
+    margin-left: 5%;
+    margin-top: 3%;
+    font-weight: bolder !important;
+}
+
+#venmotitle {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    align-self: flex-start !important;
+    max-width: 100%;
+    font-size: 2vw;
+    font-weight: 500;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 5%;
+    color: #5E5E58;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+    .Venmo {
+        margin-bottom: 50%;
+    }
+
+    #VenmoMainContainer > *{
+        width: 50%;
+        height: 60vh;
+    }
+
+    #venmoitem > img {
+        max-height: 200%;
+    }
+
+    .VenmoTextContainer {
+        margin-top: -10%;
+        padding-top: 15%;
+    }
+
+    #venmotitle {
+        font-size: 3vw;
+    }
+
+    #venmogoal {
+        font-size: 2.75vw;
+    }
+}
