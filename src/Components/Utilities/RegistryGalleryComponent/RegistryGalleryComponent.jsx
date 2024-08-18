@@ -5,22 +5,85 @@ import downarrow from "../../../arrow-down-3101.png"
 import amazonlogo from "../../../amazonlogo.webp"
 import axios from "axios";
 
-function RegistryGallery(props) {
+function RegistryGallery() {
   const [items, setItems] = useState([]);
   const [filterMenuID, setFilterMenuID] = useState ("filterUnclicked");
-  const [click, setClicked] = useState (false);
+  const [filterMenuClick, setFilterMenuClicked] = useState (false);
+  const [priceChecked, setPriceChecked] = useState (["", ""]);
+  const [storeChecked, setStoreChecked] = useState ("");
+  const [statusChecked, setStatusChecked] = useState ("");
+  const priceOptions = [
+    { label: "$0-49", value: ["0.00", "49.99"] },
+    { label: "$50-99", value: ["50.00","99.99"] },
+    { label: "$100-149", value: ["100.00", "149.99"] },
+    { label: "$150+", value: ["150.00", "999999999.99"] }
+  ];
+  const storeOptions = [
+    { label: "Amazon", value: "amazon" },
+    { label: "Serta", value: "serta" },
+    { label: "Ring", value: "ring" }
+  ];
+  const statusOptions = [
+    { label: "Available", value: "available" },
+    { label: "Purchased", value: "purchased" }
+  ];
+  const quantityNeeded = [
+    { label: "serta", value: 1 },
+    { label: "ring", value: 1 },
+  ];
+
+
+  function onPriceChange (value) {
+    if (priceChecked[0] === value[0] && priceChecked[1] === value[1]) {
+      setPriceChecked(["", ""]);
+    }
+    else {
+      setPriceChecked(value);
+    }
+  }
+
+  function onStoreChange (value) {
+    if (storeChecked === value) {
+      setStoreChecked("");
+    }
+    else {
+      setStoreChecked(value);
+    }
+  }
+
+  function onStatusChange (value) {
+    if (statusChecked === value) {
+      setStatusChecked("");
+    }
+    else {
+      setStatusChecked(value);
+    }
+  }
+
 
   // Toggle button/menu
   function updateFilterMenu () {
-    if (!click) {
+    if (!filterMenuClick) {
         setFilterMenuID ("filterClicked");
     }
     else {
         setFilterMenuID ("filterUnclicked");
     }
-    setClicked (!click);
-}
+    setFilterMenuClicked (!filterMenuClick);
+  }
 
+  function priceConversion (price) {
+    if (price !== null) {
+      let priceConversion = "";
+      priceConversion = price;
+      priceConversion = priceConversion.replace("$", ""); 
+      priceConversion = priceConversion.replace(",", ""); 
+      priceConversion = parseFloat(priceConversion); 
+      console.log(priceConversion);
+      return priceConversion;
+    }
+  }
+ 
   useEffect(() => {
     axios.get('https://weddingapi.norgaardfamily.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false', {id: 1})
   .then(function (response) {
@@ -72,47 +135,34 @@ function RegistryGallery(props) {
             <div className='RegistryWishlistFilters'>
               <div id="pricefilter">
                 <h1 id="pricefilterheader">Price</h1>
-                <div className="CheckRow" id="priceCheckRow1">
-                  <input type='checkbox' name="price[1]"/>
-                  <p id="filterlabel">$0-49</p>
-                </div>
-                <div className="CheckRow" id="priceCheckRow2">
-                  <input type='checkbox'  name="price[2]"/>
-                  <p id="filterlabel">$50-99</p>
-                </div>
-                <div className="CheckRow" id="priceCheckRow3">
-                  <input type='checkbox'  name="price[3]"/>
-                  <p id="filterlabel">$100-149</p>
-                </div>
-                <div className="CheckRow" id="priceCheckRow4">
-                  <input type='checkbox'  name="price[4]"/>
-                  <p id="filterlabel">$150+</p>
-                </div>
+                {priceOptions.map((option, key) => (
+                  <div className="CheckRow" id={"priceCheckRow"+key}>
+                    <input checked={priceChecked[0] === option.value[0] && priceChecked[1] === option.value[1]} onChange={() => onPriceChange(option.value)} type='checkbox' name={"price["+key+"]"}/>
+                    <p id="filterlabel">{option.label}</p>
+                  </div>
+                ))}
               </div>
               <div id="storefilter">
                 <h1 id="storefilterheader">Store</h1>
-                <div className="CheckRow" id="storeCheckRow1">
-                  <input type='checkbox' name="store[1]"/>
-                  <p id="filterlabel">Amazon</p>
-                </div>
-                <div className="CheckRow" id="storeCheckRow2">
-                  <input type='checkbox' name="store[2]"/>
-                  <p id="filterlabel">Serta</p>
-                </div>
+                {storeOptions.map((option, key) => (
+                  <div className="CheckRow" id={"storeCheckRow"+key}>
+                    <input checked={storeChecked === option.value} onChange={() => onStoreChange(option.value)} type='checkbox' name={"store["+key+"]"}/>
+                    <p id="filterlabel">{option.label}</p>
+                  </div>
+                ))}
               </div>
               <div id="statusfilter">
                 <h1 id="statusfilterheader">Status</h1>
-                <div className="CheckRow" id="statusCheckRow1">
-                  <input type='checkbox' name="status[1]"/>
-                  <p id="filterlabel">Available</p>
-                </div>
-                <div className="CheckRow" id="statusCheckRow2">
-                  <input type='checkbox' name="status[2]"/>
-                  <p id="filterlabel">Purchased</p>
-                </div>
+                {statusOptions.map((option, key) => (
+                  <div className="CheckRow" id={"statusCheckRow"+key}>
+                    <input checked={statusChecked === option.value} onChange={() => onStatusChange(option.value)} type='checkbox' name={"status["+key+"]"}/>
+                    <p id="filterlabel">{option.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="RegistryWishlistItems" id="registryItems">
+              {((storeChecked === "serta" || storeChecked === "") && ((parseFloat(priceChecked[0]) <= 3099 && parseFloat(priceChecked[1]) >= 3099) || (priceChecked[0] === "" && priceChecked[1] === "")) && ((statusChecked === 'available' && quantityNeeded[0].value > 0) || (statusChecked === "purchased" && quantityNeeded[0].value === 0) || (statusChecked === ""))) &&
               <Link to="https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link" target='_blank' id="item">
                 <img src="https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000" alt="serta bed"/>
                 <div className="ItemTextContainer" id="sertaItemText">
@@ -120,6 +170,8 @@ function RegistryGallery(props) {
                   <h4 id="itemprice">$3099.00</h4>
                 </div>
               </Link>
+              }
+              {((storeChecked === "ring" || storeChecked === "") && ((parseFloat(priceChecked[0]) <= 229.99 && parseFloat(priceChecked[1]) >= 229.99) || (priceChecked[0] === "" && priceChecked[1] === "")) && ((statusChecked === 'available' && quantityNeeded[1].value > 0) || (statusChecked === "purchased" && quantityNeeded[1].value === 0) || (statusChecked === ""))) &&
               <Link to="https://ring.com/products/video-doorbell-pro-2" target='_blank' id="item">
                 <img src="https://images.ctfassets.net/a3peezndovsu/variant-31961428492377/e8d3f08c98ee484eef46c383b85cb785/variant-31961428492377.jpg" alt="Ring Camera"/>
                 <div className="ItemTextContainer" id="ringItemText">
@@ -127,7 +179,9 @@ function RegistryGallery(props) {
                   <h4 id="itemprice">$229.99</h4>
                 </div>
               </Link>
+              }
               {items.map((item, key) => (
+                ((storeChecked === "amazon" || storeChecked === "") && ((parseFloat(priceChecked[0]) <= priceConversion(item.itemPrice.displayString) && parseFloat(priceChecked[1]) >= priceConversion(item.itemPrice.displayString)) || (priceChecked[0] === "" && priceChecked[1] === "")) && ((statusChecked === 'available' && item.qtyNeeded > 0) || (statusChecked === "purchased" && item.qtyNeeded === 0) || (statusChecked === ""))) &&
                 <Link to={"https://www.amazon.com" + item.productUrl} target='_blank' id="item" index={key}>
                   <img src={item.imageUrl} alt={item.productTitle}/>
                   <div className="ItemTextContainer" id="amazonItemText">

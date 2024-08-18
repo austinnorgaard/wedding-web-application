@@ -1,6 +1,5 @@
 import './FAQListComponent.scss';
 import faqlist from "../../../faqlist.txt";
-import faqimage from "../../../faqbg.webp";
 import { useState } from 'react';
 
 function FAQList() {
