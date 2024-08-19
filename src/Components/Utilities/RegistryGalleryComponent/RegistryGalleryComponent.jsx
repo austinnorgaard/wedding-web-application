@@ -14,38 +14,48 @@ function RegistryGallery() {
   const [storeChecked, setStoreChecked] = useState ("");
   const [statusChecked, setStatusChecked] = useState ("");
   const [load, setLoad] = useState ("unloaded");
+  const [, forceRender] = useState(undefined);
+  const [leftOrRight, setLeftOrRight] = useState(
+    { left: "left",
+      right: "right"
+    }
+  );
   const priceOptions = [
     { label: "$0-49", value: ["0.00", "49.99"] },
     { label: "$50-99", value: ["50.00","99.99"] },
     { label: "$100-149", value: ["100.00", "149.99"] },
     { label: "$150+", value: ["150.00", "999999999.99"] }
   ];
-  const storeOptions = [
+  const [storeOptions, setStoreOptions] = useState([
     { 
       label: "Venmo", 
       value: "Venmo",
       registryLink: "/venmo",
-      registryImage: venmoqr
+      registryImage: venmoqr,
+      index: 0
     },
     { 
       label: "Amazon", 
       value: "amazon",
       registryLink: "https://www.amazon.com/wedding/a/registry/2PMC8XDS4JY6F?tag=wedch-995-20",
-      registryImage: amazonlogo
+      registryImage: amazonlogo,
+      index: 1
     },
     { 
       label: "Serta", 
       value: "Serta",
       registryLink: "https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link",
-      registryImage: "https://ringofire.com/wp-content/uploads/2020/10/Serta_Logo.png" 
+      registryImage: "https://ringofire.com/wp-content/uploads/2020/10/Serta_Logo.png",
+      index: 2
     },
     { 
       label: "Ring", 
       value: "Ring",
       registryLink: "https://ring.com/products/video-doorbell-pro-2",
-      registryImage: "https://download.logo.wine/logo/Ring_Inc./Ring_Inc.-Logo.wine.png"
+      registryImage: "https://download.logo.wine/logo/Ring_Inc./Ring_Inc.-Logo.wine.png",
+      index: 3
     }
-  ];
+  ]);
   const statusOptions = [
     { label: "Available", value: "available" },
     { label: "Purchased", value: "purchased" }
@@ -134,6 +144,31 @@ function RegistryGallery() {
     }
   }
 
+  function updateProviders (direction) {
+    if (direction === "right") {
+      let newOptions = storeOptions;
+      newOptions[0].index = storeOptions.length;
+      for (let i = 0; i < storeOptions.length; i++) {
+        newOptions[i].index = storeOptions[i].index - 1;
+      }
+      newOptions = newOptions.sort((a, b) => a.index < b.index ? -1 : 1);
+      setStoreOptions(newOptions);
+      forceRender((prev) => !prev);
+      console.log("right");
+    }
+    else if (direction === "left") {
+      let newOptions = storeOptions;
+      newOptions[newOptions.length - 1].index = -1;
+      for (let i = 0; i < storeOptions.length; i++) {
+        newOptions[i].index = storeOptions[i].index + 1;
+      }
+      newOptions = newOptions.sort((a, b) => a.index < b.index ? -1 : 1);
+      setStoreOptions(newOptions);
+      forceRender((prev) => !prev);
+      console.log("left");
+    }
+  }
+
 
   // Toggle button/menu
   function updateFilterMenu () {
@@ -174,22 +209,25 @@ function RegistryGallery() {
   }, // eslint-disable-next-line
   [load]);
 
-  console.log(storeItems);
-
   return (
     <div className="RegistryGallery" id="content">
       
       <div className="MainContainer" id="RegistryGalleryMainContainer">
-        <div className="RegistryProviderContainer">
-          <h1>Gift Providers</h1>
-          <div className='RegistryProviders'>
-            {storeOptions.map((store, key) => (
-              <Link to={store.registryLink} target='_blank' className="providerbox">
-              <img className="providerlogo" id={store.value.toLowerCase()+"logo"} src={store.registryImage} alt={store.label + " registry logo"}/>
-              <Link to={store.registryLink} target='_blank' className="shopproviderbutton">Shop Registry</Link>
-            </Link>
-            ))}
+        <div className="RegistryProviderMain">
+          <button className='RegistryProviderButton' id="leftBtn" onClick={() => updateProviders(leftOrRight.left)}>&larr;</button>
+          <div className="RegistryProviderContainer">
+            <h1>Gift Providers</h1>
+            <div className='RegistryProviders'>
+              {storeOptions.map((store, key) => (
+                (store.index < 5) &&
+                <Link to={store.registryLink} target='_blank' className="providerbox" id={"index"+store.index}>
+                  <img className="providerlogo" id={store.value.toLowerCase()+"logo"} src={store.registryImage} alt={store.label + " registry logo"}/>
+                  <Link to={store.registryLink} target='_blank' className="shopproviderbutton">Shop Registry</Link>
+                </Link>
+              ))}
+            </div>
           </div>
+          <button className='RegistryProviderButton' id="rightBtn" onClick={() => updateProviders(leftOrRight.right)}>&rarr;</button>
         </div>
         <div className='RegistryWishlistContainer'>
           <div className='RegistryWishlistHeader'>
@@ -239,7 +277,13 @@ function RegistryGallery() {
             </div>
             <div className="RegistryWishlistItems" id="registryItems">
               {storeItems.map((store, key) => (
-                ((storeChecked === store.storeName || storeChecked === "") && ((parseFloat(priceChecked[0]) <= store.productPrice && parseFloat(priceChecked[1]) >= store.productPrice) || (priceChecked[0] === "" && priceChecked[1] === "")) && ((statusChecked === 'available' && store.qtyNeeded > 0) || (statusChecked === "purchased" && store.qtyNeeded === 0) || (statusChecked === ""))) &&
+                ((storeChecked === store.storeName || storeChecked === "") && 
+                ((parseFloat(priceChecked[0]) <= store.productPrice && 
+                parseFloat(priceChecked[1]) >= store.productPrice) || 
+                (priceChecked[0] === "" && priceChecked[1] === "")) && 
+                ((statusChecked === 'available' && store.qtyNeeded > 0) || 
+                (statusChecked === "purchased" && store.qtyNeeded === 0) || 
+                (statusChecked === ""))) &&
                 <Link to={store.productUrl} target='_blank' id="item">
                   <img src={store.imageUrl} alt={store.productName}/>
                   <div className="ItemTextContainer" id={store.storeName+"ItemText"}>
