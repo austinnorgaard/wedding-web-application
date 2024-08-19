@@ -15,6 +15,7 @@ function RegistryGallery() {
   const [statusChecked, setStatusChecked] = useState ("");
   const [load, setLoad] = useState ("unloaded");
   const [, forceRender] = useState(undefined);
+  // eslint-disable-next-line
   const [leftOrRight, setLeftOrRight] = useState(
     { left: "left",
       right: "right"
@@ -221,7 +222,9 @@ function RegistryGallery() {
       
       <div className="MainContainer" id="RegistryGalleryMainContainer">
         <div className="RegistryProviderMain">
-          {storeOptions.length > 5 || (width <= 768 && storeOptions.length > 3) &&
+          {
+          // eslint-disable-next-line
+          storeOptions.length > 5 || (width <= 768 && storeOptions.length > 3) &&
           <button className='RegistryProviderButton' id="leftBtn" onClick={() => updateProviders(leftOrRight.left)}>&larr;</button>
           }
           <div className="RegistryProviderContainer">
@@ -236,7 +239,9 @@ function RegistryGallery() {
               ))}
             </div>
           </div>
-          {storeOptions.length > 4 || (width <= 768 && storeOptions.length > 3) &&
+          {
+          // eslint-disable-next-line
+          storeOptions.length > 4 || (width <= 768 && storeOptions.length > 3) &&
             <button className='RegistryProviderButton' id="rightBtn" onClick={() => updateProviders(leftOrRight.right)}>&rarr;</button>
           }
         </div>
