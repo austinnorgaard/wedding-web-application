@@ -102,6 +102,7 @@ function RegistryGallery() {
   ]
   // eslint-disable-next-line
   const [filterType, setFilterType] = useState("feat");
+  const [width, setWidth] =  useState(window.innerWidth);
 
   function onFilterChange (value) {
     setFilterType(value);
@@ -143,6 +144,12 @@ function RegistryGallery() {
       setStatusChecked(value);
     }
   }
+
+  function setNewWidth () {
+    setWidth(window.innerWidth);
+  }
+
+  window.onresize = () => setNewWidth ();
 
   function updateProviders (direction) {
     if (direction === "right") {
@@ -214,7 +221,9 @@ function RegistryGallery() {
       
       <div className="MainContainer" id="RegistryGalleryMainContainer">
         <div className="RegistryProviderMain">
+          {storeOptions.length > 4 || (width <= 768 && storeOptions.length > 3) &&
           <button className='RegistryProviderButton' id="leftBtn" onClick={() => updateProviders(leftOrRight.left)}>&larr;</button>
+          }
           <div className="RegistryProviderContainer">
             <h1>Gift Providers</h1>
             <div className='RegistryProviders'>
@@ -227,7 +236,9 @@ function RegistryGallery() {
               ))}
             </div>
           </div>
-          <button className='RegistryProviderButton' id="rightBtn" onClick={() => updateProviders(leftOrRight.right)}>&rarr;</button>
+          {storeOptions.length > 4 || (width <= 768 && storeOptions.length > 3) &&
+            <button className='RegistryProviderButton' id="rightBtn" onClick={() => updateProviders(leftOrRight.right)}>&rarr;</button>
+          }
         </div>
         <div className='RegistryWishlistContainer'>
           <div className='RegistryWishlistHeader'>
