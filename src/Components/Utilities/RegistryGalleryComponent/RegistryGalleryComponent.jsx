@@ -221,7 +221,7 @@ function RegistryGallery() {
       
       <div className="MainContainer" id="RegistryGalleryMainContainer">
         <div className="RegistryProviderMain">
-          {storeOptions.length > 4 || (width <= 768 && storeOptions.length > 3) &&
+          {storeOptions.length > 5 || (width <= 768 && storeOptions.length > 3) &&
           <button className='RegistryProviderButton' id="leftBtn" onClick={() => updateProviders(leftOrRight.left)}>&larr;</button>
           }
           <div className="RegistryProviderContainer">
