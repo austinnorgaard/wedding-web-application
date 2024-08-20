@@ -218,23 +218,22 @@ function RegistryGallery() {
   [load]);
 
   return (
-    <div className="RegistryGallery" id="content">
-      
-      <div className="MainContainer" id="RegistryGalleryMainContainer">
-        <div className="RegistryProviderMain">
+    <div className="MainContainer Registry" id="content">
+      <div className="Container Registry">
+        <div className="Container RegistryProviders RegistryProviderMain">
           {
           // eslint-disable-next-line
           storeOptions.length > 5 || (width <= 768 && storeOptions.length > 3) &&
-          <button className='RegistryProviderButton' id="leftBtn" onClick={() => updateProviders(leftOrRight.left)}>&larr;</button>
+          <button className="Navigate" id="left" onClick={() => updateProviders(leftOrRight.left)}>&larr;</button>
           }
-          <div className="RegistryProviderContainer">
+          <div className="Container RegistryProviders RegistryProviderInner">
             <h1>Gift Providers</h1>
-            <div className='RegistryProviders'>
+            <div className='Container RegistryProviders RegistryProviderList'>
               {storeOptions.map((store, key) => (
                 (store.index < 5) &&
-                <Link to={store.registryLink} target='_blank' className="providerbox" id={"index"+store.index}>
-                  <img className="providerlogo" id={store.value.toLowerCase()+"logo"} src={store.registryImage} alt={store.label + " registry logo"}/>
-                  <Link to={store.registryLink} target='_blank' className="shopproviderbutton">Shop Registry</Link>
+                <Link to={store.registryLink} target='_blank' className="RegistryProviders Box" id={"index"+store.index}>
+                  <img className="RegistryProviders Logo" id={store.value.toLowerCase()} src={store.registryImage} alt={store.label + " registry logo"}/>
+                  <Link to={store.registryLink} target='_blank' className="RegistryProviders Button">Shop Registry</Link>
                 </Link>
               ))}
             </div>
@@ -242,18 +241,18 @@ function RegistryGallery() {
           {
           // eslint-disable-next-line
           storeOptions.length > 4 || (width <= 768 && storeOptions.length > 3) &&
-            <button className='RegistryProviderButton' id="rightBtn" onClick={() => updateProviders(leftOrRight.right)}>&rarr;</button>
+            <button className='Navigate' id="right" onClick={() => updateProviders(leftOrRight.right)}>&rarr;</button>
           }
         </div>
-        <div className='RegistryWishlistContainer'>
-          <div className='RegistryWishlistHeader'>
-            <div className='RegistryWishlistHeaderText'>
+        <div className='Container RegistryItemList Main'>
+          <div id="HeadBox">
+            <div id="HeadBoxText">
               <h1>Our Wish List</h1>
-              <button className="FilterButton" id={filterMenuID} onClick={updateFilterMenu}>Filters</button>
+              <button className="RegistryItemList Filters" id={filterMenuID} onClick={updateFilterMenu}>Filters</button>
             </div>
-            <div className='RegistrySortBox'>
+            <div className='Container RegistryItemList Box Sort'>
               <label for="sort">Sort by</label>
-              <select name="sort" id="sort" onChange={() => onFilterChange(document.querySelector('#sort').value)}>
+              <select className='RegistryItemList Sort' id="sortselect" name="Sort" onChange={() => onFilterChange(document.querySelector('#sortselect').value)}>
                 {sortFilters.map((filter, key) => (
                   <option value={filter.value}>{filter.label}</option>
                 ))}
@@ -261,37 +260,37 @@ function RegistryGallery() {
               <img src={downarrow} alt="arrowdown"/>
             </div>
           </div>
-          <div className='RegistryWishlistItemsContainer' id={filterMenuID}>
-            <div className='RegistryWishlistFilters'>
-              <div id="pricefilter">
-                <h1 id="pricefilterheader">Price</h1>
+          <div className='Container RegistryItemList Inner' id={filterMenuID}>
+            <div className='Container RegistryItemList Filters List'>
+              <div className="Container RegistryItemList Filters Filter" id="price">
+                <h1 className="Filters" id="price">Price</h1>
                 {priceOptions.map((option, key) => (
-                  <div className="CheckRow" id={"priceCheckRow"+key}>
+                  <div className="Container Filters CheckRow" id={"priceCheckRow"+key}>
                     <input checked={priceChecked[0] === option.value[0] && priceChecked[1] === option.value[1]} onChange={() => onPriceChange(option.value)} type='checkbox' name={"price["+key+"]"}/>
-                    <p id="filterlabel">{option.label}</p>
+                    <p className="Filters CheckRow Label">{option.label}</p>
                   </div>
                 ))}
               </div>
-              <div id="storefilter">
-                <h1 id="storefilterheader">Store</h1>
+              <div className="Container RegistryItemList Filters" id="store">
+                <h1 className="Filters" id="store">Store</h1>
                 {storeOptions.map((option, key) => (
-                  <div className="CheckRow" id={"storeCheckRow"+key}>
+                  <div className="Container Filters CheckRow" id={"storeCheckRow"+key}>
                     <input checked={storeChecked === option.value} onChange={() => onStoreChange(option.value)} type='checkbox' name={"store["+key+"]"}/>
-                    <p id="filterlabel">{option.label}</p>
+                    <p className="Filters CheckRow Label">{option.label}</p>
                   </div>
                 ))}
               </div>
-              <div id="statusfilter">
-                <h1 id="statusfilterheader">Status</h1>
+              <div className="Container RegistryItemList Filters" id="status">
+                <h1 className="Filters" id="status">Status</h1>
                 {statusOptions.map((option, key) => (
-                  <div className="CheckRow" id={"statusCheckRow"+key}>
+                  <div className="Container Filters CheckRow" id={"statusCheckRow"+key}>
                     <input checked={statusChecked === option.value} onChange={() => onStatusChange(option.value)} type='checkbox' name={"status["+key+"]"}/>
-                    <p id="filterlabel">{option.label}</p>
+                    <p className="Filters CheckRow Label">{option.label}</p>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="RegistryWishlistItems" id="registryItems">
+            <div className="Container RegistryItemList Items">
               {storeItems.map((store, key) => (
                 ((storeChecked === store.storeName || storeChecked === "") && 
                 ((parseFloat(priceChecked[0]) <= store.productPrice && 
@@ -300,11 +299,11 @@ function RegistryGallery() {
                 ((statusChecked === 'available' && store.qtyNeeded > 0) || 
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
                 (statusChecked === ""))) &&
-                <Link to={store.productUrl} target='_blank' id="item">
-                  <img src={store.imageUrl} alt={store.productName}/>
-                  <div className="ItemTextContainer" id={store.storeName+"ItemText"}>
-                    <h4 id="itemtitle">{store.productName}</h4>
-                    <h4 id="itemprice">${store.productPrice.toFixed(2)}</h4>
+                <Link to={store.productUrl} target='_blank' className="Item">
+                  <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
+                  <div className="Container Item Text" id={store.storeName}>
+                    <h4 className='Item Title'>{store.productName}</h4>
+                    <h4 className="Item Price">${store.productPrice.toFixed(2)}</h4>
                   </div>
                 </Link>
               ))}

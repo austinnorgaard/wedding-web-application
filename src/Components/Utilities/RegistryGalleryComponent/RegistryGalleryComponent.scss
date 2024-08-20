@@ -1,133 +1,34 @@
-#RegistryGalleryMainContainer {
+// || General Styles
+a {
+    text-decoration: none !important;
+}
+
+// || Container Styles
+.Container.Filters.CheckRow { // Registry Filter Checkbox Row
+    width: 100%;
+    height: min-content;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Container.Item.Text { // Registry Item Text Container
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.Container.Registry { // Registry
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.RegistryProviderMain{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-#index5 {
-    display: none;
-    visibility: hidden;
-}
-
-
-.RegistryProviderButton {
-    background-color: rgb(255, 255, 255, .4);
-    transition: all .25s;
-    border: solid #5E5E58 1px;
-    border-radius: 5px;
-    width: 2%;
-    height: 5vh;
-    z-index: 5;
-}
-
-.RegistryProviderButton:hover {
-    background-color: rgb(255, 255, 255, 1);
-    box-shadow: 0px 0px 10px 0px rgb(94, 94, 88, 0.2);
-}
-
-.RegistryProviderContainer {
-    width: 90%;
-    border-color: rgb(97, 80, 68);
-    border-width: 0.1vw;
-    border-style: solid;
-    background-color: white;
-    margin-top: 4%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
-.RegistryProviders {
-    display: flex;
-    flex-direction: row;
-    margin-left: 1%;
-    margin-top: 4%;
-    margin-bottom: 2%;
-    width: 100%;
-    height: 100%;
-}
-
-.RegistryProviders > * {
-    border: 1px solid rgb(94, 94, 88, 0.2);
-    box-shadow: 0px 0px 10px 0px rgb(94, 94, 88, 0.2);
-    border-radius: 5px;
-    transition: all 0.25s;
-    text-decoration: none;
-    text-decoration-color: transparent;
-    color:#5E5E58;
-    min-width: 18%;
-    max-width: 18%;
-    margin-right: 2%; 
-}
-
-.RegistryProviders > *:hover {
-    box-shadow: 0px 0px 10px 6px rgb(94, 94, 88, 0.2);
-}
-
-.RegistryProviders > *:hover .shopproviderbutton {
-    background-color: rgb(94, 94, 88, 0.1);
-}
-
-.RegistryProviderContainer > h1 {
-    margin-left: 1%;
-    margin-top: 3%;
-    color: #5E5E58;
-    font-family: "Abhaya Libre";
-    font-weight: 600;
-    font-size: 2.2vw;
-}
-
-.RegistryWishlistContainer {
-    width: 90%;
-    min-height: 100%;
-    border-color: rgb(97, 80, 68);
-    border-width: 0.1vw;
-    border-style: solid;
-    background-color: white;
-    margin-top: 2%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 6%;
-}
-
-.RegistryWishlistHeader {
-    width: 100%;
-    height: 7%;
-    margin-top: 1%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.RegistryWishlistHeaderText {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.RegistryWishlistHeaderText > h1 {
-    margin-left: 1%;
-    margin-top: 3%;
-    color: #5E5E58;
-    font-family: "Abhaya Libre";
-    font-weight: 600;
-    font-size: 2.2vw;
-}
-
-.RegistryWishlistHeader > .RegistrySortBox {
+.Container.RegistryItemList.Box.Sort { // Registry Item Sort Box Container
     width: 12%;
     height: 5%;
     margin-right: 2%;
@@ -139,14 +40,14 @@
     border-radius: 0.25rem;
 }
 
-.RegistrySortBox > img {
+.Container.RegistryItemList.Box.Sort > img { // Registry Item Sort Box Arrow
     max-width: 1%;
     position: absolute;
     margin-left: 8.2%;
     margin-top: 1.4%;
 }
 
-.RegistrySortBox > label {
+.Container.RegistryItemList.Box.Sort > label { // Registry Item Sort Box Upper Text
     margin-left: 0.5%;
     font-size: 0.9vw;
     color: #5E5E58;
@@ -155,25 +56,47 @@
     position: absolute;
 }
 
-#sort {
-    position: relative;
-    border: none;
+.Container.RegistryItemList.Filters.List { // Registry Filter List Container
+    flex-shrink: 1;
+    flex-basis: 15%;
+    justify-content: start;
+    height: fit-content;
 }
 
-select#sort {
-    appearance: none;
-    font-size: 1.25vw;
-    font-weight: 500;
+.Container.RegistryItemList.Filters.List, .Container.RegistryItemList.Filters.List > * { // Registry Item List Filters
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3%;
+    width: 100%;
+}
+
+#HeadBox { // Registry Item List Header Container
+    width: 100%;
+    height: 7%;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#HeadBoxText { // Registry Item List Header Text Container
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#HeadBoxText > h1 { // Registry Item List Header Text
+    margin-left: 1%;
+    margin-top: 3%;
     color: #5E5E58;
-    font-family: Arial, Helvetica, sans-serif;
-    min-width: 100%;
-    height: 100%;
-    padding: 15% 10% 5% 4%;
-    background-color: transparent;
-    border-radius: 5px;
+    font-family: "Abhaya Libre";
+    font-weight: 600;
+    font-size: 2.2vw;
 }
 
-.RegistryWishlistItemsContainer {
+.Container.RegistryItemList.Inner { // Registry Item List Inner Container
     display: flex;
     flex-direction: row;
     margin-top: 6%;
@@ -182,55 +105,7 @@ select#sort {
     height: 100%;
 }
 
-.RegistryWishlistFilters, .RegistryWishlistFilters > * {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 3%;
-    width: 100%;
-}
-
-#filterlabel {
-    font-size: 1.2vw;
-    margin-left: 5%;
-    margin-top: 0;
-    margin-bottom: 0;
-    align-self: flex-start;
-    width: fit-content;
-    color: #5E5E58;
-}
-
-.CheckRow {
-    width: 100%;
-    height: min-content;
-    margin-top: 5%;
-    margin-bottom: 10%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-#pricefilterheader, #storefilterheader, #statusfilterheader {
-    font-family: "Spectral";
-    color: #5E5E58;
-    font-size: 1.5vw;
-    font-weight: 600;
-    margin-bottom: 1.3%;
-    width: 100%;
-}
-
-.FilterButton {
-    display: none;
-    visibility: hidden;
-}
-
-.RegistryWishlistFilters {
-    flex-shrink: 1;
-    flex-basis: 15%;
-    justify-content: start;
-    height: fit-content;
-}
-
-.RegistryWishlistItems {
+.Container.RegistryItemList.Items { // Registry Items Container
     flex-wrap: wrap;
     display: flex;
     flex-direction: row;
@@ -240,8 +115,8 @@ select#sort {
     height: 100%;
 }
 
-.RegistryWishlistItems > * {
-    flex: 0 0 25%; /* explanation below */
+.Container.RegistryItemList.Items > * { // Registry Items
+    flex: 0 0 25%; // Max 4 Items Per Row
     margin-bottom: 4%;
     width: 25%;
     display: flex;
@@ -255,14 +130,209 @@ select#sort {
     border-radius: 5px;
 }
 
-.RegistryWishlistItems > *:hover {
+.Container.RegistryItemList.Items > *:hover { // Registry Items on Hover
     border-color: #5E5E58;
     border-radius: 5px;
 }
 
-input {
+.Container.RegistryItemList.Main { // Registry Item List Main Container
+    width: 90%;
+    min-height: 100%;
+    border-color: rgb(97, 80, 68);
+    border-width: 0.1vw;
+    border-style: solid;
+    background-color: white;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6%;
+}
+
+.Container.RegistryProviderMain { // Registry Main Container
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.Container.RegistryProviderInner { // Registry Inner Container
+    width: 90%;
+    border-color: rgb(97, 80, 68);
+    border-width: 0.1vw;
+    border-style: solid;
+    background-color: white;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.Container.RegistryProviders.RegistryProviderInner > h1 { // Registry Provider Header Text
+    margin-left: 1%;
+    margin-top: 3%;
+    color: #5E5E58;
+    font-family: "Abhaya Libre";
+    font-weight: 600;
+    font-size: 2.2vw;
+}
+
+.Container.RegistryProviders.RegistryProviderList { // Registry Provider List
+    display: flex;
+    flex-direction: row;
+    margin-left: 1%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    width: 100%;
+    height: 100%;
+}
+
+.Container.RegistryProviders.RegistryProviderList > * { // Registry Providers
+    border: 1px solid rgb(94, 94, 88, 0.2);
+    box-shadow: 0px 0px 10px 0px rgb(94, 94, 88, 0.2);
+    border-radius: 5px;
+    transition: all 0.25s;
+    text-decoration: none;
+    text-decoration-color: transparent;
+    color:#5E5E58;
+    min-width: 18%;
+    max-width: 18%;
+    margin-right: 2%; 
+}
+
+.Container.RegistryProviders.RegistryProviderList > *:hover {
+    box-shadow: 0px 0px 10px 6px rgb(94, 94, 88, 0.2);
+}
+
+.Container.RegistryProviders.RegistryProviderList > *:hover .RegistryProviders.Button { // Registry Provider Button on Hover
+    background-color: rgb(94, 94, 88, 0.1);
+}
+
+// || Registry Provider Styles
+.RegistryProviders.Box { // Registry Provider Outer Box
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-height: 10%;
+}
+
+.RegistryProviders.Box#index5 { // 5th Registry Provider Item
+    display: none;
+    visibility: hidden;
+}
+
+.RegistryProviders.Button { // Registry Provider Button
+    margin-bottom: 10%;
+    text-decoration: none;
+    color: #5E5E58;
+    border: 0.2vw solid #5E5E58;
+    border-radius: 25px;
+    padding: 4% 8% 4% 8%;
+    text-decoration-color: transparent;
+    transition: all 0.15s;
+    font-size: 1vw;
+}
+
+.RegistryProviders.Button:hover { // Registry Provider Button on Hover
+    background-color: #5E5E58 !important;
+    color: white;
+    box-shadow: 0px 0px 6px 2px rgb(94, 94, 88, 0.4);
+}
+
+.RegistryProviders.Logo { // Registry Provider Logo
+    max-width: 80%;
+    margin-top: 35%;
+}
+
+.RegistryProviders.Logo#amazon { // Amazon Provider Logo
+    -webkit-filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
+    filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
+}
+
+.RegistryProviders.Logo#ring { // Ring Provider Logo
+    max-width: 50%;
+    margin-top: 25%;
+    -webkit-filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
+    filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
+}
+
+.RegistryProviders.Logo#serta { // Serta Provider Logo
+    max-width: 55%;
+    max-height: 70%;
+    margin-top: 22.5%;
+    margin-bottom: 20%;
+    -webkit-filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
+    filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
+}
+
+.RegistryProviders.Logo#venmo { // Venmo Provider Logo
+    max-width: 50%;
+    margin-top: 15%;
+}
+
+
+button.Navigate { // Registry Provider Navigation Buttons
+    background-color: rgb(255, 255, 255, .4);
+    transition: all .25s;
+    border: solid #5E5E58 1px;
+    border-radius: 5px;
+    width: 2%;
+    height: 5vh;
+    z-index: 5;
+}
+
+button.Navigate:hover {
+    background-color: rgb(255, 255, 255, 1);
+    box-shadow: 0px 0px 10px 0px rgb(94, 94, 88, 0.2);
+}
+
+// || Registry Sort Styles
+select.RegistryItemList.Sort { // Registry Item Sort Select
+    position: relative;
+    border: none;
+    appearance: none;
+    font-size: 1.25vw;
+    font-weight: 500;
+    color: #5E5E58;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 100%;
+    height: 100%;
+    padding: 15% 10% 5% 4%;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+// || Filter Styles (Checkbox)
+.Filters.CheckRow.Label { // Registry Filter Checkbox Label
+    font-size: 1.2vw;
+    margin-left: 5%;
+    margin-top: 0;
+    margin-bottom: 0;
+    align-self: flex-start;
+    width: fit-content;
+    color: #5E5E58;
+}
+
+button.RegistryItemList.Filters { // Registry Filter Button
+    display: none;
+    visibility: hidden;
+}
+
+h1.Filters { // Registry Filter Headers
+    font-family: "Spectral";
+    color: #5E5E58;
+    font-size: 1.5vw;
+    font-weight: 600;
+    margin-bottom: 1.3%;
+    width: 100%;
+}
+
+input { // Registry Filters Checkbox
     font-size: 16px;
-    /* Add if not using autoprefixer */
     -webkit-appearance: none;
     appearance: none;
     /* For iOS < 15 to remove gradient background */
@@ -280,7 +350,7 @@ input {
     place-content: center;
 }
 
-input::before {
+input::before { // Registry Filters Checkmark Before
     content: "";
     width: 0.8vw;
     height: 0.8vw;
@@ -293,70 +363,13 @@ input::before {
     background-color: #5E5E58;
 }
 
-input:checked::before {
+input:checked::before { // Registry Filters Checkmark After
     transform: scale(1);
     color: #5E5E58
 }
 
-.providerbox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-height: 10%;
-}
-
-.providerlogo {
-    max-width: 80%;
-    margin-top: 35%;
-}
-
-.shopproviderbutton {
-    margin-bottom: 10%;
-    text-decoration: none;
-    color: #5E5E58;
-    border: 0.2vw solid #5E5E58;
-    border-radius: 25px;
-    padding: 4% 8% 4% 8%;
-    text-decoration-color: transparent;
-    transition: all 0.15s;
-    font-size: 1vw;
-}
-
-#amazonlogo {
-    -webkit-filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
-    filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
-}
-
-#ringlogo {
-    max-width: 50%;
-    margin-top: 25%;
-    -webkit-filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
-    filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
-}
-
-#sertalogo {
-    max-width: 55%;
-    max-height: 70%;
-    margin-top: 22.5%;
-    margin-bottom: 20%;
-    -webkit-filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
-    filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
-}
-
-#venmologo {
-    max-width: 50%;
-    margin-top: 15%;
-}
-
-.shopproviderbutton:hover {
-    background-color: #5E5E58 !important;
-    color: white;
-    box-shadow: 0px 0px 6px 2px rgb(94, 94, 88, 0.4);
-}
-
-#item > img {
+// || Item Styles
+.Item.Logo { // Registry Item Logo
     max-width: 90%;
     max-height: 60%;
     margin-top: 5%;
@@ -364,21 +377,14 @@ input:checked::before {
     border-radius: 5px;
 }
 
-.ItemTextContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
-
-#itemprice {
+.Item.Price { // Registry Item Price
     font-size: 1vw;
     margin-left: 5%;
     margin-top: 3%;
     font-weight: bolder !important;
 }
 
-#itemtitle {
+.Item.Title { // Registry Item Title
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -393,127 +399,167 @@ input:checked::before {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-a {
-    text-decoration: none !important;
-}
-
 @media screen and (max-width: 768px) {
-    .RegistryWishlistHeaderText > h1 {
-        font-size: 150%;
-        margin-left: 2%;
+    // || Container Styles
+    .Container.Filters.CheckRow { // Filter Check Row Container
+        margin-top: 5%;
+        margin-bottom: 10%;
     }
 
-    .RegistryWishlistHeader {
-        margin-top: 3%;
+    .Container.Item.Text { // Item Text Container
+        margin-left: 5%;
     }
 
-    .RegistryWishlistItemsContainer {
+    .Container.RegistryItemList.Box.Sort > img { // Sort Box Arrow
+        max-width: 2%;
+        margin-left: 16.4%;
+        margin-top: 2.5%;
+    }
+    
+    .Container.RegistryItemList.Box.Sort > label { // Sort Box Label
+        margin-left: 1%;
+        font-size: 1.8vw;
+    }
+
+    .Container.RegistryItemList.Inner { // Registry Item List Inner Container
         justify-content: flex-start;
         width: 100%;
     }
 
-    #registryItems {
+    .Container.RegistryItemList.Inner#filterUnclicked > .Container.RegistryItemList.Filters.List { // Registry Item Filter List Container (Unclicked)
+        visibility: hidden !important;
+        display: none !important;
+    }
+
+    .Container.RegistryItemList.Inner#filterClicked > .Container.RegistryItemList.Filters.List  { // Registry Item Filter List Container (Clicked)
+        border: #5E5E58 solid 1px;
+        border-radius: 5px;
+        padding-top: 2%;
+        padding-right: 10%;
+        padding-left: 2%;
+    }
+
+    .Container.RegistryItemList.Filters.List { // Registry Item Filter List Container
+        flex-basis: 25%;
+    }
+
+    .Container.RegistryItemList.Filters.List, .Container.RegistryItemList.Filters.List > * {
+        margin-bottom: 25%;
+        margin-left: 1%;
+    }
+
+    .Container.RegistryItemList.Items { // Registry Item List Container
         flex-direction: column;
         width: 120%;
         align-items: flex-end;
     }
 
-    .RegistryWishlistFilters {
-        flex-basis: 25%;
-    }
-
-    div#filterUnclicked #registryItems > * {
-        width: 120%;
-        transition: none;
-    }
-
-    div#filterClicked #registryItems > * {
-        width: 90%;
-        transition: none;
-        margin-right: 5%;
-    }
-
-    #registryItems > * {
+    .Container.RegistryItemList.Items > * { // Registry Item Container
         border: 1px solid #5E5E58;
         align-items: center;
         flex-direction: row;
         height: fit-content;
     }
 
-    #item > img {
-        min-width: 40%;
-        max-width: 40%;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        border-radius: 5px;
+    .Container.RegistryProviders.RegistryProviderInner > h1 { // Registry Provider Header Text
         margin-left: 2%;
+        font-size: 150%;
     }
 
-    #itemtitle {
-        white-space: normal;
-        display: -webkit-box;
-        -webkit-line-clamp: 3; /* number of lines to show */
-        line-clamp: 3; 
-        -webkit-box-orient: vertical;
-        font-size: 3vw;
-    }
-
-    #itemprice {
-        font-size: 2.25vw;
+    .Container.RegistryProviders.RegistryProviderList { // Registry Provider List Container
         margin-top: 4%;
-        max-height: fit-content;
+        margin-bottom: 2%;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .Container.RegistryProviders.RegistryProviderList > * {
+        min-width: 30%;
+        max-width: 30%;
+        margin-right: 2%;
     }
 
-    .ItemTextContainer {
-        margin-left: 5%;
+    div.Container.RegistryItemList.Inner#filterUnclicked .Container.RegistryItemList.Items > * { // Registry Items (Unclicked)
+        width: 120%;
+        transition: none;
     }
 
-    .RegistryWishlistHeader > .RegistrySortBox {
+    div.Container.RegistryItemList.Inner#filterClicked .Container.RegistryItemList.Items > * { // Registry Items (Clicked)
+        width: 90%;
+        transition: none;
+        margin-right: 5%;
+    }
+
+    // || Registry Provider Styles
+    .RegistryProviders.Box#index4 { // Registry Provider #4
+        display: none;
+        visibility: hidden;
+    }
+
+    .RegistryProviders.Box#index3 { // Registry Provider #3
+        display: none;
+        visibility: hidden;
+    }
+
+    .RegistryProviders.Button { // Registry Provider Button
+        margin-bottom: 15%;
+        font-size: 50%;
+    }
+
+    .RegistryProviders.Button:hover { // Registry Provider Button on Hover
+        background-color: #5E5E58 !important;
+        color: white;
+        box-shadow: 0px 0px 6px 2px rgb(94, 94, 88, 0.4);
+    }
+    
+    .RegistryProviders.Logo#amazon { // Amazon Provider Logo
+        -webkit-filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
+        filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
+    }
+    
+    .RegistryProviders.Logo#ring { // Ring Provider Logo
+        max-width: 50%;
+        margin-top: 25%;
+        -webkit-filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
+        filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
+    }
+    
+    .RegistryProviders.Logo#serta { // Serta Provider Logo
+        max-width: 55%;
+        max-height: 70%;
+        margin-top: 22.5%;
+        margin-bottom: 20%;
+        -webkit-filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
+        filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
+    }
+    
+    button.Navigate { // Registry Provider Navigation Button
+        width: 5%;
+        height: 3vh;
+    }
+
+    // || Registry Sort Styles
+    #HeadBox > .Container.RegistryItemList.Box.Sort { // Registry Item List Sort Box Container
         width: 24%;
         height: 10%;
         margin-right: 4%;
     }
     
-    .RegistrySortBox > img {
-        max-width: 2%;
-        margin-left: 16.4%;
-        margin-top: 2.5%;
-    }
-    
-    .RegistrySortBox > label {
-        margin-left: 1%;
-        font-size: 1.8vw;
-    }
-    
-    select#sort {
+    select.RegistryItemList.Sort { // Registry Item List Sort Box
         font-size: 2.5vw;
         font-weight: 500;
     }
 
-    .RegistryWishlistFilters, .RegistryWishlistFilters > * {
-        margin-bottom: 25%;
-        margin-left: 1%;
-    }
-    
-    #filterlabel {
+    // || Filter Styles (Checkbox)
+    .Filters.CheckRow.Label { // Registry Item Filter Check Row Label
         font-size: 3vw;
     }
-    
-    .CheckRow {
-        margin-top: 5%;
-        margin-bottom: 10%;
-    }
-    
-    #pricefilterheader, #storefilterheader, #statusfilterheader {
-        font-size: 5vw;
-        margin-bottom: 15%;
-    }
 
-    .FilterButton {
+    button.RegistryItemList.Filters { // Registry Item Filter Button
         display: flex;
         flex-direction: row;
         align-items: center;
-        visibility: initial;
+        visibility: visible;
         border:rgb(97, 80, 68, 0.4) solid 1px;
         border-radius: 5px;
         padding-right: 8%;
@@ -525,99 +571,59 @@ a {
         transition: all 0.25s;
     }
 
-    .FilterButton#filterClicked {
+    button.RegistryItemList.Filters#filterClicked { // Registry Item Filter Button (Clicked)
         background-color: #5E5E58;
         color: white;
         box-shadow: 0px 0px 6px 2px rgb(94, 94, 88, 0.4);
     }
 
-    div.RegistryWishlistItemsContainer#filterUnclicked > .RegistryWishlistFilters {
-        visibility: hidden !important;
-        display: none !important;
+    h1.Filters { // Registry Item Filter Header Text
+        font-size: 5vw;
+        margin-bottom: 15%;
     }
 
-    div.RegistryWishlistItemsContainer#filterClicked > .RegistryWishlistFilters {
-        border: #5E5E58 solid 1px;
-        border-radius: 5px;
-        padding-top: 2%;
-        padding-right: 10%;
-        padding-left: 2%;
-    }
-
-    input {
+    input { // Checkbox
         min-width: 2vw;
         min-height: 2vw;
     }
     
-    input::before {
+    input::before { // Checkmark (Before)
         content: "";
         width: 1.6vw;
         height: 1.6vw;
     }
 
-    .RegistryProviders {
-        margin-top: 4%;
-        margin-bottom: 2%;
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .RegistryProviders > * {
-        min-width: 30%;
-        max-width: 30%;
-        margin-right: 2%;
-    }
-
-    #index4 {
-        display: none;
-        visibility: hidden;
-    }
-
-    #index3 {
-        display: none;
-        visibility: hidden;
-    }
-    
-    .RegistryProviderButton {
-        width: 5%;
-        height: 3vh;
-    }
-
-    .RegistryProviderContainer > h1 {
+    // || Item Styles
+    .Item.Logo { // Registry Item Logo
+        min-width: 40%;
+        max-width: 40%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        border-radius: 5px;
         margin-left: 2%;
-        font-size: 150%;
     }
 
-    
-    .shopproviderbutton {
-        margin-bottom: 15%;
-        font-size: 50%;
+    .Item.Price { // Registry Item Price Text
+        font-size: 2.25vw;
+        margin-top: 4%;
+        max-height: fit-content;
     }
-    
-    #amazonlogo {
-        -webkit-filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
-        filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
+
+    .Item.Title { // Registry Item Title Text
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+        line-clamp: 3; 
+        -webkit-box-orient: vertical;
+        font-size: 3vw;
     }
-    
-    #ringlogo {
-        max-width: 50%;
-        margin-top: 25%;
-        -webkit-filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
-        filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
+
+    #HeadBox { // Registry Item List Header Box
+        margin-top: 3%;
     }
-    
-    #sertalogo {
-        max-width: 55%;
-        max-height: 70%;
-        margin-top: 22.5%;
-        margin-bottom: 20%;
-        -webkit-filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
-        filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
-    }
-    
-    .shopproviderbutton:hover {
-        background-color: #5E5E58 !important;
-        color: white;
-        box-shadow: 0px 0px 6px 2px rgb(94, 94, 88, 0.4);
+
+    #HeadBoxText > h1  { // Registry Item List Header Box Text
+        font-size: 150%;
+        margin-left: 2%;
     }
 }
