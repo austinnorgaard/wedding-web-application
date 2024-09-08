@@ -75,7 +75,8 @@ function RegistryGallery() {
       imageUrl: venmoqr,
       productPrice: 5000,
       qtyNeeded: quantityNeeded[0].value,
-      priority: 1
+      priority: 1,
+      canAddToStandardCart: true
     },
     { 
       storeName: "Serta",
@@ -84,7 +85,8 @@ function RegistryGallery() {
       imageUrl: "https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000",
       productPrice: 3099.00,
       qtyNeeded: quantityNeeded[0].value,
-      priority: 2
+      priority: 2,
+      canAddToStandardCart: true
     },
     {
       storeName: "Ring",
@@ -93,7 +95,8 @@ function RegistryGallery() {
       imageUrl: "https://images.ctfassets.net/a3peezndovsu/variant-31961428492377/e8d3f08c98ee484eef46c383b85cb785/variant-31961428492377.jpg",
       productPrice: 229.99,
       qtyNeeded: quantityNeeded[1].value,
-      priority: 3
+      priority: 3,
+      canAddToStandardCart: true
     }
   ]);
   const sortFilters = [
@@ -210,7 +213,8 @@ function RegistryGallery() {
         imageUrl: item.imageUrl, 
         productPrice: item.itemPrice.amount, 
         qtyNeeded: item.qtyNeeded,
-        priority: prio
+        priority: prio,
+        canAddToStandardCart: item.canAddToStandardCart
       })
     })
     setLoad("loaded")})
@@ -295,7 +299,7 @@ function RegistryGallery() {
                 ((storeChecked === store.storeName || storeChecked === "") && 
                 ((parseFloat(priceChecked[0]) <= store.productPrice && 
                 parseFloat(priceChecked[1]) >= store.productPrice) || 
-                (priceChecked[0] === "" && priceChecked[1] === "")) && 
+                (store.canAddToStandardCart === true && priceChecked[0] === "" && priceChecked[1] === "")) && 
                 ((statusChecked === 'available' && store.qtyNeeded > 0) || 
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
                 (statusChecked === ""))) &&
