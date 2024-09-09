@@ -209,7 +209,7 @@ function RegistryGallery() {
       storeItems.push({
         storeName: "amazon", 
         productName: item.productTitle,
-        productUrl: "https://www.amazon.com" + item.productUrl, 
+        productUrl: "https://www.amazon.com" + item.productUrl + "?colid=2PMC8XDS4JY6F", 
         imageUrl: item.imageUrl, 
         productPrice: item.itemPrice.amount, 
         qtyNeeded: item.qtyNeeded,
