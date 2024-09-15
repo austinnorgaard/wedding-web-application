@@ -221,6 +221,8 @@ function RegistryGallery() {
   }, // eslint-disable-next-line
   [load]);
 
+  console.log(storeItems)
+
   return (
     <div className="MainContainer Registry" id="content">
       <div className="Container Registry">

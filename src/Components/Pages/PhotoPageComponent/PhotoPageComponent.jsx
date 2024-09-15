@@ -8,7 +8,6 @@ function PhotoPage() {
       
       <div className="MainContainer" id="PhotoMainContainer">
         <MenuBar id="photomenu"/>
-        <h1>Photos Title</h1>
         <PhotoGallery />
       </div>
     </div>
