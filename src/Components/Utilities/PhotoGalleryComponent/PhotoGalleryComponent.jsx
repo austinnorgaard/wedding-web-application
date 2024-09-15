@@ -42,8 +42,6 @@ function PhotoGallery() {
 
   console.log(imageArray);
 
-
-
   return (
     <div className="PhotoGallery">
       
