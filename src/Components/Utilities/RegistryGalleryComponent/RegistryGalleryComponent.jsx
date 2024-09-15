@@ -81,9 +81,9 @@ function RegistryGallery() {
     { 
       storeName: "Serta",
       productName: "Serta iComfortECO Foam Mattress", 
-      productUrl: "https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link",
+      productUrl: "https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523534500",
       imageUrl: "https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000",
-      productPrice: 3099.00,
+      productPrice: 2499.00,
       qtyNeeded: quantityNeeded[0].value,
       priority: 2,
       canAddToStandardCart: true
@@ -193,7 +193,7 @@ function RegistryGallery() {
   }
  
   useEffect(() => {
-    axios.get('https://weddingapi.norgaardfamily.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false', {id: 1})
+    axios.get('https://weddingapi.norgaardfamily.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false')
   .then(function (response) {
     let maxItems = response.data.result.filteredItemTotal;
     for (let i = 0; i < maxItems; i++) {
@@ -209,7 +209,7 @@ function RegistryGallery() {
       storeItems.push({
         storeName: "amazon", 
         productName: item.productTitle,
-        productUrl: "https://www.amazon.com" + item.productUrl + "?colid=2PMC8XDS4JY6F", 
+        productUrl: "https://www.amazon.com" + item.productUrl, 
         imageUrl: item.imageUrl, 
         productPrice: item.itemPrice.amount, 
         qtyNeeded: item.qtyNeeded,
