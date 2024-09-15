@@ -12,6 +12,7 @@ function HomePage() {
 
       // Calculate the image section offset and its height
       const imageTop = imageSection.offsetTop;
+      // eslint-disable-next-line
       const imageHeight = imageSection.offsetHeight;
       
       // Determine the amount of scroll within the image section
