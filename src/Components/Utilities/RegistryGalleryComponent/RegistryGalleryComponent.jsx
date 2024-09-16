@@ -208,9 +208,13 @@ function RegistryGallery() {
       },
     })
   .then(function (response) {
-    let maxItems = response.data.result.filteredItemTotal;
-    for (let i = 0; i < maxItems; i++) {
-      setItems(response.data.result.minimalRegistryItems); 
+    try {
+      let maxItems = response.data.result.filteredItemTotal;
+      for (let i = 0; i < maxItems; i++) {
+        setItems(response.data.result.minimalRegistryItems); 
+      }
+    } catch (Err) {
+      
     }
   }).then (function (value) {
     // eslint-disable-next-line
