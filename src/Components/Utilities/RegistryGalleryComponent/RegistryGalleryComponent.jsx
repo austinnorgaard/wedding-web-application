@@ -193,7 +193,7 @@ function RegistryGallery() {
   }
  
   useEffect(() => {
-    axios.get('https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false/', {
+    axios.get('https://weddingapi.norgaardfamily.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false', {
       auth: {
         username: "austinnorgaard@corban.edu",
         password: "*A11697n7*"
