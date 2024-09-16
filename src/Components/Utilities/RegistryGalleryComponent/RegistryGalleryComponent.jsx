@@ -193,7 +193,20 @@ function RegistryGallery() {
   }
  
   useEffect(() => {
-    axios.get('https://weddingapi.norgaardfamily.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false')
+    axios.get('https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false/', {
+      auth: {
+        username: "austinnorgaard@corban.edu",
+        password: "*A11697n7*"
+      },
+      headers: {
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        Host: 'www.amazon.com',
+        'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0",
+        Pragma: 'no-cache',
+        TE: 'Trailers',
+        'Upgrade-InsecureRequests': 1,
+      },
+    })
   .then(function (response) {
     let maxItems = response.data.result.filteredItemTotal;
     for (let i = 0; i < maxItems; i++) {
