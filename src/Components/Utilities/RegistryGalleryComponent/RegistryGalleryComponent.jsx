@@ -195,9 +195,13 @@ function RegistryGallery() {
   useEffect(() => {
     axios.get('https://weddingapi.norgaardfamily.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false')
   .then(function (response) {
-    let maxItems = response.data.result.filteredItemTotal;
-    for (let i = 0; i < maxItems; i++) {
-      setItems(response.data.result.minimalRegistryItems); 
+    try {
+      let maxItems = response.data.result.filteredItemTotal;
+      for (let i = 0; i < maxItems; i++) {
+        setItems(response.data.result.minimalRegistryItems); 
+      }
+    } catch (Err) {
+      
     }
   }).then (function (value) {
     // eslint-disable-next-line
