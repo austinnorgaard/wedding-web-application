@@ -18,7 +18,7 @@
     margin-left: 1%;
     margin-right: 1%;
     font-family: Spectral;
-    color: #5E5E58;
+    color: white;
     font-size: 1.5vw;
     font-weight: 400;
     border-bottom: 2px solid transparent;
@@ -33,7 +33,7 @@
 }
 
 .MenuBarMainContainer > a:hover {
-    border-bottom-color:#a8a8a8;
+    border-bottom-color:rgba(194, 158, 41, 0.5);
 }
 
 #menuButton {
@@ -50,7 +50,7 @@
 
     .MenuBar#menuClicked {
         position: absolute;
-        background-color: #F5F1EB;
+        background-color: #c4d9bc;
         top: 0;
         width: 100%;
         height: 500%;
@@ -84,6 +84,8 @@
         min-height: 100%;
         max-height: 100%;
         max-width: 100%;
+        -webkit-filter: invert(100%); /* Safari/Chrome */
+        filter: invert(100%);
     }
 
     .MenuBarMainContainer {

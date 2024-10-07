@@ -39,7 +39,7 @@
     width: 90%;
     height: 100%;
     min-height: 40%;
-    border-color: #5E5E58;
+    border-color: #c29e29;
     border-width: 0.1vw;
     border-style: solid;
     background-color: white;
@@ -57,7 +57,7 @@
     background-color: white;
     margin-left: 15%;
     font-family: "Abhaya Libre";
-    color: #5E5E58;
+    color: black;
     font-weight: 600;
     
 }
@@ -76,8 +76,8 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 2%;
-    border: 1px solid rgb(94, 94, 88, 0.2);
-    box-shadow: 0px 0px 10px 0px rgb(94, 94, 88, 0.2);
+    border: 1px solid rgba(194, 158, 41, 0.5);
+    box-shadow: 0px 0px 10px 0px rgba(194, 158, 41, 0.5);
     border-radius: 5px;
     transition: all 0.25s;
     width: 70%;
@@ -90,7 +90,7 @@
 }
 
 .QuestionButton:hover {
-    box-shadow: 0px 0px 10px 6px rgb(94, 94, 88, 0.2);
+    box-shadow: 0px 0px 10px 6px rgb(194, 158, 41, 0.5);
 }
 
 .Question {
@@ -98,7 +98,7 @@
     padding: none;
     font-family: "Abhaya Libre";
     font-weight: 600;
-    color: #5E5E58;
+    color: black;
 }
 
 .Answer {
@@ -106,7 +106,7 @@
     padding: none;
     font-family: "Abhaya Libre";
     font-size: larger;
-    color: #5E5E58;
+    color: black;
 }
 
 @media screen and (max-width: 768px) {

@@ -12,7 +12,8 @@
 }
 
 #HomeMainContainer > .MenuBar > * > #homelink {
-    border-bottom-color: #5E5E58;
+    border-bottom-color: #c29e29;
+    
 }
 
 #homeImage {
@@ -37,7 +38,7 @@
 
 #homefootertext, #homefooterdate {
     font-family: Abhaya Libre;
-    color: #5E5E58;
+    color: #fff;
     text-transform: uppercase;
 }
 
@@ -48,7 +49,7 @@
 }
 
 #rsvpoverhead {
-    border-top: #5E5E58 1px solid;
+    border-top: #c29e29 3px solid;
     height: 20vh;
     display: flex;
     flex-direction: column;
@@ -60,20 +61,20 @@
 }
 
 #rsvpcont {
-    background-color: rgb(240, 205, 153);
+    background-color: #c29e29;
     width: 15%;
     height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border:#5E5E58 1px solid;
+    border:black 1px solid;
 }
 
 #rsvp {
     color: white;
     font-size: 2.5vw;
-    text-shadow: -1px -1px 0 #5E5E58, 1px -1px 0 #5E5E58, -1px 1px 0 #5E5E58, 1px 1px 0 #5E5E58;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 @media screen and (max-width: 768px) {
@@ -88,6 +89,6 @@
     }
 
     #homefootertext, #homefooterdate {
-        transform: scale(0.75);
+        transform: scale(0.8);
     }
 }
