@@ -5,7 +5,6 @@ import downarrow from "../../../arrow-down-3101.png"
 import amazonlogo from "../../../amazonlogo.webp"
 import venmoqr from "../../../venmoqr.jpg"
 import axios from "axios";
-import FAQList from '../FAQListComponent/FAQListComponent';
 
 function RegistryGallery() {
   const [items, setItems] = useState([]);
