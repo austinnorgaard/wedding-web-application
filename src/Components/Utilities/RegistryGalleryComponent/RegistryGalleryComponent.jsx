@@ -5,6 +5,7 @@ import downarrow from "../../../arrow-down-3101.png"
 import amazonlogo from "../../../amazonlogo.webp"
 import venmoqr from "../../../venmoqr.jpg"
 import axios from "axios";
+import FAQList from '../FAQListComponent/FAQListComponent';
 
 function RegistryGallery() {
   const [items, setItems] = useState([]);
@@ -15,6 +16,16 @@ function RegistryGallery() {
   const [statusChecked, setStatusChecked] = useState ("");
   const [load, setLoad] = useState ("unloaded");
   const [, forceRender] = useState(undefined);
+    // eslint-disable-next-line
+  const [pages, setPages] = useState([
+    {
+      pageNumber: 1
+    },
+  ])
+    // eslint-disable-next-line
+  const [pageCount, setPageCount] = useState("1");
+    // eslint-disable-next-line
+  const [currentPage, setCurrentPage] = useState(1);
   // eslint-disable-next-line
   const [leftOrRight, setLeftOrRight] = useState(
     { left: "left",
@@ -73,30 +84,33 @@ function RegistryGallery() {
       productName: "Newlywed House Funds",
       productUrl: "/venmo",
       imageUrl: venmoqr,
-      productPrice: 5000,
+      productPrice: parseFloat(5000.00),
       qtyNeeded: quantityNeeded[0].value,
       priority: 1,
-      canAddToStandardCart: true
+      canAddToStandardCart: true,
+      isOnPage: true
     },
     { 
       storeName: "Serta",
       productName: "Serta iComfortECO Foam Mattress", 
       productUrl: "https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523534500",
       imageUrl: "https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000",
-      productPrice: 2499.00,
+      productPrice: parseFloat(2499.00),
       qtyNeeded: quantityNeeded[0].value,
       priority: 2,
-      canAddToStandardCart: true
+      canAddToStandardCart: true,
+      isOnPage: true
     },
     {
       storeName: "Ring",
       productName: "Ring Wired Doorbell Pro",
       productUrl: "https://ring.com/products/video-doorbell-pro-2",
       imageUrl: "https://images.ctfassets.net/a3peezndovsu/variant-31961428492377/e8d3f08c98ee484eef46c383b85cb785/variant-31961428492377.jpg",
-      productPrice: 229.99,
+      productPrice: parseFloat(229.99),
       qtyNeeded: quantityNeeded[1].value,
       priority: 3,
-      canAddToStandardCart: true
+      canAddToStandardCart: true,
+      isOnPage: true
     }
   ]);
   const sortFilters = [
@@ -107,6 +121,36 @@ function RegistryGallery() {
   // eslint-disable-next-line
   const [filterType, setFilterType] = useState("feat");
   const [width, setWidth] =  useState(window.innerWidth);
+
+  function toPage(pageNumber) {
+    setCurrentPage(pageNumber);
+    if (pageNumber === 1) {
+      for (let i = 0; i < storeItems.length; i++) {
+        if (i < 12) {
+          storeItems.at(i).isOnPage = true
+        }
+        else {
+          storeItems.at(i).isOnPage = false
+        }
+      }
+    }
+    else {
+      let end = pageNumber * 12;
+      if (storeItems.length - 1 < end) {
+        end = storeItems.length - 1
+      }
+      for (let i = 0; i < storeItems.length; i++) {
+        if (i < (pageNumber-1) * 12 || i > end) {
+          storeItems.at(i).isOnPage = false
+        }
+        else {
+          storeItems.at(i).isOnPage = true
+        }
+      }
+    }
+    setStoreItems(storeItems)
+    forceRender((prev) => !prev);
+  }
 
   function onFilterChange (value) {
     setFilterType(value);
@@ -119,6 +163,7 @@ function RegistryGallery() {
     else if (value === "lth") {
       setStoreItems(storeItems.sort((a, b) => a.productPrice < b.productPrice ? -1.00 : 1.00));
     }
+    toPage(1);
   }
 
 
@@ -129,6 +174,7 @@ function RegistryGallery() {
     else {
       setPriceChecked(value);
     }
+    toPage(1);
   }
 
   function onStoreChange (value) {
@@ -138,6 +184,7 @@ function RegistryGallery() {
     else {
       setStoreChecked(value);
     }
+    toPage(1);
   }
 
   function onStatusChange (value) {
@@ -147,6 +194,7 @@ function RegistryGallery() {
     else {
       setStatusChecked(value);
     }
+    toPage(1);
   }
 
   function setNewWidth () {
@@ -165,7 +213,6 @@ function RegistryGallery() {
       newOptions = newOptions.sort((a, b) => a.index < b.index ? -1 : 1);
       setStoreOptions(newOptions);
       forceRender((prev) => !prev);
-      console.log("right");
     }
     else if (direction === "left") {
       let newOptions = storeOptions;
@@ -176,7 +223,6 @@ function RegistryGallery() {
       newOptions = newOptions.sort((a, b) => a.index < b.index ? -1 : 1);
       setStoreOptions(newOptions);
       forceRender((prev) => !prev);
-      console.log("left");
     }
   }
 
@@ -193,11 +239,17 @@ function RegistryGallery() {
   }
  
   useEffect(() => {
-    axios.get('https://weddingapi.norgaardfamily.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false')
+    axios.get('https://weddingapi.norgaardfamily.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false', {
+      
+    })
   .then(function (response) {
-    let maxItems = response.data.result.filteredItemTotal;
-    for (let i = 0; i < maxItems; i++) {
-      setItems(response.data.result.minimalRegistryItems); 
+    try {
+      let maxItems = response.data.result.filteredItemTotal;
+      for (let i = 0; i < maxItems; i++) {
+        setItems(response.data.result.minimalRegistryItems); 
+      }
+    } catch (Err) {
+      console.log(response.data);
     }
   }).then (function (value) {
     // eslint-disable-next-line
@@ -206,18 +258,26 @@ function RegistryGallery() {
       if (item.mustHave === true) {
         prio = 4;
       }
+      let price = parseFloat(item.itemPrice.amount)
       storeItems.push({
         storeName: "amazon", 
         productName: item.productTitle,
         productUrl: "https://www.amazon.com" + item.productUrl, 
         imageUrl: item.imageUrl, 
-        productPrice: item.itemPrice.amount, 
+        productPrice: price, 
         qtyNeeded: item.qtyNeeded,
         priority: prio,
-        canAddToStandardCart: item.canAddToStandardCart
+        canAddToStandardCart: item.canAddToStandardCart,
+        isOnPage: ((key < 12) ? true : false)
       })
     })
-    setLoad("loaded")})
+    setLoad("loaded")
+    setPageCount(storeItems.length / 12)
+    for (let i = 1; i < storeItems.length / 12; i++) {
+      pages.push({
+        pageNumber: i+1
+      })
+    }})
   }, // eslint-disable-next-line
   [load]);
 
@@ -256,6 +316,10 @@ function RegistryGallery() {
               <h1>Our Wish List</h1>
               <button className="RegistryItemList Filters" id={filterMenuID} onClick={updateFilterMenu}>Filters</button>
             </div>
+            <Link id="addressQCont" to="/faq">
+              <Link id="addressQuestion" to="/faq">Where do I send all this?</Link>
+              <p id="clickMeAddress">Click Me</p>
+            </Link>
             <div className='Container RegistryItemList Box Sort'>
               <label for="sort">Sort by</label>
               <select className='RegistryItemList Sort' id="sortselect" name="Sort" onChange={() => onFilterChange(document.querySelector('#sortselect').value)}>
@@ -304,7 +368,7 @@ function RegistryGallery() {
                 (store.canAddToStandardCart === true && priceChecked[0] === "" && priceChecked[1] === "")) && 
                 ((statusChecked === 'available' && store.qtyNeeded > 0) || 
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
-                (statusChecked === ""))) &&
+                (statusChecked === "")) && (store.isOnPage === true || width <= 768)) &&
                 <Link to={store.productUrl} target='_blank' className="Item">
                   <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
                   <div className="Container Item Text" id={store.storeName}>
@@ -315,10 +379,16 @@ function RegistryGallery() {
               ))}
             </div>
           </div>
+          <div className='Container RegistryItemList PageSelect'>
+            {pages.map((page, key) => (
+              <button onClick={() => toPage(page.pageNumber)} id={currentPage === page.pageNumber ? "SelectedPage" : "Page"}>
+                <button onClick={() => toPage(page.pageNumber)}>{page.pageNumber}</button>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
 export default RegistryGallery;

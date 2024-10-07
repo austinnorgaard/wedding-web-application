@@ -42,3 +42,10 @@
         font-size: 3vw;
     }
 }
+
+@media screen and (min-width: 1080px) {
+   #FooterMainContainer {
+    transform: scale(0.9);
+    margin-top: -3%;
+   }
+}

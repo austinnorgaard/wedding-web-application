@@ -59,3 +59,13 @@
 .PhotoGallery.ProposalImage:hover {
     scale: 102%;
 }
+
+@media screen and (min-width: 1080px) {
+    .MainContainer#PhotoGalleryMainContainer {
+        margin-top: -5%;
+    }
+
+    .Container.PhotoGallery.PhotoGalleryItem.ProposalBox {
+        width: 90% !important;
+    }
+}
