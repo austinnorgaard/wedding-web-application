@@ -18,28 +18,19 @@
 #homeImage {
     position: relative;
     margin-top: 5%;
-    height: 120vh; /* Ensure there's enough height for scrolling */
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
-#bgimage {
-    width: 50vw; /* Starting size at 50% of the viewport width */
-    position: absolute;
-    top: 0; /* Align with the top of the scroll-image section */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 #homefootertext {
-    margin-top: 8%; 
+    margin-top: 3%; 
     margin-bottom: 2%;
     font-size: 3.5vw;
 }
 
 #homefooterdate {
-    margin-bottom: 8%;
+    margin-bottom: 5%;
     font-size: 1.5vw;
     letter-spacing: 2px;
 }
@@ -48,8 +39,6 @@
     font-family: Abhaya Libre;
     color: #5E5E58;
     text-transform: uppercase;
-    
-
 }
 
 #homefooter {
@@ -58,8 +47,47 @@
     align-items: center;
 }
 
+#rsvpoverhead {
+    border-top: #5E5E58 1px solid;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    align-self: center;
+    margin-bottom: 5%;
+}
+
+#rsvpcont {
+    background-color: rgb(240, 205, 153);
+    width: 15%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:#5E5E58 1px solid;
+}
+
+#rsvp {
+    color: white;
+    font-size: 2.5vw;
+    text-shadow: -1px -1px 0 #5E5E58, 1px -1px 0 #5E5E58, -1px 1px 0 #5E5E58, 1px 1px 0 #5E5E58;
+}
+
 @media screen and (max-width: 768px) {
     #bgimage {
         margin-top: 5%;
     }    
+}
+
+@media screen and (min-width: 1080px) {
+    #bgimage {
+        margin-top: -7%;
+    }
+
+    #homefootertext, #homefooterdate {
+        transform: scale(0.75);
+    }
 }

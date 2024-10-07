@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function FAQList() {
   const [faqtext, setText] = useState("");
-  const ceremonyTime = 4;
+  const ceremonyTime = "3:30";
   var questionList = [""];
   var answerList = [""];
   var questions = [];

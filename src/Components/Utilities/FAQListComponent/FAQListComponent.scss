@@ -141,3 +141,13 @@
         width: 90%;
     }
 }
+
+@media screen and (min-width: 1080px) {
+   .FAQList {
+    margin-top: -2%;
+   }
+
+   #FAQListMainContainer {
+    width: 80%;
+   }
+}
