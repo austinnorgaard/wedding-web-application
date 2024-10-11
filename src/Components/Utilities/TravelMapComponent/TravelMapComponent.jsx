@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './TravelMapComponent.scss';
 import postlewaitImg from "../../../postlewaits.png"
@@ -11,10 +11,9 @@ import hotels from '../Leaflet/hotels.json'
 import "leaflet/dist/leaflet.css"
 
 function TravelMap() {
-    const [load, setLoad] = useState ("unloaded");
     // eslint-disable-next-line
     const [centerPoint, setCenter] = useState({ lat: 45.180279, lng: -122.721680 })
-    const ZOOM_LEVEL = 9;
+    const ZOOM_LEVEL = 10;
     const mapRef = useRef();
     const markerIcon = new L.icon ({
         iconUrl: markerImg,
@@ -28,12 +27,6 @@ function TravelMap() {
         iconAnchor: [17, 36],
         popupAnchor: [0, -36]
     })
-
-    useEffect(() => {
-        document.getElementsByClassName('Postlewait')
-        setLoad("loaded")
-      }, // eslint-disable-next-line
-      [load]);
 
     return (
         <div className="TravelMap">

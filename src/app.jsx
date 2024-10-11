@@ -40,11 +40,6 @@ function App() {
     navigate(path);
   }
   // eslint-disable-next-line 
-  const todoRoute = () => {
-    let path = '/things-to-do';
-    navigate(path);
-  }
-  // eslint-disable-next-line 
   const registryRoute = () => {
     let path = '/registry';
     navigate(path);

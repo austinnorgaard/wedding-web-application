@@ -1,6 +1,8 @@
 import './TravelPageComponent.scss';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
+import TravelKey from '../../Utilities/TravelKeyComponent/TravelKeyComponent';
 import TravelMap from '../../Utilities/TravelMapComponent/TravelMapComponent';
+import TravelList from '../../Utilities/TravelListComponent/TravelListComponent';
 
 function TravelPage() {
   return (
@@ -8,7 +10,11 @@ function TravelPage() {
       
       <div className="MainContainer" id="TravelMainContainer">
         <MenuBar />
-        <TravelMap/>
+        <div className="ContentContainer">
+          <TravelKey/>
+          <TravelMap/>
+          <TravelList/>
+        </div>
       </div>
     </div>
   );
