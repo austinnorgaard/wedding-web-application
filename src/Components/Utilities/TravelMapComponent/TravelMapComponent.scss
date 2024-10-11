@@ -134,6 +134,22 @@ div.leaflet-popup-content {
         max-width:50vw;
         min-width: 50vw;
     }
+
+    .LocationImageContainer{
+        display: none;
+    }
+
+    .LocationName {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .LocationButton {
+        right: 5%;
+        bottom: 3%;
+        text-align: center;
+        width: 35%;
+    }
 }
 
 @media screen and (min-width: 1080px) {
