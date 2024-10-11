@@ -10,7 +10,7 @@ function TravelKey() {
       
       <div className="MainContainer" id="TravelKeyMainContainer">
         <div className='TravelKeyHeaderContainer'>
-            <h1>Map Key</h1>
+            <h1 id="keyheader">Map Key</h1>
         </div>
         <div className='TravelKeyItemsContainer'>
             <div className='TravelKeyItemContainer'>
