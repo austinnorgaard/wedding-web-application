@@ -1,0 +1,145 @@
+.leaflet-container {
+    height: 50vh;
+    width: 90%;
+    z-index: 1;
+}
+
+#TravelMapMainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+    z-index: 0;
+    margin-top: 4%;
+}
+
+.leaflet-popup {
+    width: 20vw;
+}
+
+div.leaflet-popup-content {
+    margin: 0 !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 0 !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: 15% !important;
+}
+
+.LocationContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 5%;
+}
+
+.LocationImageContainer {
+    overflow: hidden;
+    width: 100%;
+    height: 45%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.LocationImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0% 70%;
+}
+
+.LocationInfoContainer {
+    display: flex;
+    min-width: 100%;
+    flex-direction: column;
+    margin-top: -8%;
+    margin-bottom: -6%;
+    justify-content: flex-start;
+}
+
+.LocationRatingContainer {
+    margin-top: -14%;
+    display: flex;
+    flex-direction: row;
+    max-width: 50%;
+    justify-content: flex-start;
+}
+
+.LocationRatingNum, .LocationRatingStars, .LocationRatingCount {
+    font-size: small;
+}
+
+.LocationRatingStars, .LocationRatingCount {
+    padding-left: 3%;
+}
+
+.LocationHeroContainer {
+    display: flex;
+    flex-direction: row;
+    max-width: 50%;
+    max-height: 20%;
+    margin-top: -8%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.LocationType {
+    font-size: smaller;
+}
+
+.LocationHeroItem {
+    width: 7%;
+    height: 30%;
+    margin-left: 5%;
+}
+
+.LocationButton {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 2%;
+    cursor: pointer;
+    transition: all 0.25s;
+    color: black !important;
+}
+
+.LocationButton:hover {
+    background-color: #c29e29;
+    color: white !important;
+}
+
+.LocationName {
+    z-index: 100 !important;
+    color: black;
+    max-width: 70%;
+    font-weight: 540;
+    font-size: large;
+    padding-right: 5%;
+}
+
+@media screen and (max-width: 768px) {
+    #TravelMapMainContainer {
+        margin-top: 8%;
+    }
+
+    .leaflet-popup {
+        width: 70vw;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .leaflet-container {
+        width: 60%;
+    }
+
+    #TravelMapMainContainer {
+        margin-top: -2%;
+    }
+}
