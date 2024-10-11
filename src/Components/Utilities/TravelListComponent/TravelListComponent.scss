@@ -2,4 +2,119 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 0%;
+    overflow-y: scroll;
+}
+
+.TravelListLocations {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.TravelListLocation {
+    display: flex;
+    flex-direction: row;
+    border: 1px goldenrod solid;
+    text-decoration: none;
+    color: #000;
+    overflow: hidden;
+    height: 30vh;
+}
+
+.TravelListLocationImage {
+    width: 40%;
+}
+
+.TravelListLocationImage > img {
+    width: 100%;
+    min-height: 100%;
+    max-height: 10vh;
+    object-fit: cover;
+}
+
+.TravelListLocationRight {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.TravelListLocationInfoContainer {
+    min-width: 90%;
+    padding-left: 5%;
+}
+
+.TravelListLocationRatingContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.TravelListLocationHeroContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.TravelListLocationHeroItem {
+    width: 5%;
+    height: 10%;
+}
+
+.TravelListLocationButtonContainer {
+    position: relative;
+    min-width: 30%;
+    margin-left: -30%;
+    margin-top: 15%;
+    transform: scale(0.5);
+}
+
+.TravelListLocationButton {
+    border: 1px goldenrod solid;
+    border-radius: 15px;
+    padding: 10%;
+    min-width: 100%;
+    
+    transition: all 0.25s;
+    color: black;
+}
+
+.TravelListLocationButton:hover {
+    background-color: goldenrod;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .TravelListLocations {
+        min-width: 100%;
+    }
+
+    .TravelListLocation {
+        width: 100%;
+        height: 100%;
+    }
+
+    .TravelListLocationButtonContainer {
+        transform: scale(1);
+        margin-right: 10%;
+        margin-top: 38%;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .TravelListLocation {
+        height: fit-content;
+    }
+
+    .TravelListLocationButtonContainer {
+        transform: scale(1);
+        margin-top: 20%;
+    }
+
+    .TravelListLocationButton {
+        min-width: 120%;
+    }
 }
