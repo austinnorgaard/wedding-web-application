@@ -12,8 +12,10 @@
         "@testing-library/user-event": "^13.5.0",
         "axios": "^1.7.3",
         "json": "^11.0.0",
+        "leaflet": "^1.9.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-leaflet": "^4.2.1",
         "react-multi-carousel": "^2.8.5",
         "react-router-dom": "^6.19.0",
         "react-scripts": "5.0.1",
@@ -21,7 +23,7 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "react-scripts --max_old_space_size=8128 start",
+        "start": "react-scripts --max_old_space_size=16384 start",
         "build": "react-scripts build"
     },
     "eslintConfig": {

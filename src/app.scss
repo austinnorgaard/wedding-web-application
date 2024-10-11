@@ -80,11 +80,6 @@ a {
     font-weight: inherit;
 }
 
-p {
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
-}
-
 html {
     font-size: var(--tkww-union-typography-base-font-size, 16px);
     line-height: var(--tkww-union-typography-base-line-height, 1.5);
@@ -131,13 +126,6 @@ body, h1, h2, h3, h4, h5, h6, ol, ul {
     padding: 0;
 }
 
-img, picture {
-    display: block;
-    height: auto;
-    max-width: 100%;
-    width: auto;
-}
-
 a, area, button, [role=button], input, label, select, summary, textarea {
     touch-action: manipulation;
 }
@@ -153,8 +141,6 @@ button {
     cursor: pointer;
     font-size: inherit;
     line-height: inherit;
-    margin: 0;
-    padding: 0;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

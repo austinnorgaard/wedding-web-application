@@ -80,7 +80,21 @@
 @media screen and (max-width: 768px) {
     #bgimage {
         margin-top: 5%;
-    }    
+        max-width: 100%;
+    }
+
+    #rsvpcont {
+        width: 60%;
+        height: 30%;
+    }
+
+    #rsvp {
+        font-size: 5vw;
+    }
+
+    body {
+        overflow-y: scroll !important;
+    }
 }
 
 @media screen and (min-width: 1080px) {
