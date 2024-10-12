@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, React } from 'react';
 import { Link } from 'react-router-dom';
 import './TravelListComponent.scss';
-import postlewaitImg from "../../../postlewaits.png"
-import markerImg from '../../../marker.png'
-import hotelpin from '../../../hotelpin.png'
+import postlewaitImg from "../../../Resources/Photos/postlewaits.png"
+import markerImg from '../../../Resources/Photos/marker.png'
+import hotelpin from '../../../Resources/Photos/hotelpin.png'
 import hotels from '../Leaflet/hotels.json'
 
 function TravelList() {

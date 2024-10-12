@@ -1,8 +1,9 @@
 import './TravelKeyComponent.scss';
-import markerImg from '../../../marker.png'
-import hotelpin from '../../../hotelpin.png'
-import foodpin from '../../../foodpin.png'
-import funpin from '../../../funpoint.png'
+import React from 'react';
+import markerImg from '../../../Resources/Photos/marker.png'
+import hotelpin from '../../../Resources/Photos/hotelpin.png'
+import foodpin from '../../../Resources/Photos/foodpin.png'
+import funpin from '../../../Resources/Photos/funpoint.png'
 
 function TravelKey() {
   return (

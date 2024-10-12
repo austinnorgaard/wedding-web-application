@@ -1,6 +1,7 @@
 import './HomePageComponent.scss';
+import React from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
-import bgimage from '../../../bg.jpg';
+import bgimage from '../../../Resources/Photos/bg.jpg';
 
 function HomePage() {
   return (

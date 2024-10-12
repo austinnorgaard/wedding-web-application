@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, React } from 'react';
 import './PhotoGalleryComponent.scss';
 import axios from 'axios';
-import proposalVideo from '../../../proposal.mov'
-import proposalSurprise from '../../../proposal.jpeg'
+import proposalVideo from '../../../Resources/Videos/proposal.mov'
+import proposalSurprise from '../../../Resources/Photos/proposal.jpeg'
 
 function PhotoGallery() {
      // eslint-disable-next-line
@@ -58,9 +58,9 @@ function PhotoGallery() {
               <div className='PhotoGallery ProposalImageBox'>
                 <img className='PhotoGallery ProposalImage' src={proposalSurprise} alt=""></img>
               </div>
-              {imageArray.map((image, key) => (
-                <div className='PhotoGallery ProposalImageBox'>
-                   <img className='PhotoGallery ProposalImage' src={image.url} alt=""></img>
+              {imageArray.map((image) => (
+                <div className='PhotoGallery ProposalImageBox' key={image.id}>
+                   <img className='PhotoGallery ProposalImage' src={image.url} alt="" key={image.id}></img>
                  </div>
               ))}
             </div>

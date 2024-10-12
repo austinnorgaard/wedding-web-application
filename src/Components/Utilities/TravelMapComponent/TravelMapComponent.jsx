@@ -1,9 +1,9 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, React } from 'react';
 import { Link } from 'react-router-dom';
 import './TravelMapComponent.scss';
-import postlewaitImg from "../../../postlewaits.png"
-import markerImg from '../../../marker.png'
-import hotelpin from '../../../hotelpin.png'
+import postlewaitImg from "../../../Resources/Photos/postlewaits.png"
+import markerImg from '../../../Resources/Photos/marker.png'
+import hotelpin from '../../../Resources/Photos/hotelpin.png'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import L from "leaflet"
 import osm from '../Leaflet/osm-providers'
@@ -26,7 +26,7 @@ function TravelMap() {
         iconSize: [35, 35],
         iconAnchor: [17, 36],
         popupAnchor: [0, -36]
-    })
+    });
 
     return (
         <div className="TravelMap">
@@ -41,7 +41,7 @@ function TravelMap() {
                         </div>
                         <div className='LocationContainer'>
                             <div className='LocationInfoContainer'>
-                                <p className='LocationName'>Postlewait's Country Weddings</p>
+                                <p className='LocationName'>Postlewait&apos;s Country Weddings</p>
                                 <div className='LocationRatingContainer'>
                                     <p className='LocationRatingNum'>4.7</p>
                                     <p className='LocationRatingStars'>Stars - </p>
@@ -57,8 +57,8 @@ function TravelMap() {
                             </div>
                         </div>
                     </Popup>
-                    {hotels.map((hotel, id) => (
-                        <Marker position={[hotel.lat, hotel.lng]} icon={hotelIcon}>
+                    {hotels.map((hotel) => (
+                        <Marker position={[hotel.lat, hotel.lng]} icon={hotelIcon} key={hotel.id}>
                             <Popup closeButton={false} className={hotel.name}>
                             <div className='LocationImageContainer'>
                                 <img src={hotel.image_url} alt={hotel.name} className='LocationImage'/>
