@@ -64,9 +64,9 @@
     .clicked#menuButton {
         visibility: visible;
         display: block;
-        width: 8%;
+        min-width: 15%;
+        max-width: 15%;
         margin-top: 4%;
-        margin-left: 2%;
         margin-bottom: 5%;
     }
 
@@ -74,9 +74,9 @@
         visibility: visible;
         display: block;
         position: relative;
-        width: 8%;
-        margin-top: 7.5%;
-        margin-left: 2%;
+        min-width: 15%;
+        max-width: 15%;
+        margin-top: 7%;
     }
 
     #menuButton > img {
