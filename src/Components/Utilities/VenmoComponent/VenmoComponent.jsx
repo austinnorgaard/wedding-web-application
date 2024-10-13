@@ -1,6 +1,7 @@
 import './VenmoComponent.scss';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import venmoqr from "../../../venmoqr.jpg";
+import venmoqr from "../../../Resources/Photos/venmoqr.jpg";
 
 function Venmo() {
     return (

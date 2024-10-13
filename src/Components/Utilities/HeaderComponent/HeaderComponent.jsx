@@ -1,6 +1,7 @@
 import './HeaderComponent.scss';
-import leaves from '../../../bgleaves.png';
-import logo from '../../../logo.png';
+import React from 'react';
+import leaves from '../../../Resources/Photos/bgleaves.png';
+import logo from '../../../Resources/Photos/logo.png';
 
 var saveTheDate = new Date(Date.UTC(2025, 1, 14, 19))
 var today = new Date (Date.now())

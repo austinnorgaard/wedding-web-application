@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0;
+    margin-top: 1%;
+    margin-bottom: 2%;
 }
 
 .MenuBarMainContainer {
@@ -45,20 +46,21 @@
     .MenuBar {
         max-height: 100%;
         width: 100%;
-        z-index: 100;
+        z-index: 90;
+        margin-top: 0;
     }
 
     .MenuBar#menuClicked {
-        position: absolute;
+        position: fixed;
         background-color: #c4d9bc;
         top: 0;
         width: 100%;
         min-height: 500%;
-        z-index: 20;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+        z-index: 90;
     }
 
     .clicked#menuButton {
@@ -66,8 +68,9 @@
         display: block;
         min-width: 15%;
         max-width: 15%;
-        margin-top: 4%;
+        padding-top: 1%;
         margin-bottom: 5%;
+        z-index: 100;
     }
 
     .unclicked#menuButton {
@@ -76,7 +79,8 @@
         position: relative;
         min-width: 15%;
         max-width: 15%;
-        margin-top: 7%;
+        padding-top: 2%;
+        z-index: 100;
     }
 
     #menuButton > img {
@@ -118,9 +122,5 @@
 @media screen and (min-width: 1080px) {
    .MenuBar {
     transform: scale(0.8);
-   }
-
-   .MenuBarMainContainer {
-    margin-top: -8%;
    }
 }

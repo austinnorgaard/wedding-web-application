@@ -18,10 +18,14 @@
 
 #homeImage {
     position: relative;
-    margin-top: 5%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    width: 100%;
+}
+
+#bgimage {
+    max-width: 100%;
 }
 
 #homefootertext {
@@ -78,6 +82,15 @@
 }
 
 @media screen and (max-width: 768px) {
+    #homefooter {
+        margin-top: 8%;
+    }
+
+    #homefootertext, #homefooterdate {
+        transform: scale(1.5);
+    }
+
+
     #bgimage {
         margin-top: 5%;
         max-width: 100%;
@@ -98,10 +111,6 @@
 }
 
 @media screen and (min-width: 1080px) {
-    #bgimage {
-        margin-top: -7%;
-    }
-
     #homefootertext, #homefooterdate {
         transform: scale(0.8);
     }

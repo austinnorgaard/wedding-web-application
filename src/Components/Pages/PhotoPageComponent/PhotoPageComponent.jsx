@@ -1,4 +1,5 @@
 import './PhotoPageComponent.scss'
+import React from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import PhotoGallery from '../../Utilities/PhotoGalleryComponent/PhotoGalleryComponent';
 

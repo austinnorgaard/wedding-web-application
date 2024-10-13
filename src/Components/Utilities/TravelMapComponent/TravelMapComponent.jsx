@@ -1,9 +1,9 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, React } from 'react';
 import { Link } from 'react-router-dom';
 import './TravelMapComponent.scss';
-import postlewaitImg from "../../../postlewaits.png"
-import markerImg from '../../../marker.png'
-import hotelpin from '../../../hotelpin.png'
+import postlewaitImg from "../../../Resources/Photos/postlewaits.png"
+import markerImg from '../../../Resources/Photos/marker.png'
+import hotelpin from '../../../Resources/Photos/hotelpin.png'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import L from "leaflet"
 import osm from '../Leaflet/osm-providers'
@@ -26,13 +26,13 @@ function TravelMap() {
         iconSize: [35, 35],
         iconAnchor: [17, 36],
         popupAnchor: [0, -36]
-    })
+    });
 
     return (
         <div className="TravelMap">
         
         <div className="MainContainer" id="TravelMapMainContainer">
-            <MapContainer center={centerPoint} zoom={ZOOM_LEVEL} ref={mapRef}>
+            <MapContainer center={centerPoint} zoom={ZOOM_LEVEL} ref={mapRef} className='MapContainer'>
                 <TileLayer url={osm.matpiler.url} attribution={osm.matpiler.attribution} />
                 <Marker position={centerPoint} icon={markerIcon}>
                     <Popup closeButton={false} className='Postlewait'>
@@ -41,7 +41,7 @@ function TravelMap() {
                         </div>
                         <div className='LocationContainer'>
                             <div className='LocationInfoContainer'>
-                                <p className='LocationName'>Postlewait's Country Weddings</p>
+                                <p className='LocationName'>Postlewait&apos;s Country Weddings</p>
                                 <div className='LocationRatingContainer'>
                                     <p className='LocationRatingNum'>4.7</p>
                                     <p className='LocationRatingStars'>Stars - </p>
@@ -57,7 +57,7 @@ function TravelMap() {
                             </div>
                         </div>
                     </Popup>
-                    {hotels.map((hotel, id) => (
+                    {hotels.map((hotel) => (
                         <Marker position={[hotel.lat, hotel.lng]} icon={hotelIcon}>
                             <Popup closeButton={false} className={hotel.name}>
                             <div className='LocationImageContainer'>

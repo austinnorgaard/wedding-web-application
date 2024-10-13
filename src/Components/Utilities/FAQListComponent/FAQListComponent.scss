@@ -5,7 +5,6 @@
     width: 100%;
     height: fit-content + 5%;
     margin-bottom: 6%;
-    margin-top: 4%;
 }
 
 .FaqHeader {
@@ -15,7 +14,7 @@
 
 #FaqHeaderImage {
     /* The image used */
-    background-image: url("../../../faqbg.webp");
+    background-image: url("../../../Resources/Photos/faqbg.webp");
   
     /* Set a specific height */
     height: 30vh;
@@ -143,10 +142,6 @@
 }
 
 @media screen and (min-width: 1080px) {
-   .FAQList {
-    margin-top: -2%;
-   }
-
    #FAQListMainContainer {
     width: 80%;
    }

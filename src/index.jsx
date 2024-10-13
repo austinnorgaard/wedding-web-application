@@ -13,6 +13,7 @@ import FAQPage from './Components/Pages/FAQPageComponent/FAQPageComponent';
 import TravelPage from './Components/Pages/TravelPageComponent/TravelPageComponent';
 import RegistryPage from './Components/Pages/RegistryPageComponent/RegistryPageComponent';
 import Header from './Components/Utilities/HeaderComponent/HeaderComponent';
+import MenuBar from './Components/Utilities/MenuBarComponent/MenuBarComponent';
 import Footer from './Components/Utilities/FooterComponent/FooterComponent';
 import VenmoPage from './Components/Pages/VenmoPageComponent/VenmoPageComponent';
 
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div>
+  <div id="index">
     <Header/>
     <RouterProvider router={router} />
     <Footer />

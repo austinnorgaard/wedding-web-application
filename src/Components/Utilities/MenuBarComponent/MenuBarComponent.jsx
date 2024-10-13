@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, React } from 'react';
 import './MenuBarComponent.scss';
 import { Link } from 'react-router-dom';
-import menuicon from '../../../menu-icon.svg';
-import exiticon from '../../../exit.svg';
+import menuicon from '../../../Resources/Photos/menu-icon.svg';
+import exiticon from '../../../Resources/Photos/exit.svg';
 
 function MenuBar() {
   const [main_class, setMainClass] = useState ("menuUnclicked");

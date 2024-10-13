@@ -1,4 +1,5 @@
 import './WeddingPartyPageComponent.scss';
+import React from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 
 function WeddingPartyPage() {
