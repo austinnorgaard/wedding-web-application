@@ -62,21 +62,26 @@
         flex-wrap: wrap;
         padding-left: 5%;
         padding-top: 5%;
+        width: 100%;
     }
 
     .TravelKeyItemContainer {
         padding: 0;
         margin-bottom: 5%;
-        width: 45%;
+        width: 50%;
         height: 4vh;
     }
 
     .TravelKeyItemContainer img {
-        width: 15%;
+        width: 40%;
+        height: 100%;
+        max-height: 40px;
+        max-width: 40px;
     }
 
     .TravelKeyItemContainer h2 {
-        font-size: 3vw;
+        font-size: 3.5vw;
+        text-align: center;
     }
 }
 

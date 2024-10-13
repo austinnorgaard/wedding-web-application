@@ -30,6 +30,7 @@ function MenuBar() {
       
       <div className="MenuBarMainContainer" id={main_class}>
         <button className={button} onClick={updateMenu} id="menuButton"><img src={icon} alt="hamburgerMenu"/></button>
+        <span id="lineSpan"></span>
         <Link onClick={updateMenu} to="/" id="homelink">Home</Link>
         <Link onClick={updateMenu} to="/story" id="storylink">Our Story</Link>
         <Link onClick={updateMenu} to="/photos" id="photoslink">Photos</Link>

@@ -8,6 +8,7 @@ function HomePage() {
     <div className="HomePage">
       <div className="MainContainer" id="HomeMainContainer">
         <MenuBar/>
+        <div id="homemenucover"/>
         <div className="HomeImageContainer" id="homeImage">
           <img id="bgimage" src={bgimage} alt="bgImage"/>
         </div>
