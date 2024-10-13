@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './TravelListComponent.scss';
 // eslint-disable-next-line
 import postlewaitImg from "../../../Resources/Photos/postlewaits.png"
+// eslint-disable-next-line
 import markerImg from '../../../Resources/Photos/marker.png'
 // eslint-disable-next-line
 import hotelpin from '../../../Resources/Photos/hotelpin.png'
@@ -20,8 +21,8 @@ function TravelList() {
         <div className="TravelList">
         
             <div className="MainContainer" id="TravelListMainContainer">
-                {locations.map((location) => (
-                    <div className='TravelListLocations'>
+                {locations.map((location, id) => (
+                    <div className='TravelListLocations' key={id}>
                         <div className='TravelListLocation'>
                             <div className='TravelListLocationImage'>
                                 <img src={location.image_url} alt={location.name}/>

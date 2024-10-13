@@ -57,8 +57,8 @@ function TravelMap() {
                             </div>
                         </div>
                     </Popup>
-                    {hotels.map((hotel) => (
-                        <Marker position={[hotel.lat, hotel.lng]} icon={hotelIcon}>
+                    {hotels.map((hotel, id) => (
+                        <Marker position={[hotel.lat, hotel.lng]} icon={hotelIcon} key={id}>
                             <Popup closeButton={false} className={hotel.name}>
                             <div className='LocationImageContainer'>
                                 <img src={hotel.image_url} alt={hotel.name} className='LocationImage'/>
