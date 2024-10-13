@@ -1,4 +1,4 @@
-import { useState, useRef, React, useEffect } from 'react';
+import { useState, React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './TravelMapComponent.scss';
 import postlewaitImg from "../../../Resources/Photos/postlewaits.png"
@@ -17,7 +17,6 @@ function TravelMap() {
     // eslint-disable-next-line
     const [centerPoint, setCenter] = useState({ lat: 45.180279, lng: -122.721680 })
     const ZOOM_LEVEL = 10;
-    const mapRef = useRef();
     const markerIcon = new L.icon ({
         iconUrl: markerImg,
         iconSize: [35, 35],
