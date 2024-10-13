@@ -20,11 +20,13 @@
     text-decoration: none;
     color: #000;
     overflow: hidden;
-    height: 30vh;
+    height: 20vh;
+    max-height: 20vh;
 }
 
 .TravelListLocationImage {
     width: 40%;
+    overflow-x: hidden;
 }
 
 .TravelListLocationImage > img {
@@ -97,13 +99,47 @@
 
     .TravelListLocation {
         width: 100%;
+        height: 20vh;
+        flex-direction: column;
+    }
+
+    .TravelListLocationRight {
+        position: relative;
+        height: 60%;
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .TravelListLocationRatingContainer {
+        display: none;
+    }
+
+    .TravelListLocationInfoContainer {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        top: 0;
+        left: 10px;
         height: 100%;
+        align-content: space-between;
+    }
+
+    .TravelListLocationImage {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .TravelListLocationImage > img {
+        width: 100%;
+        object-fit: cover;
+        overflow: hidden;
+        object-position: 0% 50%;
     }
 
     .TravelListLocationButtonContainer {
         transform: scale(1);
-        margin-right: 10%;
-        margin-top: 38%;
+        margin-right: 5px;
     }
 }
 

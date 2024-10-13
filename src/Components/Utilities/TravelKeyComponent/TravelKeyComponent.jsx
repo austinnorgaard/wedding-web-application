@@ -28,7 +28,7 @@ function TravelKey() {
             </div>
             <div className='TravelKeyItemContainer'>
                 <img src={funpin} alt="fun"/>
-                <h2> - Fun/Entertainment</h2>
+                <h2> - Fun / Entertainment</h2>
             </div>
         </div>
       </div>
