@@ -4,16 +4,13 @@ a {
 }
 
 #addressQuestion {
-    margin-top: 3%;
     font-size: 1.5vw;
-    left: 0;
     text-align: center;
     color: black;
 }
 
 #addressQCont {
-    width: 60%;
-    height: 6vh;
+    width: fit-content;
     color: black;
     display: flex;
     flex-direction: column;
@@ -21,7 +18,7 @@ a {
     align-items: center;
     border: #c29e29 1px solid;
     border-radius: 5px;
-    margin-right: 20%;
+    padding: 1%;
 }
 
 #clickMeAddress {
@@ -29,7 +26,6 @@ a {
     color: black;
     text-decoration: none;
     margin-top: 0%;
-    margin-bottom: 5%;
     font-size: 0.7vw;
 }
 
@@ -59,8 +55,8 @@ a {
 }
 
 .Container.RegistryItemList.Box.Sort { // Registry Item Sort Box Container
-    width: 12%;
-    height: 5%;
+    width: fit-content;
+    height: fit-content;
     margin-right: 2%;
     z-index: 1;
     display: flex;
@@ -68,7 +64,6 @@ a {
     align-items: flex-start;
     border: 1px solid #caced1;
     border-radius: 0.25rem;
-    flex-grow: 1;
 }
 
 .Container.RegistryItemList.Box.Sort > img { // Registry Item Sort Box Arrow
@@ -103,19 +98,20 @@ a {
 
 #HeadBox { // Registry Item List Header Container
     width: 100%;
+    padding-top: 2%;
     max-height: 7%;
-    margin-top: 1%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #HeadBoxText { // Registry Item List Header Text Container
-    width: 100%;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-end;
 }
 
 #HeadBoxText > h1 { // Registry Item List Header Text
@@ -236,7 +232,6 @@ a {
     border-width: 0.1vw;
     border-style: solid;
     background-color: white;
-    margin-top: 4%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -708,7 +703,6 @@ input:checked::before { // Registry Filters Checkmark After
 @media screen and (min-width: 1080px) {
    .Container.RegistryProviderMain {
     width: 80%;
-    margin-top: -5%;
    }
 
    .Container.RegistryProviderMain h1, #HeadBoxText > h1 {

@@ -59,8 +59,8 @@ function PhotoGallery() {
                 <img className='PhotoGallery ProposalImage' src={proposalSurprise} alt=""></img>
               </div>
               {imageArray.map((image) => (
-                <div className='PhotoGallery ProposalImageBox' key={image.id}>
-                   <img className='PhotoGallery ProposalImage' src={image.url} alt="" key={image.id}></img>
+                <div className='PhotoGallery ProposalImageBox'>
+                   <img className='PhotoGallery ProposalImage' src={image.url} alt=""></img>
                  </div>
               ))}
             </div>

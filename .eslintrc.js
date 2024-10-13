@@ -14,5 +14,6 @@ module.exports = {
     plugins: ['react'],
     rules: {
         'no-extra-semi': "error",
+        "react/jsx-key": [true, { "checkFragmentShorthand": true }]
     }
   };

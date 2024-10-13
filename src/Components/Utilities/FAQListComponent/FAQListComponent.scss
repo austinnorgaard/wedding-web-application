@@ -5,7 +5,6 @@
     width: 100%;
     height: fit-content + 5%;
     margin-bottom: 6%;
-    margin-top: 4%;
 }
 
 .FaqHeader {
@@ -143,10 +142,6 @@
 }
 
 @media screen and (min-width: 1080px) {
-   .FAQList {
-    margin-top: -2%;
-   }
-
    #FAQListMainContainer {
     width: 80%;
    }

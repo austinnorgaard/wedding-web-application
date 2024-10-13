@@ -1,14 +1,25 @@
+.Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: static;
+    z-index: 5;
+}
+
 #HeaderMainContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -4%;
+    justify-content: center;
     text-align: center;
 }
 
 #bgleaves {
-    min-width: 100%;
-    min-height: 10%;
+    max-width: 100%;
+    margin-top: -5%;
+    height: fit-content;
     filter: brightness(0) saturate(100%) invert(96%) sepia(8%) saturate(6567%) hue-rotate(335deg) brightness(80%) contrast(86%);
 }
 
@@ -20,20 +31,22 @@
 .HeaderText {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: static;
-    margin-top: -15%;
-    margin-bottom: 9%;
+    position: absolute;
     color: white;
+    max-width: 100%;
+    max-height: 20%;
 }
 
 #headernames {
-    margin-bottom: 1.6%;
-    font-size: 3.5vw;
+    transform: scale(1.6);
+}
+
+#headersavethedate {
+    padding-top: 5%;
 }
 
 #headersavethedate, #countdown {
-    font-size: 1.5vw;
+    transform: scale(0.9);
 }
 
 #headernames, #headersavethedate, #countdown {
@@ -51,14 +64,9 @@
 @media screen and (max-width: 768px) {
     .Header {
         position: absolute;
-        margin-top: 0;
-        top: 0;
-        left: 0;
-        height: calc(10 * 1vw)'%';
         width: 100%;
-        right: 0;
         background-color: #c4d9bc;
-        padding-left: 10%;
+        z-index: 10;
     }
 
     #bgLogo {
@@ -66,17 +74,13 @@
         visibility: visible;
         width: 15vw;
         height: 15vw;
-        margin-right: 2%;
+        z-index: 6;
+        filter: brightness(0) saturate(100%) invert(96%) sepia(8%) saturate(6567%) hue-rotate(335deg) brightness(80%) contrast(86%);
     }
 
     .HeaderText#mobileText {
-        height: 30%;
-        width: 60%;
-        position: absolute;
-        top: 40%;
-        margin: 0;
-        margin-right: 20%;
-        padding: 0;
+        height: 100%;
+        width: 100%;
         display: flex;
         visibility: visible;
         flex-direction: row;
@@ -84,10 +88,11 @@
         justify-content: center;
     }
 
-    .HeaderText#mobileText>#headertext {
-        height: 100%;
-        width: 100%;
-        color: white;
+    #headernames {
+        max-width: 40%;
+        max-height: 300%;
+        overflow-y: hidden;
+        font-size: 100%;
     }
 
     .HeaderText#desktopText {
@@ -111,16 +116,11 @@
 }
 
 @media screen and (min-width: 1080px) {
-   .Header {
-    transform: scale(0.5);
-   }
-
-   #HeaderMainContainer {
-    margin-bottom: 0;
-    margin-top: -9%;
-   }
-
-   .HeaderText#desktopText {
-    transform: scale(1.25);
-   }
+    #headernames {
+        font-size: 52px;
+        transform: scale(1);
+    }
+    #headersavethedate, #countdown {
+        font-size: 20px;
+    }
 }

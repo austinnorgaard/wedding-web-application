@@ -65,7 +65,7 @@ function FAQList() {
           </div>
           <div className='OrderedList' id="questionsList">
           {questionList.map((question, key) => (
-            <div className="QuestionButton" id={"Question"+key} key={question.id}>
+            <div className="QuestionButton" id={"Question"+key}>
               <h3 className="Question">{question}</h3>
               <p className="Answer">{answerList[key]}</p>
             </div>

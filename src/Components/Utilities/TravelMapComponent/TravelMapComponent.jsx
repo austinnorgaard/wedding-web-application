@@ -32,7 +32,7 @@ function TravelMap() {
         <div className="TravelMap">
         
         <div className="MainContainer" id="TravelMapMainContainer">
-            <MapContainer center={centerPoint} zoom={ZOOM_LEVEL} ref={mapRef}>
+            <MapContainer center={centerPoint} zoom={ZOOM_LEVEL} ref={mapRef} className='MapContainer'>
                 <TileLayer url={osm.matpiler.url} attribution={osm.matpiler.attribution} />
                 <Marker position={centerPoint} icon={markerIcon}>
                     <Popup closeButton={false} className='Postlewait'>
@@ -58,7 +58,7 @@ function TravelMap() {
                         </div>
                     </Popup>
                     {hotels.map((hotel) => (
-                        <Marker position={[hotel.lat, hotel.lng]} icon={hotelIcon} key={hotel.id}>
+                        <Marker position={[hotel.lat, hotel.lng]} icon={hotelIcon}>
                             <Popup closeButton={false} className={hotel.name}>
                             <div className='LocationImageContainer'>
                                 <img src={hotel.image_url} alt={hotel.name} className='LocationImage'/>
