@@ -3,21 +3,28 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: fit-content + 5%;
+    height: fit-content;
     margin-bottom: 6%;
 }
 
 .FaqHeader {
     width: 100%;
     text-align: center;
+    position: relative;
 }
 
 #FaqHeaderImage {
     /* The image used */
-    background-image: url("../../../Resources/Photos/faqbg.webp");
+    background-image: url("../../../Resources/Photos/postlewaits2.jpg");
   
     /* Set a specific height */
     height: 30vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -49,12 +56,8 @@
 }
 
 #FAQTitle {
-    margin-bottom: 15vh;
-    position: sticky;
-    margin-top: -18vh;
     width: 70%;
     background-color: white;
-    margin-left: 15%;
     font-family: "Abhaya Libre";
     color: black;
     font-weight: 600;
@@ -71,7 +74,7 @@
     align-items: center;
 }
 
-.QuestionButton {
+.QuestionBox {
     display: flex;
     flex-direction: column;
     margin-bottom: 2%;
@@ -122,21 +125,25 @@
         font-size: 100%;
     }
 
-    .QuestionButton {
+    .QuestionBox {
         padding-top: 5%;
         height: fit-content;
+        width: 90%;
     }
 
     #FaqHeaderImage {
+        position: relative;
         background-attachment: scroll;
-        height: 20vh;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     #FAQTitle {
+        position: absolute;
         margin: 0%;
-        margin-top: -12vh;
-        margin-bottom: 8vh;
-        margin-left: 5%;
         width: 90%;
     }
 }
@@ -144,5 +151,9 @@
 @media screen and (min-width: 1080px) {
    #FAQListMainContainer {
     width: 80%;
+   }
+
+   #FAQHeaderImage {
+    background-position: 20px bottom;
    }
 }

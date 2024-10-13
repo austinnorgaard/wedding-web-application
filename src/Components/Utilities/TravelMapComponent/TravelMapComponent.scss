@@ -54,33 +54,31 @@
     background-color: rgb(243, 243, 243);
 }
 
-.leaflet-map {
-    border: goldenrod 2px solid;
-}
-
 .leaflet-popup {
     max-width: 20vw;
-    min-width: 10vw;
+    min-width: 250px;
 }
 
 div.leaflet-popup-content {
     margin: 0 !important;
-    min-width: 100% !important;
+    min-width: 200px;
     max-width: 100% !important;
 }
 
 .leaflet-popup-content-wrapper {
     padding: 0 !important;
-    min-width: 100% !important;
+    min-width: 200px;
     max-width: 100% !important;
-    height: 15% !important;
 }
 
 .LocationContainer {
     display: flex;
+    position: relative;
     flex-direction: row;
     justify-content: flex-start;
-    margin-left: 5%;
+    min-width: 200px;
+    width: 100%;
+    height: fit-content;
 }
 
 .LocationImageContainer {
@@ -100,36 +98,35 @@ div.leaflet-popup-content {
 
 .LocationInfoContainer {
     display: flex;
-    min-width: 100%;
+    width: 100%;
+    height: 120px;
     flex-direction: column;
-    margin-top: -8%;
-    margin-bottom: -6%;
-    justify-content: flex-start;
+    justify-content: center;
+    position: relative;
 }
 
 .LocationRatingContainer {
-    margin-top: -14%;
+    bottom: 15px;
     display: flex;
     flex-direction: row;
-    max-width: 50%;
+    max-width: 100%;
+    position: absolute;
+    left: 10px;
     justify-content: flex-start;
 }
 
-.LocationRatingNum, .LocationRatingStars, .LocationRatingCount {
+.LocationRatingNum {
     font-size: small;
-}
-
-.LocationRatingStars, .LocationRatingCount {
-    padding-left: 3%;
 }
 
 .LocationHeroContainer {
     display: flex;
     flex-direction: row;
-    max-width: 50%;
-    max-height: 20%;
-    margin-top: -8%;
+    width: 100%;
     align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
     justify-content: flex-start;
 }
 
@@ -163,10 +160,12 @@ div.leaflet-popup-content {
 .LocationName {
     z-index: 100 !important;
     color: black;
-    max-width: 70%;
+    width: 100%;
     font-weight: 540;
-    font-size: large;
-    padding-right: 5%;
+    font-size: medium;
+    position: absolute;
+    top: 0;
+    left: 10px
 }
 
 @media screen and (max-width: 768px) {
@@ -183,9 +182,14 @@ div.leaflet-popup-content {
         display: none;
     }
 
+    .LocationContainer {
+        max-height: fit-content;
+    }
+
     .LocationName {
         text-align: center;
         max-width: 100%;
+        left: 0;
     }
 
     .LocationButton {

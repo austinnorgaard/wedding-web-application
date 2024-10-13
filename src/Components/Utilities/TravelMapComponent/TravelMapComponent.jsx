@@ -30,7 +30,7 @@ function TravelMap() {
         popupAnchor: [0, -36]
     });
     const [map, setMap] = useState(null); //state that will contain the map object
-  let [editMode, setEditMode] = useState(false); // state to toggle the edit buttons
+    let [editMode, setEditMode] = useState(false); // state to toggle the edit buttons
 
     useEffect(() => {
         if (map) map.zoomControl.disable();
@@ -59,7 +59,16 @@ function TravelMap() {
     return (
         <div className="TravelMap">
             <div className="MainContainer" id="TravelMapMainContainer">
-                <MapContainer center={centerPoint} zoom={ZOOM_LEVEL} ref={setMap} scrollWheelZoom={"center"} className='MapContainer' zoomSnap={true}>
+                <MapContainer 
+                    center={centerPoint} 
+                    zoom={ZOOM_LEVEL} 
+                    ref={setMap} 
+                    scrollWheelZoom={false} 
+                    className='MapContainer'
+                    doubleClickZoom={false} 
+                    keyboard={false} 
+                    dragging={false}
+                >
                     <TileLayer url={osm.matpiler.url} attribution={osm.matpiler.attribution} />
                     <Marker position={centerPoint} icon={markerIcon}>
                         <Popup closeButton={false} className='Postlewait'>
@@ -70,9 +79,7 @@ function TravelMap() {
                                 <div className='LocationInfoContainer'>
                                     <p className='LocationName'>Postlewait&apos;s Country Weddings</p>
                                     <div className='LocationRatingContainer'>
-                                        <p className='LocationRatingNum'>4.7</p>
-                                        <p className='LocationRatingStars'>Stars - </p>
-                                        <p className='LocationRatingCount'>(135)</p>
+                                        <p className='LocationRatingNum'>4.7 Stars - (135)</p>
                                     </div>
                                     <div className='LocationHeroContainer'>
                                         <p className='LocationType'>Wedding venue - </p>
@@ -94,9 +101,7 @@ function TravelMap() {
                                     <div className='LocationInfoContainer'>
                                         <p className='LocationName'>{hotel.name}</p>
                                         <div className='LocationRatingContainer'>
-                                            <p className='LocationRatingNum'>{hotel.rating}</p>
-                                            <p className='LocationRatingStars'>Stars - </p>
-                                            <p className='LocationRatingCount'>{hotel.price}</p>
+                                            <p className='LocationRatingNum'>{hotel.rating} Stars - {hotel.price}</p>
                                         </div>
                                         <div className='LocationHeroContainer'>
                                             <p className='LocationType'>{hotel.city} - </p>
