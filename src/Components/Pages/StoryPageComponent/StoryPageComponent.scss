@@ -1,3 +1,9 @@
 #StoryMainContainer > .MenuBar > * > #storylink {
     border-bottom-color: #c29e29;
 }
+
+@media screen and (max-width: 768px) {
+    #StoryMainContainer > .MenuBar > * > #storylink {
+        border-left: 3px solid black;
+    }
+}

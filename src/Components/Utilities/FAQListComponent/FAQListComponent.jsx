@@ -60,12 +60,13 @@ function FAQList() {
       <div className="MainContainer" id="FAQListMainContainer">
         <div className="QuestionsContainer">
           <div className="FaqHeader" id="faqHead">
-            <div id="faqHeaderImage"></div>
-            <h1 id="FAQTitle">Frequently Asked Questions (FAQs)</h1>
+            <div id="faqHeaderImage">
+              <h1 id="FAQTitle">Frequently Asked Questions (FAQs)</h1>
+            </div>
           </div>
           <div className='OrderedList' id="questionsList">
           {questionList.map((question, key) => (
-            <div className="QuestionButton" id={"Question"+key} key={key}>
+            <div className="QuestionBox" id={"Question"+key} key={key}>
               <h3 className="Question">{question}</h3>
               <p className="Answer">{answerList[key]}</p>
             </div>

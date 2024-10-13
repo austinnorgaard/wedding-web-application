@@ -10,6 +10,12 @@ function PhotoGallery() {
    // eslint-disable-next-line
   var [imageArray, setImage] = useState([]);
   const [load, setLoad] = useState("unloaded");
+  const [width, setWidth] =  useState(window.innerWidth);
+  function setNewWidth () {
+    setWidth(window.innerWidth);
+  }
+
+  window.onresize = () => setNewWidth ();
 
   useEffect(() => {
     axios.all([
@@ -51,7 +57,7 @@ function PhotoGallery() {
             <h1>Proposal</h1>
             <div className='Container PhotoGallery ProposalImages'>
               <div className='PhotoGallery ProposalImageBox'>
-                <video controls muted autoPlay className='PhotoGallery ProposalImage'>
+                <video controls muted autoPlay={width > 768 ? true : false} className='PhotoGallery ProposalImage'>
                   <source src={proposalVideo}/>
                 </video>
               </div>

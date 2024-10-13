@@ -20,8 +20,7 @@
     text-decoration: none;
     color: #000;
     overflow: hidden;
-    height: 20vh;
-    max-height: 20vh;
+    height: fit-content;
 }
 
 .TravelListLocationImage {
@@ -99,13 +98,14 @@
 
     .TravelListLocation {
         width: 100%;
-        height: 20vh;
+        position: relative;
+        min-height: 100%;
         flex-direction: column;
     }
 
     .TravelListLocationRight {
         position: relative;
-        height: 60%;
+        height: 100%;
         width: 100%;
         flex-direction: row;
     }
@@ -114,20 +114,25 @@
         display: none;
     }
 
+    .TravelListLocationHeroContainer {
+        margin-top: -35px;
+    }
+
     .TravelListLocationInfoContainer {
-        position: absolute;
+        position: relative;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        top: 0;
         left: 10px;
+        width: 100%;
         height: 100%;
-        align-content: space-between;
+        align-content: flex-end;
     }
 
     .TravelListLocationImage {
         width: 100%;
-        overflow: hidden;
+        position: relative;
+        overflow: visible;
     }
 
     .TravelListLocationImage > img {

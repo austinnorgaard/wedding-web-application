@@ -478,8 +478,12 @@ input:checked::before { // Registry Filters Checkmark After
         margin-left: 5%;
     }
 
+    .Container.Registry { // Registry
+        padding-top: 8%;
+    }
+
     .Container.RegistryItemList.Box.Sort > img { // Sort Box Arrow
-        max-width: 2%;
+        max-width: 12px;
         margin-left: 16.4%;
         margin-top: 2.5%;
     }
@@ -606,15 +610,33 @@ input:checked::before { // Registry Filters Checkmark After
     }
     
     button.Navigate { // Registry Provider Navigation Button
-        width: 5%;
-        height: 3vh;
+        padding: 0;
+        position: absolute;
+        width: 30px;
+        height: 30px;
     }
 
-    // || Registry Sort Styles
-    #HeadBox > .Container.RegistryItemList.Box.Sort { // Registry Item List Sort Box Container
-        width: 24%;
-        height: 10%;
-        margin-right: 4%;
+    button.Navigate#left {
+        left: 0;
+    }
+
+    button.Navigate#right {
+        right: 0;
+    }
+
+    #HeadBox { // Registry Item List Header Container
+        width: 100%;
+        padding-top: 2%;
+        max-height: 7%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    #HeadBoxText > h1 { // Registry Item List Header Text
+        font-size: 4vw; 
+        width: 100%;
+        margin-left: 2%;
     }
     
     select.RegistryItemList.Sort { // Registry Item List Sort Box
@@ -631,14 +653,13 @@ input:checked::before { // Registry Filters Checkmark After
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         visibility: visible;
         border:#c29e29 solid 1px;
         border-radius: 5px;
-        padding-right: 8%;
-        padding-left: 2%;
         width: 50%;
         margin-left: 2%;
-        margin-top: 5%;
+        margin-top: 15%;
         font-size: 2.5vw;
         transition: all 0.25s;
     }
@@ -690,13 +711,12 @@ input:checked::before { // Registry Filters Checkmark After
         font-size: 3vw;
     }
 
-    #HeadBox { // Registry Item List Header Box
-        margin-top: 3%;
+    #addressQuestion {
+        font-size: 3vw;
     }
-
-    #HeadBoxText > h1  { // Registry Item List Header Box Text
-        font-size: 150%;
-        margin-left: 2%;
+    
+    #clickMeAddress {
+        font-size: 2vw;
     }
 }
 

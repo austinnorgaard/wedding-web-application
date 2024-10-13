@@ -116,7 +116,9 @@
     .MenuBarMainContainer#menuClicked a {
         visibility: visible;
         display: block;
-        padding-left: 2%;
+        margin-left: 10px;
+        padding-left: 5px;
+        border-left: 3px solid goldenrod;
     }
 }
 
