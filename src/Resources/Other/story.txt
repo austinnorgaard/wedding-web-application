@@ -1,6 +1,5 @@
--How we met:
-
-We met in a History of the Vikings class in January of 2024.
+^T How we met:
+^S We met in a History of the Vikings class in January of 2024. 
 It was the start of a new semester and we sat next to each other in class. 
 We chatted here and there, but on February 14th, Austin asked Jess for help with his history notes. 
 He didn’t need notes for class btw. 
@@ -17,13 +16,9 @@ As we continued to hang out and go on dates, we both felt a peace that continued
 This was all the confirmation needed to continue hanging out and officially start dating. 
 Soon, we found ourselves slowly falling in love, cheesy I know. 
 Jess fell in love with Austin’s realness, his love for God, his character, and also the BMW :) 
-Austin fell in love with Jess’s …
-
-Austin's question: When we started dating, what four things about me did you fall in love with?
-
--Our goals:
-
-Throughout these months, we have gone through a lot of learning and growth. 
+Austin fell in love with Jess’s: 4 things.
+^T Our goals:
+^S Throughout these months, we have gone through a lot of learning and growth. 
 Giving up the “I” for the “we” and discussing what the future would look like. 
 We decided that keeping our anniversary of February 14th would give us a one year dating period that would also be after graduation. 
 We consider it a one year since we connected so quickly after meeting and that we don’t have an official day that we started dating. 
@@ -31,10 +26,4 @@ We got engaged after six months and will be married on our one year anniversary.
 We believe that God is blessing this relationship and we are fully committed to a life with each other. 
 After graduation and marriage, we will move wherever our jobs take us. 
 However, our end goal is western Montana or wherever we are blessed with a property. 
-
-
-
-
-
-
-*We can’t wait to celebrate with you at our wedding ceremony and reception in February!
+^F We can’t wait to celebrate with you at our wedding ceremony and reception in February!

@@ -5,75 +5,34 @@ import { useState } from 'react';
 
 function StoryBoard() {
     const [storyText, setText] = useState("");
-    var titleList = [""];
-    var textList = [""];
-    var footerText = [""];
-    var titles = [];
-    var text = [];
-    var footer = [];
-    var titleCount = 0;
-    var textCount = 0;
-    var footerCount = 0;
-    var isTitle = true;
-    var isFooter = false;
+    var titleList = [];
+    var storyList = [];
+    var footerList = [];
 
     fetch(story)
     .then(r => r.text())
     .then(text => {
         setText(text);
-    });
+    })
 
-    for (let i = 0; i < storyText.length; i++) {
-        if (isFooter && storyText[i] !== "\n") {
-            footerText[footerCount] += storyText[i];
+    for (let i = 0; i < storyText.split("^").length; i++) {
+        if (storyText.split("^")[i][0] === 'T') {
+            titleList.push(storyText.split("^")[i].trimEnd());
+            titleList[titleList.length - 1] = titleList[titleList.length - 1].replace("T ", "")
         }
-        else if (isTitle && storyText[i] !== "\n") {
-            titleList[titleCount] += storyText[i];
+        else if (storyText.split("^")[i][0] === 'S') {
+            storyList.push(storyText.split("^")[i].trimEnd());
+            storyList[storyList.length - 1] = storyList[storyList.length - 1].replace("S ", "")
         }
-        else if (!isTitle && storyText[i] !== "\n") {
-            textList[textCount] += storyText[i];
-        }
-        if (storyText[i] === "\n") {
-            if (storyText[i+1] === "*") {
-                i = i+1;
-                isFooter = true;
-            }
-            else if (storyText[i+1] === '\n') {
-                textCount = ++textCount;
-                isTitle = !isTitle;
-                isFooter = false;
-            }
-            else if (storyText[i+1] === "-") {
-                titleCount = ++titleCount;
-                i = i+1;
-                isTitle = !isTitle;
-                isFooter = false;
-            }
+        else if (storyText.split("^")[i][0] === 'F') {
+            footerList.push(storyText.split("^")[i].trimEnd());
+            footerList[footerList.length - 1] = footerList[footerList.length - 1].replace("F ", "")
         }
     }
 
-    for (let i = 0; i < textCount; i++) {
-        textList[i] = textList[i].replace("undefined", "");
-        textList[i] = textList[i].replace("-", "");
-    }
-
-    for (let i = 0; i < titleCount; i++) {
-        titleList[i] = titleList[i].replace("undefined", "");
-        titleList[i] = titleList[i].replace("-", "");
-    }
-
-    for (let i = 0; i < footerCount; i++) {
-        footerText[i] = footerText[i].replace("undefined", "");
-        footerText[i] = footerText[i].replace("-", "");
-    }
-
-    titles.push(titleList);
-    text.push(textList);
-    footer.push(footerText)
-
-    console.log(titles);
-    console.log(text);
-    console.log(footer)
+    console.log(titleList);
+    console.log(storyList);
+    console.log(footerList);
 
     return (
         <div className='StoryBoard'>
@@ -89,14 +48,14 @@ function StoryBoard() {
                     {titleList.map((title, key) => (
                         <div className="TextBox" id={"Title"+key} key={key}>
                             <h3 className="Title">{title}</h3>
-                            <p className="Text">{text[key]}</p>
+                            <p className="Text">{storyList[key]}</p>
                         </div>
                     ))}
                 </div>
                 <div className='FooterContainer'>
-                    {footer.map((footerText, key) => (
+                    {footerList.map((footer, key) => (
                         <div className='Footer' id="storyFooter" key={key}>
-                            <h3 id="storyFooterText">{footerText}</h3>
+                            <h3 id="storyFooterText">{footer}</h3>
                         </div>
                     ))}
                 </div>
