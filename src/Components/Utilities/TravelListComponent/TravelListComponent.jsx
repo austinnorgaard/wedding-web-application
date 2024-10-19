@@ -1,13 +1,9 @@
 import { useState, React } from 'react';
 import { Link } from 'react-router-dom';
 import './TravelListComponent.scss';
-// eslint-disable-next-line
-import postlewaitImg from "../../../Resources/Photos/postlewaits.png"
-// eslint-disable-next-line
-import markerImg from '../../../Resources/Photos/marker.png'
-// eslint-disable-next-line
-import hotelpin from '../../../Resources/Photos/hotelpin.png'
 import hotels from '../Leaflet/hotels.json'
+import restaurants from '../Leaflet/food.json'
+import fun from '../Leaflet/thingsToDo.json'
 
 function TravelList() {
     // eslint-disable-next-line
@@ -15,6 +11,12 @@ function TravelList() {
 
     hotels.map((hotel) => (
         locations.push(hotel)
+    ))
+    restaurants.map((restaurant) => (
+        locations.push(restaurant)
+    ))
+    fun.map((toDo) => (
+        locations.push(toDo)
     ))
 
     return (

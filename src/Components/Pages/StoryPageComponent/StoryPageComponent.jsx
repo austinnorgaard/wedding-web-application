@@ -1,5 +1,6 @@
 import './StoryPageComponent.scss';
 import React from 'react';
+import StoryBoard from '../../Utilities/StoryBoardComponent/StoryBoardComponent';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 
 function StoryPage() {
@@ -8,7 +9,7 @@ function StoryPage() {
       
       <div className="MainContainer" id="StoryMainContainer">
         <MenuBar />
-        <h1>Story Title</h1>
+        <StoryBoard />
       </div>
     </div>
   );

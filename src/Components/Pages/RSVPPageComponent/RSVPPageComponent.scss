@@ -1,0 +1,10 @@
+#RSVPMainContainer > .MenuBar > * > #rsvplink {
+    border-bottom-color: #c29e29;
+}
+
+
+@media screen and (max-width: 768px) {
+    #RSVPMainContainer > .MenuBar > * > #rsvplink {
+        border-left: 3px solid black;
+    }
+}

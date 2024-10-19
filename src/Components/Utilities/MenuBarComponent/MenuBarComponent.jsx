@@ -38,6 +38,7 @@ function MenuBar() {
         <Link onClick={updateMenu} to="/faq" id="faqlink">FAQs</Link>
         <Link onClick={updateMenu} to="/travel" id="travellink">Travel</Link>
         <Link onClick={updateMenu} to="/registry" id="registrylink">Registry</Link>
+        <Link onClick={updateMenu} to="/rsvp" id="rsvplink">RSVP</Link>
       </div>
     </div>
   );

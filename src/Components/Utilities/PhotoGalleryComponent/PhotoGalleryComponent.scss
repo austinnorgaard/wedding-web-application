@@ -46,20 +46,18 @@
 
 .PhotoGallery.ProposalImageBox {
     margin-bottom: 1%;
+    transition: scale 1s;
 }
 
 .PhotoGallery.ProposalImage {
     max-height: 49vh;
-    object-fit: scale-down;
+    max-width: 42vw;
+    object-fit: cover;
     transition: scale 1s;
     z-index: 0;
 }
 
-.PhotoGallery.ProposalImage:hover {
-    scale: 102%;
-}
-
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1080px) {
     .MainContainer#PhotoGalleryMainContainer {
         width: 90%;
         padding-top: 8%;
@@ -106,7 +104,7 @@
     }
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1080px) {
     .Container.PhotoGallery.PhotoGalleryItem.ProposalBox {
         width: 90% !important;
     }
