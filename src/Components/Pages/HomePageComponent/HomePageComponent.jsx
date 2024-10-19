@@ -1,5 +1,6 @@
 import './HomePageComponent.scss';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import bgimage from '../../../Resources/Photos/bg.jpg';
 
@@ -17,9 +18,9 @@ function HomePage() {
           <h1 id="homefooterdate">Friday, February 14, 2025</h1>
         </div>
         <div id="rsvpoverhead">
-          <button id="rsvpcont">
-            <button id="rsvp">RSVP</button>
-          </button>
+          <Link to="/rsvp" id="rsvpcont">
+            <Link to="/rsvp" id="rsvp">RSVP</Link>
+          </Link>
         </div>
         <div id="rsvpsectioncont">
         

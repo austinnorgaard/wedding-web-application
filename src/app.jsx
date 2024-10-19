@@ -49,6 +49,11 @@ function App() {
     let path = '/venmo';
     navigate(path);
   }
+  // eslint-disable-next-line 
+  const rsvpRoute = () => {
+    let path = '/rsvp';
+    navigate(path);
+  }
   
 
   return (

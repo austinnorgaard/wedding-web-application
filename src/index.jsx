@@ -15,6 +15,7 @@ import RegistryPage from './Components/Pages/RegistryPageComponent/RegistryPageC
 import Header from './Components/Utilities/HeaderComponent/HeaderComponent';
 import Footer from './Components/Utilities/FooterComponent/FooterComponent';
 import VenmoPage from './Components/Pages/VenmoPageComponent/VenmoPageComponent';
+import RSVPPage from './Components/Pages/RSVPPageComponent/RSVPPageComponent';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: "/venmo",
     element: <VenmoPage/>,
+  },
+  {
+    path: "/rsvp",
+    element: <RSVPPage/>,
   }
 ]);
 
