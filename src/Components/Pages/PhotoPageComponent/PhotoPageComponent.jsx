@@ -1,9 +1,13 @@
 import './PhotoPageComponent.scss'
-import React from 'react';
+import React, { useEffect } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import PhotoGallery from '../../Utilities/PhotoGalleryComponent/PhotoGalleryComponent';
 
 function PhotoPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
+
   return (
     <div className="PhotoPage">
       

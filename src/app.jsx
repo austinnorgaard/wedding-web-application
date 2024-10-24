@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePageComponent/HomePageComponent';
 
 function App() {
-
   let navigate = useNavigate();
   // eslint-disable-next-line 
   const homeRoute = () => {

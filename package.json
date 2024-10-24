@@ -45,6 +45,7 @@
         ]
     },
     "devDependencies": {
+        "@azure/static-web-apps-cli": "^2.0.1",
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
         "@babel/plugin-transform-private-property-in-object": "^7.24.7",
         "@eslint/js": "^9.12.0",
