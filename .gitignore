@@ -5,3 +5,4 @@ package-lock.json
 .vscode
 dist
 src/.DS_Store
+jsconfig.json
