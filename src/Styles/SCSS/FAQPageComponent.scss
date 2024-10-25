@@ -1,0 +1,9 @@
+#FAQMainContainer > .MenuBar > * > #faqlink {
+    border-bottom-color: #c29e29;
+}
+
+@media screen and (max-width: 768px) {
+    #FAQMainContainer > .MenuBar > * > #faqlink {
+        border-left: 3px solid black;
+    }
+}

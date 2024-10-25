@@ -1,4 +1,4 @@
-import './VenmoPageComponent.scss';
+import '../../../Styles/CSS/VenmoPageComponent.css';
 import React, { useEffect } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import Venmo from '../../Utilities/VenmoComponent/VenmoComponent';

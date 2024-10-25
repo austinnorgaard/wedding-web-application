@@ -1,0 +1,11 @@
+#WeddingPartyMainContainer > .MenuBar > * > #weddingpartylink {
+  border-bottom-color: #c29e29;
+}
+
+@media screen and (max-width: 768px) {
+  #WeddingPartyMainContainer > .MenuBar > * > #weddingpartylink {
+    border-left: 3px solid black;
+  }
+}
+
+/*# sourceMappingURL=WeddingPartyPageComponent.css.map */

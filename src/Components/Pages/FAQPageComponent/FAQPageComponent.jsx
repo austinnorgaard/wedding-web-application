@@ -1,4 +1,4 @@
-import './FAQPageComponent.scss';
+import '../../../Styles/CSS/FAQPageComponent.css';
 import React, { useEffect } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import FAQList from '../../Utilities/FAQListComponent/FAQListComponent';

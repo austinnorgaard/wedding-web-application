@@ -1,0 +1,129 @@
+.MenuBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+.MenuBarMainContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow-wrap: normal;
+    width: 100%;
+}
+
+.MenuBarMainContainer > a {
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: Spectral;
+    color: white;
+    font-size: 1.5vw;
+    font-weight: 400;
+    border-bottom: 2px solid transparent;
+    display: block;
+    letter-spacing: 2px;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    text-decoration: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.MenuBarMainContainer > a:hover {
+    border-bottom-color:rgba(194, 158, 41, 0.5);
+}
+
+#menuButton {
+    visibility: hidden;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .MenuBar {
+        position: relative;
+        max-height: 100%;
+        width: fit-content;
+        z-index: 90;
+        margin-top: 0;
+        align-items: flex-start;
+    }
+
+    .MenuBar#menuClicked {
+        position: absolute;
+        background-color: #c4d9bc;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        z-index: 90;
+    }
+
+    .MenuBar#menuClicked ~ * {
+        display: none;
+    }
+
+    .clicked#menuButton {
+        visibility: visible;
+        display: block;
+        width: 60px;
+        z-index: 100;
+        margin-top: 4vw;
+        padding-bottom: 30px;
+    }
+
+    .unclicked#menuButton {
+        visibility: visible;
+        display: block;
+        width: 60px;
+        z-index: 100;
+    }
+
+    #menuButton > img {
+        width: 100%;
+        height: 100%;
+        -webkit-filter: invert(100%); /* Safari/Chrome */
+        filter: invert(100%);
+    }
+
+    .MenuBarMainContainer {
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: fit-content;
+        height: fit-content;
+        min-height: 15vw;
+    }
+
+    .MenuBarMainContainer#menuUnclicked a {
+        visibility: hidden;
+        display: none;
+    }
+
+    .MenuBarMainContainer > a {
+        margin-bottom: 15px;
+        font-size: 30px;
+        transition: all 0s;
+        border: none;
+        width: max-content;
+    }
+
+    .MenuBarMainContainer#menuClicked a {
+        visibility: visible;
+        display: block;
+        margin-left: 10px;
+        padding-left: 5px;
+        border-left: 3px solid goldenrod;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+   .MenuBar {
+    transform: scale(0.8);
+   }
+}

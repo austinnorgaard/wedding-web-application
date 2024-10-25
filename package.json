@@ -24,7 +24,9 @@
     },
     "scripts": {
         "start": "react-scripts --max_old_space_size=16384 start",
-        "build": "react-scripts build"
+        "build": "react-scripts build",
+        "scss": "sass",
+        "scss-watch": "sass --watch src/Styles/SCSS:src/Styles/CSS"
     },
     "eslintConfig": {
         "extends": [

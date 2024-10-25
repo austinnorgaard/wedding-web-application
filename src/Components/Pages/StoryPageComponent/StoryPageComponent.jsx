@@ -1,4 +1,4 @@
-import './StoryPageComponent.scss';
+import '../../../Styles/CSS/StoryPageComponent.css';
 import React, { useEffect } from 'react';
 import StoryBoard from '../../Utilities/StoryBoardComponent/StoryBoardComponent';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';

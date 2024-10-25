@@ -1,4 +1,4 @@
-import './StoryBoardComponent.scss';
+import '../../../Styles/CSS/StoryBoardComponent.css';
 import React from 'react';
 import story from "../../../Resources/Other/story.txt";
 import { useState } from 'react';

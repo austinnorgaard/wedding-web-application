@@ -1,4 +1,4 @@
-import './HomePageComponent.scss';
+import '../../../Styles/CSS/HomePageComponent.css';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';

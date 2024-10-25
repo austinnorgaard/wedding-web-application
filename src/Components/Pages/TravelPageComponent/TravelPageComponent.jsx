@@ -1,4 +1,4 @@
-import './TravelPageComponent.scss';
+import '../../../Styles/CSS/TravelPageComponent.css';
 import React, { useEffect } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import TravelKey from '../../Utilities/TravelKeyComponent/TravelKeyComponent';

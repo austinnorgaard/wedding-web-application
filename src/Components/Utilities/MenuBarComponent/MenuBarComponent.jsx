@@ -1,5 +1,5 @@
 import { useState, React } from 'react';
-import './MenuBarComponent.scss';
+import '../../../Styles/CSS/MenuBarComponent.css';
 import { Link } from 'react-router-dom';
 import menuicon from '../../../Resources/Photos/menu-icon.svg';
 import exiticon from '../../../Resources/Photos/exit.svg';

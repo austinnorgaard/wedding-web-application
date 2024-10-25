@@ -1,4 +1,4 @@
-import './TravelKeyComponent.scss';
+import '../../../Styles/CSS/TravelKeyComponent.css';
 import React from 'react';
 import markerImg from '../../../Resources/Photos/marker.png'
 import hotelpin from '../../../Resources/Photos/hotelpin.png'

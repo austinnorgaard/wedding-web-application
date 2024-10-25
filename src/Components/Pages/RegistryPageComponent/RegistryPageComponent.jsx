@@ -1,4 +1,4 @@
-import './RegistryPageComponent.scss';
+import '../../../Styles/CSS/RegistryPageComponent.css';
 import React, { useEffect } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import RegistryGallery from '../../Utilities/RegistryGalleryComponent/RegistryGalleryComponent';

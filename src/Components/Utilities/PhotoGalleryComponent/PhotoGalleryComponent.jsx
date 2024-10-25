@@ -1,5 +1,5 @@
 import { useEffect, useState, React } from 'react';
-import './PhotoGalleryComponent.scss';
+import '../../../Styles/CSS/PhotoGalleryComponent.css';
 import axios from 'axios';
 import proposalVideo from '../../../Resources/Videos/proposal.mov'
 import proposalSurprise from '../../../Resources/Photos/proposal.jpeg'

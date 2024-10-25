@@ -1,0 +1,11 @@
+#RegistryMainContainer > .MenuBar > * > #registrylink {
+  border-bottom-color: #c29e29;
+}
+
+@media screen and (max-width: 768px) {
+  #RegistryMainContainer > .MenuBar > * > #registrylink {
+    border-left: 3px solid black;
+  }
+}
+
+/*# sourceMappingURL=RegistryPageComponent.css.map */

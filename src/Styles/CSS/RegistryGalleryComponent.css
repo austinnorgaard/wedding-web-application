@@ -1,0 +1,712 @@
+a {
+  text-decoration: none !important;
+}
+
+#addressQuestion {
+  font-size: 1.5vw;
+  text-align: center;
+  color: black;
+}
+
+#addressQCont {
+  width: fit-content;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #c29e29 1px solid;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+#clickMeAddress {
+  height: auto;
+  color: black;
+  text-decoration: none;
+  margin-top: 0%;
+  font-size: 0.7vw;
+}
+
+.Container.Filters.CheckRow {
+  width: 100%;
+  height: min-content;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Container.Item.Text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.Container.Registry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.Container.RegistryItemList.Box.Sort {
+  width: fit-content;
+  height: fit-content;
+  margin-right: 2%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+}
+
+.Container.RegistryItemList.Box.Sort > img {
+  max-width: 1%;
+  position: absolute;
+  margin-left: 8.2%;
+  margin-top: 1.4%;
+}
+
+.Container.RegistryItemList.Box.Sort > label {
+  margin-left: 0.5%;
+  font-size: 0.9vw;
+  color: #000;
+  z-index: 1;
+  font-family: "Abhaya Libre";
+  position: absolute;
+}
+
+.Container.RegistryItemList.Filters.List {
+  flex-shrink: 1;
+  flex-basis: 15%;
+  justify-content: start;
+  height: fit-content;
+}
+
+.Container.RegistryItemList.Filters.List, .Container.RegistryItemList.Filters.List > * {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3%;
+  width: 100%;
+}
+
+#HeadBox {
+  width: 100%;
+  padding-top: 2%;
+  max-height: 7%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#HeadBoxText {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+#HeadBoxText > h1 {
+  margin-left: 1%;
+  margin-top: 3%;
+  color: #000;
+  font-family: "Abhaya Libre";
+  font-weight: 600;
+  font-size: 2.2vw;
+}
+
+.Container.RegistryItemList.Inner {
+  display: flex;
+  flex-direction: row;
+  margin-top: 6%;
+  margin-bottom: 4%;
+  width: 98%;
+  height: 100%;
+}
+
+.Container.RegistryItemList.Items {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  margin-left: 2%;
+  max-width: 80%;
+  height: 100%;
+}
+
+.Container.RegistryItemList.Items > * {
+  flex: 0 0 25%;
+  margin-bottom: 4%;
+  width: 25%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid transparent;
+  transition: all 0.25s;
+  text-decoration: none;
+  text-decoration-color: transparent;
+  color: #000;
+  border-radius: 5px;
+}
+
+.Container.RegistryItemList.Items > *:hover {
+  border-color: #c29e29;
+  border-radius: 5px;
+}
+
+.Container.RegistryItemList.Main {
+  width: 90%;
+  min-height: 100%;
+  border-color: #c29e29;
+  border-width: 0.1vw;
+  border-style: solid;
+  background-color: white;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 6%;
+}
+
+.Container.RegistryItemList.PageSelect {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: fit-content;
+  max-width: 30%;
+  min-height: 5vh;
+  max-height: 5vh;
+  padding-bottom: 5%;
+}
+
+.Container.RegistryItemList.PageSelect > button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 10%;
+  width: 5vw;
+  transform: scale(1.5);
+  z-index: 15;
+  border: #c29e29 1px solid;
+  border-radius: 5px;
+  padding-bottom: 1%;
+}
+
+.Container.RegistryItemList.PageSelect > button > button {
+  border-bottom: transparent 1px solid;
+  -webkit-transition: all 0.25s !important;
+  transition: all 0.25s !important;
+  padding: 5%;
+}
+
+#SelectedPage > button {
+  border-bottom: #c29e29 1px solid;
+}
+
+.Container.RegistryItemList.PageSelect > button:hover > button {
+  border-bottom: rgba(194, 158, 41, 0.5) 1px solid;
+}
+
+.Container.RegistryProviderMain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.Container.RegistryProviderInner {
+  width: 90%;
+  border-color: #c29e29;
+  border-width: 0.1vw;
+  border-style: solid;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.Container.RegistryProviders.RegistryProviderInner > h1 {
+  margin-left: 1%;
+  margin-top: 3%;
+  color: #000;
+  font-family: "Abhaya Libre";
+  font-weight: 600;
+  font-size: 2.2vw;
+}
+
+.Container.RegistryProviders.RegistryProviderList {
+  display: flex;
+  flex-direction: row;
+  margin-left: 1%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  width: 100%;
+  height: 100%;
+}
+
+.Container.RegistryProviders.RegistryProviderList > * {
+  border: 1px solid #c29e29;
+  box-shadow: 0px 0px 10px 0px #c29e29;
+  border-radius: 5px;
+  transition: all 0.25s;
+  text-decoration: none;
+  text-decoration-color: transparent;
+  color: #000;
+  min-width: 18%;
+  max-width: 18%;
+  margin-right: 2%;
+}
+
+.Container.RegistryProviders.RegistryProviderList > *:hover {
+  box-shadow: 0px 0px 10px 6px #c29e29;
+}
+
+.Container.RegistryProviders.RegistryProviderList > *:hover .RegistryProviders.Button {
+  background-color: #c29e29;
+}
+
+.RegistryProviders.Box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-height: 10%;
+}
+
+.RegistryProviders.Box#index5 {
+  display: none;
+  visibility: hidden;
+}
+
+.RegistryProviders.Button {
+  margin-bottom: 10%;
+  text-decoration: none;
+  color: #000;
+  border: 0.2vw solid #c29e29;
+  border-radius: 25px;
+  padding: 4% 8% 4% 8%;
+  text-decoration-color: transparent;
+  transition: all 0.15s;
+  font-size: 1vw;
+}
+
+.RegistryProviders.Button:hover {
+  background-color: #c29e29 !important;
+  color: white;
+  box-shadow: 0px 0px 6px 2px rgba(223, 189, 105, 0.4);
+}
+
+.RegistryProviders.Logo {
+  max-width: 80%;
+  margin-top: 35%;
+}
+
+.RegistryProviders.Logo#amazon {
+  -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(0%) hue-rotate(13deg) brightness(95%) contrast(105%);
+  filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(0%) hue-rotate(13deg) brightness(95%) contrast(105%);
+}
+
+.RegistryProviders.Logo#ring {
+  max-width: 50%;
+  margin-top: 25%;
+  -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(0%) hue-rotate(13deg) brightness(95%) contrast(105%);
+  filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(0%) hue-rotate(13deg) brightness(95%) contrast(105%);
+}
+
+.RegistryProviders.Logo#serta {
+  max-width: 55%;
+  max-height: 70%;
+  margin-top: 22.5%;
+  margin-bottom: 20%;
+  -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(0%) hue-rotate(13deg) brightness(95%) contrast(105%);
+  filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(0%) hue-rotate(13deg) brightness(95%) contrast(105%);
+}
+
+.RegistryProviders.Logo#venmo {
+  max-width: 50%;
+  margin-top: 15%;
+}
+
+button.Navigate {
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.25s;
+  border: solid #c29e29 1px;
+  border-radius: 5px;
+  width: 2%;
+  height: 5vh;
+  z-index: 5;
+}
+
+button.Navigate:hover {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 10px 0px #c29e29;
+}
+
+select.RegistryItemList.Sort {
+  position: relative;
+  border: none;
+  appearance: none;
+  font-size: 1.25vw;
+  font-weight: 500;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  min-width: 100%;
+  height: 100%;
+  padding: 15% 10% 5% 4%;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.Filters.CheckRow.Label {
+  font-size: 1.2vw;
+  margin-left: 5%;
+  margin-top: 0;
+  margin-bottom: 0;
+  align-self: flex-start;
+  width: fit-content;
+  color: #000;
+}
+
+button.RegistryItemList.Filters {
+  display: none;
+  visibility: hidden;
+}
+
+h1.Filters {
+  font-family: "Abhaya Libre";
+  color: #000;
+  font-size: 1.5vw;
+  font-weight: 600;
+  margin-bottom: 1.3%;
+  width: 100%;
+}
+
+input {
+  font-size: 16px;
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin-right: 2%;
+  color: #000;
+  min-width: 1vw;
+  min-height: 1vw;
+  width: auto;
+  height: auto;
+  border: 0.05em solid #000;
+  border-radius: 15%;
+  display: grid;
+  place-content: center;
+}
+
+input::before {
+  content: "";
+  width: 0.8vw;
+  height: 0.8vw;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 0.1em 0.1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: #c29e29;
+}
+
+input:checked::before {
+  transform: scale(1);
+  color: #c29e29;
+}
+
+.Item.Logo {
+  max-width: 90%;
+  max-height: 60%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-radius: 5px;
+}
+
+.Item.Price {
+  font-size: 1vw;
+  margin-left: 5%;
+  margin-top: 3%;
+  font-weight: bolder !important;
+}
+
+.Item.Title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: flex-start !important;
+  max-width: 100%;
+  font-size: 1.25vw;
+  font-weight: 500;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 5%;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .Container.Filters.CheckRow {
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
+  .Container.Item.Text {
+    margin-left: 5%;
+  }
+  .Container.Registry {
+    padding-top: 8%;
+  }
+  .Container.RegistryItemList.Box.Sort > img {
+    max-width: 12px;
+    margin-left: 16.4%;
+    margin-top: 2.5%;
+  }
+  .Container.RegistryItemList.Box.Sort > label {
+    margin-left: 1%;
+    font-size: 1.8vw;
+  }
+  .Container.RegistryItemList.Inner {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .Container.RegistryItemList.Inner#filterUnclicked > .Container.RegistryItemList.Filters.List {
+    visibility: hidden !important;
+    display: none !important;
+  }
+  .Container.RegistryItemList.Inner#filterClicked > .Container.RegistryItemList.Filters.List {
+    border: #000 solid 1px;
+    border-radius: 5px;
+    padding-top: 2%;
+    padding-right: 10%;
+    padding-left: 2%;
+  }
+  .Container.RegistryItemList.Filters.List {
+    flex-basis: 25%;
+  }
+  .Container.RegistryItemList.Filters.List, .Container.RegistryItemList.Filters.List > * {
+    margin-bottom: 25%;
+    margin-left: 1%;
+  }
+  .Container.RegistryItemList.Items {
+    flex-direction: column;
+    width: 120%;
+    align-items: flex-end;
+  }
+  .Container.RegistryItemList.Items > * {
+    border: 1px solid #c29e29;
+    align-items: center;
+    flex-direction: row;
+    height: fit-content;
+  }
+  .Container.RegistryItemList.PageSelect {
+    display: none;
+  }
+  .Container.RegistryProviders.RegistryProviderInner > h1 {
+    margin-left: 2%;
+    font-size: 150%;
+  }
+  .Container.RegistryProviders.RegistryProviderList {
+    margin-top: 4%;
+    margin-bottom: 2%;
+    width: 100%;
+    justify-content: center;
+  }
+  .Container.RegistryProviders.RegistryProviderList > * {
+    min-width: 30%;
+    max-width: 30%;
+    margin-right: 2%;
+  }
+  div.Container.RegistryItemList.Inner#filterUnclicked .Container.RegistryItemList.Items > * {
+    width: 120%;
+    transition: none;
+  }
+  div.Container.RegistryItemList.Inner#filterClicked .Container.RegistryItemList.Items > * {
+    width: 90%;
+    transition: none;
+    margin-right: 5%;
+  }
+  .RegistryProviders.Box#index4 {
+    display: none;
+    visibility: hidden;
+  }
+  .RegistryProviders.Box#index3 {
+    display: none;
+    visibility: hidden;
+  }
+  .RegistryProviders.Button {
+    margin-bottom: 15%;
+    font-size: 50%;
+  }
+  .RegistryProviders.Button:hover {
+    background-color: #c29e29 !important;
+    color: white;
+    box-shadow: 0px 0px 6px 2px #c29e29;
+  }
+  .RegistryProviders.Logo#amazon {
+    -webkit-filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
+    filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
+  }
+  .RegistryProviders.Logo#ring {
+    max-width: 50%;
+    margin-top: 25%;
+    -webkit-filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
+    filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
+  }
+  .RegistryProviders.Logo#serta {
+    max-width: 55%;
+    max-height: 70%;
+    margin-top: 22.5%;
+    margin-bottom: 20%;
+    -webkit-filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
+    filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
+  }
+  button.Navigate {
+    padding: 0;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+  }
+  button.Navigate#left {
+    left: 0;
+  }
+  button.Navigate#right {
+    right: 0;
+  }
+  #HeadBox {
+    width: 100%;
+    padding-top: 2%;
+    max-height: 7%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #HeadBoxText > h1 {
+    font-size: 4vw;
+    width: 100%;
+    margin-left: 2%;
+  }
+  select.RegistryItemList.Sort {
+    font-size: 2.5vw;
+    font-weight: 500;
+  }
+  .Filters.CheckRow.Label {
+    font-size: 3vw;
+  }
+  button.RegistryItemList.Filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    visibility: visible;
+    border: #c29e29 solid 1px;
+    border-radius: 5px;
+    width: 50%;
+    margin-left: 2%;
+    margin-top: 15%;
+    font-size: 2.5vw;
+    transition: all 0.25s;
+  }
+  button.RegistryItemList.Filters#filterClicked {
+    background-color: #c29e29;
+    color: white;
+    box-shadow: 0px 0px 6px 2px #c29e29;
+  }
+  h1.Filters {
+    font-size: 5vw;
+    margin-bottom: 15%;
+  }
+  input {
+    min-width: 2vw;
+    min-height: 2vw;
+  }
+  input::before {
+    content: "";
+    width: 1.6vw;
+    height: 1.6vw;
+  }
+  .Item.Logo {
+    min-width: 40%;
+    max-width: 40%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    margin-left: 2%;
+  }
+  .Item.Price {
+    font-size: 2.25vw;
+    margin-top: 4%;
+    max-height: fit-content;
+  }
+  .Item.Title {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 3vw;
+  }
+  #addressQuestion {
+    font-size: 3vw;
+  }
+  #clickMeAddress {
+    font-size: 2vw;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .Container.RegistryProviderMain {
+    width: 80%;
+  }
+  .Container.RegistryProviderMain h1, #HeadBoxText > h1 {
+    transform: scale(0.8);
+    margin-left: -1% !important;
+  }
+  #HeadBoxText > h1 {
+    margin-left: -1.5% !important;
+  }
+  .Container.RegistryItemList.Main {
+    width: 72%;
+  }
+  .Container.RegistryItemList.Inner {
+    max-height: 100vh !important;
+    overflow: hidden;
+    border-bottom: #c29e29 solid 1px;
+  }
+  .Container.RegistryItemList.Items {
+    max-height: 50% !important;
+    overflow: hidden;
+  }
+  #HeadBox {
+    margin-top: 0 !important;
+  }
+  .Container.RegistryItemList.Box.Sort {
+    position: relative;
+    margin-right: 2.5%;
+    width: 20%;
+    height: fit-content;
+    transform: scale(0.8);
+  }
+  .Container.RegistryItemList.Box.Sort > img {
+    min-width: 10% !important;
+    height: 25%;
+    position: absolute;
+    right: 5%;
+    top: 35%;
+  }
+}
+
+/*# sourceMappingURL=RegistryGalleryComponent.css.map */

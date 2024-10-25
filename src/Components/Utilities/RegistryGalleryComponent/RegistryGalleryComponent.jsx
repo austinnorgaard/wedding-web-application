@@ -1,4 +1,4 @@
-import './RegistryGalleryComponent.scss';
+import '../../../Styles/CSS/RegistryGalleryComponent.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState, React } from 'react';
 import downarrow from "../../../Resources/Photos/arrow-down-3101.png"

@@ -4,12 +4,15 @@
     "wedding": {
       "appLocation": ".",
       "outputLocation": "build",
-      "dataApiLocation": "./backend",
-      "appBuildCommand": "npm run build",
-      "apiBuildCommand": "node server.js",
-      "run": "npm start",
+      "dataApiLocation": "backend",
+      "appBuildCommand": "npm run scss src/Styles/SCSS:src/Styles/CSS && npm run build",
+      "apiBuildCommand": "npm run build --if-present",
+      "run": "npm run start",
       "appDevserverUrl": "http://localhost:3000",
-      "apiDevserverUrl": "http://localhost:8080"
+      "apiDevserverUrl": "http://localhost:8080",
+      "githubActionWorkflowLocation": "./.github/workflows/prod-site-upload.yml",
+      "appName": "wedding",
+      "resourceGroup": "wedding_group"
     }
   }
 }

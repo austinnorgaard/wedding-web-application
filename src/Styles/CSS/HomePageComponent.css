@@ -1,0 +1,133 @@
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#HomeMainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#HomeMainContainer > .MenuBar > * > #homelink {
+  border-bottom-color: #c29e29;
+}
+
+#homeImage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+#bgimage {
+  max-width: 100%;
+}
+
+#homefootertext {
+  margin-top: 3%;
+  margin-bottom: 2%;
+  font-size: 3.5vw;
+}
+
+#homefooterdate {
+  margin-bottom: 5%;
+  font-size: 1.5vw;
+  letter-spacing: 2px;
+}
+
+#homefootertext, #homefooterdate {
+  font-family: Abhaya Libre;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+#homefooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#rsvpoverhead {
+  border-top: #c29e29 3px solid;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  align-self: center;
+  margin-bottom: 5%;
+}
+
+#rsvpcont {
+  background-color: #c29e29;
+  min-width: 15%;
+  width: 250px;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: black 1px solid;
+}
+
+#rsvp {
+  color: white;
+  font-size: 5vw;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+@media screen and (max-width: 768px) {
+  #homefooter {
+    margin-top: 8%;
+  }
+  #homefootertext {
+    font-size: 30px;
+  }
+  #homefooterdate {
+    font-size: 14px;
+  }
+  #bgimage {
+    margin-top: 5%;
+    max-width: 100%;
+  }
+  #rsvpoverhead {
+    border-top-width: 2px;
+  }
+  #rsvpcont {
+    width: 60%;
+    height: 30%;
+  }
+  #rsvp {
+    font-size: 5vw;
+  }
+  body {
+    overflow-y: scroll !important;
+  }
+  #homemenucover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 85%;
+    z-index: 100;
+    height: 25vw;
+    overflow: hidden;
+  }
+  #HomeMainContainer > .MenuBar > * > #homelink {
+    border-left: 3px solid black;
+  }
+}
+@media screen and (min-width: 1080px) {
+  #homefootertext, #homefooterdate {
+    transform: scale(0.8);
+  }
+  #rsvp {
+    font-size: 2.3vw;
+  }
+}
+
+/*# sourceMappingURL=HomePageComponent.css.map */

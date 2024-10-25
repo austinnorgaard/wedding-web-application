@@ -1,4 +1,4 @@
-import './WeddingPartyPageComponent.scss';
+import '../../../Styles/CSS/WeddingPartyPageComponent.css';
 import React, { useEffect } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 
