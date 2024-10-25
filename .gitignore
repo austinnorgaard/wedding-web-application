@@ -6,3 +6,4 @@ package-lock.json
 dist
 src/.DS_Store
 jsconfig.json
+build
