@@ -1,0 +1,6 @@
+@use 'app';
+
+#AccountMainContainer > .MenuBar > * > #accountLink {
+    border-bottom-color: app.$secondary-color;
+    
+}

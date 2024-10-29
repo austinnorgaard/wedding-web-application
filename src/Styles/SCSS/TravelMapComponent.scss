@@ -1,3 +1,5 @@
+@use 'app';
+
 .leaflet-container {
     height: 50vh;
     width: 60%;
@@ -154,7 +156,7 @@ div.leaflet-popup-content {
 }
 
 .LocationButton:hover {
-    background-color: #c29e29;
+    background-color: app.$secondary-color;
     color: white !important;
 }
 

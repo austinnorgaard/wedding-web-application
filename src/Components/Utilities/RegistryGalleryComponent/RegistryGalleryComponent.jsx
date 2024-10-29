@@ -238,7 +238,7 @@ function RegistryGallery() {
   }
  
   useEffect(() => {
-    axios.get('https://weddingapi.norgaardfamily.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false', {
+    axios.get('https://young-waters-22531-150e7a718a54.herokuapp.com/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false', {
       
     })
   .then(function (response) {

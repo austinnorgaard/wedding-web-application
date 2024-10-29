@@ -1,0 +1,6 @@
+@use 'app';
+
+#LoginMainContainer > .MenuBar > * > #loginLink {
+    border-bottom-color: app.$secondary-color;
+    
+}

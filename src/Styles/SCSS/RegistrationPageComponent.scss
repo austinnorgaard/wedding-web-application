@@ -1,0 +1,6 @@
+@use 'app';
+
+#RegistrationMainContainer > .MenuBar > * > #registerlink {
+    border-bottom-color: app.$secondary-color;
+    
+}

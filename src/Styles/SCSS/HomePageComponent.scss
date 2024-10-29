@@ -1,3 +1,5 @@
+@use 'app';
+
 .HomePage {
     display: flex;
     flex-direction: column;
@@ -12,7 +14,7 @@
 }
 
 #HomeMainContainer > .MenuBar > * > #homelink {
-    border-bottom-color: #c29e29;
+    border-bottom-color: app.$secondary-color;
     
 }
 
@@ -53,7 +55,7 @@
 }
 
 #rsvpoverhead {
-    border-top: #c29e29 3px solid;
+    border-top: app.$secondary-color 3px solid;
     height: 20vh;
     display: flex;
     flex-direction: column;
@@ -65,7 +67,7 @@
 }
 
 #rsvpcont {
-    background-color: #c29e29;
+    background-color: app.$secondary-color;
     min-width: 15%;
     width: 250px;
     height: 40%;

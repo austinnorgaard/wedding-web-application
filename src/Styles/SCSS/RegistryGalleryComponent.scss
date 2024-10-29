@@ -1,3 +1,5 @@
+@use 'app';
+
 // || General Styles
 a {
     text-decoration: none !important;
@@ -16,7 +18,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: #c29e29 1px solid;
+    border: app.$secondary-color 1px solid;
     border-radius: 5px;
     padding: 1%;
 }
@@ -159,14 +161,14 @@ a {
 }
 
 .Container.RegistryItemList.Items > *:hover { // Registry Items on Hover
-    border-color: #c29e29;
+    border-color: app.$secondary-color;
     border-radius: 5px;
 }
 
 .Container.RegistryItemList.Main { // Registry Item List Main Container
     width: 90%;
     min-height: 100%;
-    border-color: #c29e29;
+    border-color: app.$secondary-color;
     border-width: 0.1vw;
     border-style: solid;
     background-color: white;
@@ -198,7 +200,7 @@ a {
     width: 5vw;
     transform: scale(1.5);
     z-index: 15;
-    border: #c29e29 1px solid;
+    border: app.$secondary-color 1px solid;
     border-radius: 5px;
     padding-bottom: 1%;
 }
@@ -211,11 +213,11 @@ a {
 }
 
 #SelectedPage > button {
-    border-bottom: #c29e29 1px solid;
+    border-bottom: app.$secondary-color 1px solid;
 }
 
 .Container.RegistryItemList.PageSelect > button:hover > button {
-    border-bottom: rgba(194, 158, 41, 0.5) 1px solid;
+    border-bottom: rgba(app.$secondary-color, 0.5) 1px solid;
 }
 
 .Container.RegistryProviderMain { // Registry Main Container
@@ -228,7 +230,7 @@ a {
 
 .Container.RegistryProviderInner { // Registry Inner Container
     width: 90%;
-    border-color: #c29e29;
+    border-color: app.$secondary-color;
     border-width: 0.1vw;
     border-style: solid;
     background-color: white;
@@ -258,8 +260,8 @@ a {
 }
 
 .Container.RegistryProviders.RegistryProviderList > * { // Registry Providers
-    border: 1px solid #c29e29;
-    box-shadow: 0px 0px 10px 0px #c29e29;
+    border: 1px solid app.$secondary-color;
+    box-shadow: 0px 0px 10px 0px app.$secondary-color;
     border-radius: 5px;
     transition: all 0.25s;
     text-decoration: none;
@@ -271,11 +273,11 @@ a {
 }
 
 .Container.RegistryProviders.RegistryProviderList > *:hover {
-    box-shadow: 0px 0px 10px 6px #c29e29;
+    box-shadow: 0px 0px 10px 6px app.$secondary-color;
 }
 
 .Container.RegistryProviders.RegistryProviderList > *:hover .RegistryProviders.Button { // Registry Provider Button on Hover
-    background-color: #c29e29;
+    background-color: app.$secondary-color;
 }
 
 // || Registry Provider Styles
@@ -297,7 +299,7 @@ a {
     margin-bottom: 10%;
     text-decoration: none;
     color: #000;
-    border: 0.2vw solid #c29e29;
+    border: 0.2vw solid app.$secondary-color;
     border-radius: 25px;
     padding: 4% 8% 4% 8%;
     text-decoration-color: transparent;
@@ -306,9 +308,9 @@ a {
 }
 
 .RegistryProviders.Button:hover { // Registry Provider Button on Hover
-    background-color: #c29e29 !important;
+    background-color: app.$secondary-color !important;
     color: white;
-    box-shadow: 0px 0px 6px 2px rgb(223, 189, 105, 0.4);
+    box-shadow: 0px 0px 6px 2px rgb(app.$secondary-color, 0.4);
 }
 
 .RegistryProviders.Logo { // Registry Provider Logo
@@ -346,7 +348,7 @@ a {
 button.Navigate { // Registry Provider Navigation Buttons
     background-color: rgb(255, 255, 255, .4);
     transition: all .25s;
-    border: solid #c29e29 1px;
+    border: solid app.$secondary-color 1px;
     border-radius: 5px;
     width: 2%;
     height: 5vh;
@@ -355,7 +357,7 @@ button.Navigate { // Registry Provider Navigation Buttons
 
 button.Navigate:hover {
     background-color: rgb(255, 255, 255, 1);
-    box-shadow: 0px 0px 10px 0px #c29e29;
+    box-shadow: 0px 0px 10px 0px app.$secondary-color;
 }
 
 // || Registry Sort Styles
@@ -428,12 +430,12 @@ input::before { // Registry Filters Checkmark Before
     transition: 120ms transform ease-in-out;
     box-shadow: inset 0.1em 0.1em var(--form-control-color);
     /* Windows High Contrast Mode */
-    background-color: #c29e29;
+    background-color: app.$secondary-color;
 }
 
 input:checked::before { // Registry Filters Checkmark After
     transform: scale(1);
-    color: #c29e29
+    color: app.$secondary-color
 }
 
 // || Item Styles
@@ -527,7 +529,7 @@ input:checked::before { // Registry Filters Checkmark After
     }
 
     .Container.RegistryItemList.Items > * { // Registry Item Container
-        border: 1px solid #c29e29;
+        border: 1px solid app.$secondary-color;
         align-items: center;
         flex-direction: row;
         height: fit-content;
@@ -583,9 +585,9 @@ input:checked::before { // Registry Filters Checkmark After
     }
 
     .RegistryProviders.Button:hover { // Registry Provider Button on Hover
-        background-color: #c29e29 !important;
+        background-color: app.$secondary-color !important;
         color: white;
-        box-shadow: 0px 0px 6px 2px #c29e29;
+        box-shadow: 0px 0px 6px 2px app.$secondary-color;
     }
     
     .RegistryProviders.Logo#amazon { // Amazon Provider Logo
@@ -655,7 +657,7 @@ input:checked::before { // Registry Filters Checkmark After
         align-items: center;
         justify-content: center;
         visibility: visible;
-        border:#c29e29 solid 1px;
+        border:app.$secondary-color solid 1px;
         border-radius: 5px;
         width: 50%;
         margin-left: 2%;
@@ -665,9 +667,9 @@ input:checked::before { // Registry Filters Checkmark After
     }
 
     button.RegistryItemList.Filters#filterClicked { // Registry Item Filter Button (Clicked)
-        background-color: #c29e29;
+        background-color: app.$secondary-color;
         color: white;
-        box-shadow: 0px 0px 6px 2px #c29e29;
+        box-shadow: 0px 0px 6px 2px app.$secondary-color;
     }
 
     h1.Filters { // Registry Item Filter Header Text
@@ -741,7 +743,7 @@ input:checked::before { // Registry Filters Checkmark After
    .Container.RegistryItemList.Inner {
     max-height: 100vh !important;
     overflow: hidden;
-    border-bottom: #c29e29 solid 1px;
+    border-bottom: app.$secondary-color solid 1px;
    }
 
    .Container.RegistryItemList.Items {

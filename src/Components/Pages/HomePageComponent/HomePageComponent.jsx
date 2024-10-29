@@ -23,7 +23,7 @@ function HomePage() {
         </div>
         <div id="rsvpoverhead">
           <Link to="/rsvp" id="rsvpcont">
-            <Link to="/rsvp" id="rsvp">RSVP</Link>
+            <button to="/rsvp" id="rsvp">RSVP</button>
           </Link>
         </div>
         <div id="rsvpsectioncont">

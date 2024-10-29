@@ -1,3 +1,5 @@
+@use 'app';
+
 .MenuBar {
     display: flex;
     flex-direction: column;
@@ -34,7 +36,7 @@
 }
 
 .MenuBarMainContainer > a:hover {
-    border-bottom-color:rgba(194, 158, 41, 0.5);
+    border-bottom-color:rgba(app.$secondary-color, 0.5);
 }
 
 #menuButton {
@@ -54,7 +56,7 @@
 
     .MenuBar#menuClicked {
         position: absolute;
-        background-color: #c4d9bc;
+        background-color: app.$primary-color;
         width: 100%;
         height: 100%;
         display: flex;
@@ -118,7 +120,7 @@
         display: block;
         margin-left: 10px;
         padding-left: 5px;
-        border-left: 3px solid goldenrod;
+        border-left: 3px solid app.$secondary-color;
     }
 }
 

@@ -1,5 +1,7 @@
+@use 'app';
+
 #TravelMainContainer > .MenuBar > * > #travellink {
-    border-bottom-color: #c29e29;
+    border-bottom-color: app.$secondary-color;
 }
 
 .ContentContainer {
@@ -15,7 +17,7 @@
     height: 50vh;
     margin-bottom: 6%;
     margin-left: 1%;
-    border: 2px goldenrod solid;
+    border: 2px app.$secondary-color solid;
     background-color: white;
 }
 
@@ -33,7 +35,7 @@
     height: 50vh;
     margin-bottom: 6%;
     margin-right: 1%;
-    border: 2px goldenrod solid;
+    border: 2px app.$secondary-color solid;
     background-color: white;
 }
 

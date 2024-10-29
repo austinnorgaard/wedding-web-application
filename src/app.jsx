@@ -1,4 +1,4 @@
-import './Styles/CSS/App.css';
+import './Styles/CSS/app.css';
 
 import React from 'react';
 
@@ -51,6 +51,21 @@ function App() {
   // eslint-disable-next-line 
   const rsvpRoute = () => {
     let path = '/rsvp';
+    navigate(path);
+  }
+  // eslint-disable-next-line 
+  const loginRoute = () => {
+    let path = '/login';
+    navigate(path);
+  }
+  // eslint-disable-next-line 
+  const registrationRoute = () => {
+    let path = '/register';
+    navigate(path);
+  }
+  // eslint-disable-next-line 
+  const accountRoute = () => {
+    let path = '/account';
     navigate(path);
   }
   

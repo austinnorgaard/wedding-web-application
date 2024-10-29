@@ -5,6 +5,9 @@
       "appLocation": ".",
       "outputLocation": "build",
       "dataApiLocation": "backend",
+      "platform": {
+        "apiRuntime": "node:20"
+      },
       "appBuildCommand": "npm run scss src/Styles/SCSS:src/Styles/CSS && npm run build",
       "apiBuildCommand": "npm run build --if-present",
       "run": "npm run start",

@@ -1,3 +1,5 @@
+@use 'app';
+
 #TravelListMainContainer {
     display: flex;
     flex-direction: column;
@@ -16,7 +18,7 @@
 .TravelListLocation {
     display: flex;
     flex-direction: row;
-    border: 1px goldenrod solid;
+    border: 1px app.$secondary-color solid;
     text-decoration: none;
     color: #000;
     overflow: hidden;
@@ -79,7 +81,7 @@
     padding: 3%;
     min-width: fit-content;
     text-align: center;
-    border: 1px goldenrod solid;
+    border: 1px app.$secondary-color solid;
     border-radius: 15px;
     transition: all 0.25s;
     color: black;
@@ -87,7 +89,7 @@
 }
 
 .TravelListLocationButton:hover {
-    background-color: goldenrod;
+    background-color: app.$secondary-color;
     color: white;
 }
 

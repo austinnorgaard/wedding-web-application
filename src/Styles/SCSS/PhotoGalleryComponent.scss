@@ -1,3 +1,5 @@
+@use 'app';
+
 .PhotoGallery {
     display: flex;
     flex-direction: column;
@@ -23,7 +25,7 @@
     align-items: center;
     margin-bottom: 2%;
     color: black;
-    border: #c29e29 2px solid;
+    border: app.$secondary-color 2px solid;
     background-color: white;
 }
 

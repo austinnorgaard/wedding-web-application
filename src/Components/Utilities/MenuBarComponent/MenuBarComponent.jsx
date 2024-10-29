@@ -1,14 +1,16 @@
-import { useState, React } from 'react';
+import { useState, React, useEffect } from 'react';
 import '../../../Styles/CSS/MenuBarComponent.css';
 import { Link } from 'react-router-dom';
 import menuicon from '../../../Resources/Photos/menu-icon.svg';
 import exiticon from '../../../Resources/Photos/exit.svg';
+import axios from 'axios';
 
 function MenuBar() {
   const [main_class, setMainClass] = useState ("menuUnclicked");
   const [button, setButtonClass] = useState ("unclicked");
   const [click, setClicked] = useState (false);
   const [icon, setIcon] = useState (menuicon);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   // Toggle button/menu
   function updateMenu () {
@@ -25,6 +27,15 @@ function MenuBar() {
     setClicked (!click);
 }
 
+useEffect (() => {
+  axios.get(`http://localhost:8080/users`)
+  .then((res) => {
+    setLoggedIn(res.data[0].isAdmin);
+  })
+},[loggedIn]);
+
+console.log(loggedIn);
+
   return (
     <div className="MenuBar" id={main_class}>
       
@@ -39,6 +50,12 @@ function MenuBar() {
         <Link onClick={updateMenu} to="/travel" id="travellink">Travel</Link>
         <Link onClick={updateMenu} to="/registry" id="registrylink">Registry</Link>
         <Link onClick={updateMenu} to="/rsvp" id="rsvplink">RSVP</Link>
+        {!loggedIn &&
+          <Link onClick={updateMenu} to="/login" id="loginlink">Login</Link>
+        }
+        {loggedIn && 
+          <Link onClick={updateMenu} to="/account" id="accountlink">Account</Link>
+        }
       </div>
     </div>
   );

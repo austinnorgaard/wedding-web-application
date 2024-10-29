@@ -16,6 +16,9 @@ import Header from './Components/Utilities/HeaderComponent/HeaderComponent';
 import Footer from './Components/Utilities/FooterComponent/FooterComponent';
 import VenmoPage from './Components/Pages/VenmoPageComponent/VenmoPageComponent';
 import RSVPPage from './Components/Pages/RSVPPageComponent/RSVPPageComponent';
+import LoginPage from './Components/Pages/LoginPageComponent/LoginPageComponent';
+import AccountPage from './Components/Pages/AccountPageComponent/AccountPageComponent';
+import RegistrationPage from './Components/Pages/RegistrationPageComponent/RegistrationPageComponent';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +56,18 @@ const router = createBrowserRouter([
   {
     path: "/rsvp",
     element: <RSVPPage/>,
+  },
+  {
+    path: "/login",
+    element: <LoginPage/>,
+  },
+  {
+    path: "/register",
+    element: <RegistrationPage/>,
+  },
+  {
+    path: "/account",
+    element: <AccountPage/>,
   }
 ]);
 

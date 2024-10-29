@@ -1,3 +1,5 @@
+@use 'app';
+
 .StoryBoard {
     width: 100%;
     height: fit-content;
@@ -10,7 +12,7 @@
 #StoryBoardMainContainer {
     width: 90%;
     height: 100%;
-    border: 2px goldenrod solid;
+    border: 2px app.$secondary-color solid;
     background-color: white;
     display: flex;
     flex-direction: column;
