@@ -36,3 +36,14 @@ export async function createUser(userName, userEmail, userPhoneNumber, userIsAdm
     const id = result.insertId
     return getUser(id)
 }
+
+export async function login (userName) {
+    const [rows] = await pool.query(
+      `SELECT password 
+      FROM user 
+      WHERE userName = ?`, 
+      [userName]
+    );
+
+    return rows[0].password
+};

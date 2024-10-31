@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import menuicon from '../../../Resources/Photos/menu-icon.svg';
 import exiticon from '../../../Resources/Photos/exit.svg';
 import axios from 'axios';
+import useToken from '../TokenComponent/TokenComponent';
 
 function MenuBar() {
   const [main_class, setMainClass] = useState ("menuUnclicked");
@@ -11,6 +12,8 @@ function MenuBar() {
   const [click, setClicked] = useState (false);
   const [icon, setIcon] = useState (menuicon);
   const [loggedIn, setLoggedIn] = useState(false);
+  const { token } = useToken();
+  const [localToken, setLocalToken] = useState();
 
   // Toggle button/menu
   function updateMenu () {
@@ -30,11 +33,14 @@ function MenuBar() {
 useEffect (() => {
   axios.get(`http://localhost:8080/users`)
   .then((res) => {
-    setLoggedIn(res.data[0].isAdmin);
+    try {
+      setLoggedIn(res.data[0].isAdmin);
+    } catch (e) {
+      setLoggedIn(false)
+    }
   })
-},[loggedIn]);
-
-console.log(loggedIn);
+  setLocalToken(localStorage.getItem("token"))
+},[loggedIn, token, localToken]);
 
   return (
     <div className="MenuBar" id={main_class}>
@@ -50,10 +56,10 @@ console.log(loggedIn);
         <Link onClick={updateMenu} to="/travel" id="travellink">Travel</Link>
         <Link onClick={updateMenu} to="/registry" id="registrylink">Registry</Link>
         <Link onClick={updateMenu} to="/rsvp" id="rsvplink">RSVP</Link>
-        {!loggedIn &&
+        {(!localToken || localToken === "undefined" || localToken === "invalid" || localToken === "null" || localToken === undefined) &&
           <Link onClick={updateMenu} to="/login" id="loginlink">Login</Link>
         }
-        {loggedIn && 
+        {(localToken && localToken !== "undefined" && localToken !== "invalid" && localToken !== "null" && localToken !== undefined) && 
           <Link onClick={updateMenu} to="/account" id="accountlink">Account</Link>
         }
       </div>

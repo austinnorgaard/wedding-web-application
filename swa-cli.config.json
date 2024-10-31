@@ -2,17 +2,11 @@
   "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
   "configurations": {
     "wedding": {
-      "appLocation": ".",
-      "outputLocation": "build",
-      "dataApiLocation": "backend",
-      "platform": {
-        "apiRuntime": "node:20"
-      },
-      "appBuildCommand": "npm run scss src/Styles/SCSS:src/Styles/CSS && npm run build",
-      "apiBuildCommand": "npm run build --if-present",
-      "run": "npm run start",
-      "appDevserverUrl": "http://localhost:3000",
-      "apiDevserverUrl": "http://localhost:8080",
+      "appLocation": "./",
+      "outputLocation": "./build",
+      "apiLocation": "./backend",
+      "apiVersion": "20",
+      "apiLanguage": "node",
       "githubActionWorkflowLocation": "./.github/workflows/prod-site-upload.yml",
       "appName": "wedding",
       "resourceGroup": "wedding_group"

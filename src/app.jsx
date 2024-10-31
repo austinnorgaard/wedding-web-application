@@ -68,7 +68,6 @@ function App() {
     let path = '/account';
     navigate(path);
   }
-  
 
   return (
     <div className="App" id="app">
