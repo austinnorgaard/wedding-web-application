@@ -3,7 +3,7 @@ import cors from 'cors'
 import bcrypt from 'bcrypt'
 import crypto from 'crypto'
 
-import { getUser, getUsers, createUser, login } from './database.js'
+import { getUser, getUsers, createUser, login, getGuests, updateGuestCount } from './database.js'
 
 const app = express()
 app.use(cors())
@@ -29,6 +29,17 @@ app.get("/users/:id", async (req, res) => {
 app.get("/users", async (req, res) => {
     const users = await getUsers()
     res.send(users)
+})
+
+app.get("/guests", async (req, res) => {
+    const guests = await getGuests()
+    res.send(guests)
+})
+
+app.post("/guests", async (req,res) => {
+    const { guestName, guestCount } = req.body
+    const guest = updateGuestCount(guestName, guestCount)
+    res.send(200)
 })
 
 app.post("/users", async (req,res) => {

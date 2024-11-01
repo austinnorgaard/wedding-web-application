@@ -51,7 +51,8 @@ useEffect (() => {
         <Link onClick={updateMenu} to="/" id="homelink">Home</Link>
         <Link onClick={updateMenu} to="/story" id="storylink">Our Story</Link>
         <Link onClick={updateMenu} to="/photos" id="photoslink">Photos</Link>
-        <Link onClick={updateMenu} to="/wedding-party" id="weddingpartylink">Wedding Party</Link>
+        {//<Link onClick={updateMenu} to="/wedding-party" id="weddingpartylink">Wedding Party</Link>
+        }
         <Link onClick={updateMenu} to="/faq" id="faqlink">FAQs</Link>
         <Link onClick={updateMenu} to="/travel" id="travellink">Travel</Link>
         <Link onClick={updateMenu} to="/registry" id="registrylink">Registry</Link>

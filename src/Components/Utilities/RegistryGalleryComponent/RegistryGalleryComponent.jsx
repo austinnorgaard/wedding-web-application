@@ -238,9 +238,7 @@ function RegistryGallery() {
   }
  
   useEffect(() => {
-    axios.get('http://localhost:9965/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false', {
-      
-    })
+    axios.get('http://localhost:9965/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false')
   .then(function (response) {
     try {
       let maxItems = response.data.result.filteredItemTotal;
@@ -279,8 +277,6 @@ function RegistryGallery() {
     }})
   }, // eslint-disable-next-line
   [load]);
-
-  console.log(storeItems)
 
   return (
     <div className="MainContainer Registry" id="content">

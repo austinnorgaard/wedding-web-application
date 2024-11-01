@@ -553,7 +553,7 @@ h1.Filters {
   width: 100%;
 }
 
-input {
+.Container.Filters.CheckRow input {
   font-size: 16px;
   -webkit-appearance: none;
   appearance: none;
@@ -572,7 +572,7 @@ input {
   place-content: center;
 }
 
-input::before {
+.Container.Filters.CheckRow input::before {
   content: "";
   width: 0.8vw;
   height: 0.8vw;
@@ -585,7 +585,7 @@ input::before {
   background-color: #c29e29;
 }
 
-input:checked::before {
+.Container.Filters.CheckRow input:checked::before {
   transform: scale(1);
   color: #c29e29;
 }

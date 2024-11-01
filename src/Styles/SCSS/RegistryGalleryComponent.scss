@@ -401,7 +401,7 @@ h1.Filters { // Registry Filter Headers
     width: 100%;
 }
 
-input { // Registry Filters Checkbox
+.Container.Filters.CheckRow input { // Registry Filters Checkbox
     font-size: 16px;
     -webkit-appearance: none;
     appearance: none;
@@ -420,7 +420,7 @@ input { // Registry Filters Checkbox
     place-content: center;
 }
 
-input::before { // Registry Filters Checkmark Before
+.Container.Filters.CheckRow input::before { // Registry Filters Checkmark Before
     content: "";
     width: 0.8vw;
     height: 0.8vw;
@@ -433,7 +433,7 @@ input::before { // Registry Filters Checkmark Before
     background-color: app.$secondary-color;
 }
 
-input:checked::before { // Registry Filters Checkmark After
+.Container.Filters.CheckRow input:checked::before { // Registry Filters Checkmark After
     transform: scale(1);
     color: app.$secondary-color
 }

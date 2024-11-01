@@ -4,3 +4,58 @@
     border-bottom-color: app.$secondary-color;
     
 }
+
+.AccountPage {
+    width: 100%;
+    height: fit-content;
+}
+
+#AccountMainContainer {
+    width: 100%;
+    min-height: 30vh;
+    height: fit-content;
+}
+
+#account-wrapper {
+    width: 72%;
+    min-height: 30vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-left: 14%;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid app.$secondary-color;
+    margin-bottom: 100px;
+}
+
+#account-wrapper h1 {
+    border-bottom: 1px app.$secondary-color solid;
+    text-align: center;
+    width: 100%;
+}
+
+#account-tables {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 30vh;
+    height: 100%;
+}
+
+#account-selections {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    min-height: 30vh;
+    border-right: 1px app.$secondary-color solid;
+}
+
+#account-data {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+}

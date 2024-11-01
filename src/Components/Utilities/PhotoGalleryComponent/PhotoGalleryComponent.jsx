@@ -25,8 +25,6 @@ function PhotoGallery() {
       responses.forEach((resp) => {
         imagesResponse.push(resp.data.Images);
       })
-    })
-    .then(function () {
     }).then (function () {
       // eslint-disable-next-line
       for (let i = 0; i < imagesResponse.length; i++) {
@@ -45,8 +43,6 @@ function PhotoGallery() {
     })
   }, // eslint-disable-next-line
   [load]);
-
-  console.log(imageArray);
 
   return (
     <div className="PhotoGallery">
