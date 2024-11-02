@@ -1,0 +1,180 @@
+@use 'app';
+
+#RSVPMainContainer > .MenuBar > * > #rsvplink {
+    border-bottom-color: app.$secondary-color;
+}
+
+.RSVPPage {
+    width: 100%;
+    height: fit-content;
+}
+
+#RSVPMainContainer {
+    width: 100%;
+    height: fit-content;
+}
+
+#guest-list-wrapper {
+    width: 72%;
+    height: 100%;
+    max-height: 100vh;
+    overflow-y: scroll;
+    margin-left: 14%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    text-align: center;
+    border: 2px solid app.$secondary-color;
+}
+
+#RSVPMainContainer h1 {
+    background-color: white;
+    width: 72%;
+    margin-left: 14%;
+    border-top: 2px solid app.$secondary-color;
+    border-right: 2px solid app.$secondary-color;
+    border-left: 2px solid app.$secondary-color;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#guest-list-wrapper ul {
+    margin: 0;
+    width: 100%;
+    min-height: 60px;
+    height: fit-content;
+    text-align: start;
+    border-bottom: 1px solid app.$secondary-color;
+}
+
+#guest-list-wrapper ul:first-of-type {
+    border-top: 1px solid app.$secondary-color;
+}
+
+.guestListing {
+    color: black;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#guestName {
+    margin-left: 4%;
+}
+
+button.guestRSVP {
+    margin-right: 4%;
+    border: 1px solid app.$secondary-color;
+    border-radius: 15px;
+    padding: 0 0;
+    transition: all 0.25s;
+    width: 100px;
+    height: 50px;
+}
+
+button.guestRSVP:hover {
+    background-color: app.$secondary-color;
+    color: white;
+    box-shadow: 0px 0px 6px 2px rgb(app.$secondary-color, 0.4);
+}
+
+#rsvp-error-wrapper {
+    height: 100%;
+    width: min-content;
+    margin-right: 4%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#rsvp-error-wrapper button {
+    width: 100px;
+    margin-right: 0;
+}
+
+#rsvp-error-wrapper p{
+    top: 0;
+    width: 150px;
+    color: red;
+}
+
+#completed-rsvp-wrapper {
+    margin-right: 4%;
+}
+
+#verify-guest-wrapper {
+    display: flex;
+    width: max-content;
+    max-width: 100%;
+    height: 60px;
+    margin: 0;
+    flex-direction: row;
+    align-items: center;
+}
+
+#verify-guest-wrapper label {
+    width: 55%;
+    margin-right: 15px;
+}
+
+#verify-guest-wrapper input {
+    margin-right: 10px;
+}
+
+#guest-count-wrapper {
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#guest-attendance-wrapper {
+    display: flex;
+    width: 50%;
+    height: 60px;
+    margin: 0;
+    flex-direction: row;
+    align-items: center;
+}
+
+#guest-attendance-wrapper #yes, #guest-attendance-wrapper #no {
+    padding-left: 5px;
+}
+
+#guest-attendance-wrapper #no, #guest-count-wrapper input {
+    margin-right: 10px;
+}
+
+#guest-attendance-wrapper input, #guest-count-wrapper input {
+    margin-left: 15px;
+}
+
+#guest-attendance-wrapper button, #verify-guest-wrapper button, #guest-count-wrapper button {
+    margin-right: 2%;
+    border: 1px solid app.$secondary-color;
+    border-radius: 15px;
+    padding: 0 0;
+    transition: all 0.25s;
+    width: 80px;
+    height: 40px; 
+}
+
+#guest-attendance-wrapper button:hover, #verify-guest-wrapper button:hover, #guest-count-wrapper button:hover {
+    background-color: app.$secondary-color;
+    color: white;
+    box-shadow: 0px 0px 6px 2px rgb(app.$secondary-color, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+    #RSVPMainContainer > .MenuBar > * > #rsvplink {
+        border-left: 3px solid black;
+    }
+}

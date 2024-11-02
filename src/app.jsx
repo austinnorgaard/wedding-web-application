@@ -1,4 +1,4 @@
-import './app.scss';
+import './Styles/CSS/app.css';
 
 import React from 'react';
 
@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePageComponent/HomePageComponent';
 
 function App() {
-
   let navigate = useNavigate();
   // eslint-disable-next-line 
   const homeRoute = () => {
@@ -54,7 +53,21 @@ function App() {
     let path = '/rsvp';
     navigate(path);
   }
-  
+  // eslint-disable-next-line 
+  const loginRoute = () => {
+    let path = '/login';
+    navigate(path);
+  }
+  // eslint-disable-next-line 
+  const registrationRoute = () => {
+    let path = '/register';
+    navigate(path);
+  }
+  // eslint-disable-next-line 
+  const accountRoute = () => {
+    let path = '/account';
+    navigate(path);
+  }
 
   return (
     <div className="App" id="app">

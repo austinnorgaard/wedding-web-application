@@ -1,6 +1,6 @@
 import { useState, React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './TravelMapComponent.scss';
+import '../../../Styles/CSS/TravelMapComponent.css';
 import postlewaitImg from "../../../Resources/Photos/postlewaits.png"
 import markerImg from '../../../Resources/Photos/marker.png'
 import hotelpin from '../../../Resources/Photos/hotelpin.png'

@@ -1,4 +1,4 @@
-import './VenmoComponent.scss';
+import '../../../Styles/CSS/VenmoComponent.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import venmoqr from "../../../Resources/Photos/venmoqr.jpg";

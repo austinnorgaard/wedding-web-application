@@ -1,6 +1,6 @@
 import { useState, React } from 'react';
 import { Link } from 'react-router-dom';
-import './TravelListComponent.scss';
+import '../../../Styles/CSS/TravelListComponent.css';
 import hotels from '../Leaflet/hotels.json'
 import restaurants from '../Leaflet/food.json'
 import fun from '../Leaflet/thingsToDo.json'

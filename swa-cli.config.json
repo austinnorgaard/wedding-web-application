@@ -1,0 +1,15 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "wedding": {
+      "appLocation": "./",
+      "outputLocation": "./build",
+      "apiLocation": "./backend",
+      "apiVersion": "20",
+      "apiLanguage": "node",
+      "githubActionWorkflowLocation": "./.github/workflows/prod-site-upload.yml",
+      "appName": "wedding",
+      "resourceGroup": "wedding_group"
+    }
+  }
+}

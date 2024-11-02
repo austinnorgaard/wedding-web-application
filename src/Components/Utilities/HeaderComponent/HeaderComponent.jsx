@@ -1,4 +1,4 @@
-import './HeaderComponent.scss';
+import '../../../Styles/CSS/HeaderComponent.css';
 import React from 'react';
 import leaves from '../../../Resources/Photos/bgleaves.png';
 import logo from '../../../Resources/Photos/logo.png';

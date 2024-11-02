@@ -1,4 +1,4 @@
-import './FAQListComponent.scss';
+import '../../../Styles/CSS/FAQListComponent.css';
 import React from 'react';
 import faqlist from "../../../Resources/Other/faqlist.txt";
 import { useState } from 'react';

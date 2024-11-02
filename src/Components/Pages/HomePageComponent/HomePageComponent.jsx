@@ -1,10 +1,14 @@
-import './HomePageComponent.scss';
-import React from 'react';
+import '../../../Styles/CSS/HomePageComponent.css';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import bgimage from '../../../Resources/Photos/bg.jpg';
 
 function HomePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
+
   return (
     <div className="HomePage">
       <div className="MainContainer" id="HomeMainContainer">
@@ -19,7 +23,7 @@ function HomePage() {
         </div>
         <div id="rsvpoverhead">
           <Link to="/rsvp" id="rsvpcont">
-            <Link to="/rsvp" id="rsvp">RSVP</Link>
+            <button to="/rsvp" id="rsvp">RSVP</button>
           </Link>
         </div>
         <div id="rsvpsectioncont">

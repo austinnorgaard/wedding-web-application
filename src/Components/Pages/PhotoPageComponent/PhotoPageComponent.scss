@@ -1,9 +1,0 @@
-#PhotoMainContainer > .MenuBar > * > #photoslink {
-    border-bottom-color: #c29e29;
-}
-
-@media screen and (max-width: 768px) {
-    #PhotoMainContainer > .MenuBar > * > #photoslink {
-        border-left: 3px solid black;
-    }
-}

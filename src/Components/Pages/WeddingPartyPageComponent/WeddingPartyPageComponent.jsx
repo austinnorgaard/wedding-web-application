@@ -1,8 +1,12 @@
-import './WeddingPartyPageComponent.scss';
-import React from 'react';
+import '../../../Styles/CSS/WeddingPartyPageComponent.css';
+import React, { useEffect } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 
 function WeddingPartyPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
+
   return (
     <div className="WeddingPartyPage">
       
