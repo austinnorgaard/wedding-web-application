@@ -19,7 +19,11 @@ function RSVPPage() {
       setIsVerified([2, isVerified[1]])
     }
     else {
-      setIsVerified([-1, -1])
+      axios.post("http://localhost:8080/guests", { guestName: guests[isVerified[1]].name, guestCount: 0})
+      .catch ((err) => {
+        console.log("Error: " + err)
+      })
+      setIsVerified([3, isVerified[1]])
     }
   }
 
@@ -43,7 +47,7 @@ function RSVPPage() {
       setIsVerified([1, isVerified[1]])
     }
     else {
-      setIsVerified([-1, -1])
+      setIsVerified([-1, isVerified[1]])
     }
   }
 
@@ -93,11 +97,8 @@ function RSVPPage() {
               <p id="guestName">{guest.name}</p>
               {isVerified[0] > -1 ? 
                 id === isVerified[1] ? 
-                  <div>
-                    <p>Please Try Again!</p>
-                  </div> &&
                   isVerified[0] === 0 ?
-                    <form onSubmit={handleVerify}>
+                    <form onSubmit={handleVerify} id="verify-guest-wrapper">
                       <label>Please verify your Phone Number</label>
                       <input onChange={e => setVerificationVal(e.target.value)}/>
                       <button type="submit">Save</button>
@@ -105,16 +106,18 @@ function RSVPPage() {
                     </form> 
                     : 
                   isVerified[0] === 1 ?
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} id="guest-attendance-wrapper">
                       <label>Will your party be attending?</label>
                       <input type="radio" value="yes" name="selection" onChange={e => setSelection(e.target.value)}/>
+                      <label id="yes">Yes</label>
                       <input type="radio" value="no" name="selection" onChange={e => setSelection(e.target.value)}/>
-                      <button type="submit">Save</button>
-                      <button onClick={() => setIsVerified([-1, -1])}>Cancel</button>
+                      <label id="no">No</label>
+                      <button id="submit" type="submit">Save</button>
+                      <button id="cancel" onClick={() => setIsVerified([-1, -1])}>Cancel</button>
                     </form> 
                     : 
                     isVerified[0] === 2 ? 
-                    <form onSubmit={handleNumber}>
+                    <form onSubmit={handleNumber} id="guest-count-wrapper">
                         <label>How many (including yourself) will be attending?</label>
                         <input type="number" onChange={e => setNumberOfGuests(e.target.value)}/>
                         <button type="submit">Save</button>
@@ -122,10 +125,16 @@ function RSVPPage() {
                     </form> 
                     : 
                     isVerified[0] === 3 ?
-                    <div>
+                    <div id="completed-rsvp-wrapper">
                       <p>Thank you!</p>
                     </div>
-                    :null: null:
+                    :null: null :
+                  isVerified[1] !== -1 && id === isVerified[1] ?
+                  <div id="rsvp-error-wrapper">
+                    <p>Please Try Again!</p>
+                    <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
+                  </div>
+                  :
                   <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
               }
             </ul>

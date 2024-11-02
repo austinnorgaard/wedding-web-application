@@ -187,6 +187,23 @@ body {
   margin-bottom: 100px;
 }
 
+#signout {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  border: 1px solid #c29e29;
+  border-radius: 15px;
+  padding: 3% 3%;
+  color: black;
+  transition: all 0.25s;
+}
+
+#signout:hover {
+  background-color: #c29e29;
+  color: white;
+  box-shadow: 0px 0px 6px 2px rgba(194, 158, 41, 0.4);
+}
+
 #account-wrapper h1 {
   border-bottom: 1px #c29e29 solid;
   text-align: center;
@@ -208,6 +225,7 @@ body {
   height: 100%;
   min-height: 30vh;
   border-right: 1px #c29e29 solid;
+  position: relative;
 }
 
 #account-data {
@@ -215,6 +233,7 @@ body {
   flex-direction: column;
   width: 70%;
   height: 100%;
+  margin-left: 5%;
 }
 
 /*# sourceMappingURL=AccountPageComponent.css.map */

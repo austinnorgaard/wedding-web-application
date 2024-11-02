@@ -30,6 +30,23 @@
     margin-bottom: 100px;
 }
 
+#signout {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    border: 1px solid app.$secondary-color;
+    border-radius: 15px;
+    padding: 3% 3%;
+    color: black;
+    transition: all 0.25s;
+}
+
+#signout:hover {
+    background-color: app.$secondary-color;
+    color: white;
+    box-shadow: 0px 0px 6px 2px rgb(app.$secondary-color, 0.4);
+}
+
 #account-wrapper h1 {
     border-bottom: 1px app.$secondary-color solid;
     text-align: center;
@@ -51,6 +68,7 @@
     height: 100%;
     min-height: 30vh;
     border-right: 1px app.$secondary-color solid;
+    position: relative;
 }
 
 #account-data {
@@ -58,4 +76,5 @@
     flex-direction: column;
     width: 70%;
     height: 100%;
+    margin-left: 5%;
 }

@@ -20,6 +20,15 @@ export async function getUser(userId) {
     return rows[0]   
 }
 
+export async function getUserId(userName) {
+    const [rows] = await pool.query(`
+    SELECT userId 
+    FROM user
+    WHERE userName = ?
+    `, [userName])
+    return rows[0]  
+}
+
 export async function getUsers() {
     const [rows] = await pool.query(`
     SELECT * 

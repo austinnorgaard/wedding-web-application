@@ -18,7 +18,9 @@ function LoginPage() {
     try {
       axios.post(`http://localhost:8080/login`, {userName: userName, userPassword: userPassword})
       .then((res) => {
+        console.log(res.data)
         setToken(res.data)
+        localStorage.setItem("id", res.data.id)
       })
       .then(() => {
         if (localStorage.getItem("token") !== 'invalid' && localStorage.getItem("token") !== null) {

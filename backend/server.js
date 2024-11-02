@@ -3,7 +3,7 @@ import cors from 'cors'
 import bcrypt from 'bcrypt'
 import crypto from 'crypto'
 
-import { getUser, getUsers, createUser, login, getGuests, updateGuestCount } from './database.js'
+import { getUser, getUserId, getUsers, createUser, login, getGuests, updateGuestCount } from './database.js'
 
 const app = express()
 app.use(cors())
@@ -23,6 +23,7 @@ app.use(loggingMiddleware)
 app.get("/users/:id", async (req, res) => {
     const id = req.params.id
     const user = await getUser(id)
+    console.log(id)
     res.send(user)
 })
 
@@ -80,14 +81,16 @@ app.use((err, req, res, next) => {
 app.post("/login", async (req, res) => {
     var token = "invalid"
     const { userName, userPassword } = req.body
-    bcrypt.compare(userPassword,  await login(userName).catch((err) => {console.log("Error: " + err)}), (err, result) => {
+    const userId = await getUserId(userName)
+    bcrypt.compare(userPassword,  await login(userName).catch((err) => {console.log("Error: " + err)}), async (err, result) => {
         if (err) {
             token = "invalid"
         }
     
         if (result) {
             res.send({
-                token: crypto.randomBytes(16).toString('hex')
+                token: crypto.randomBytes(16).toString('hex'),
+                id: userId.userId
             })
         } else {
             res.send({
