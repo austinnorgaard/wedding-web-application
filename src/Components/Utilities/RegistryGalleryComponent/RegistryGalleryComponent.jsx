@@ -6,6 +6,8 @@ import amazonlogo from "../../../Resources/Photos/amazonlogo.webp"
 import venmoqr from "../../../Resources/Photos/venmoqr.jpg"
 import axios from "axios";
 
+const HOST = "localhost"
+
 function RegistryGallery() {
   const [items, setItems] = useState([]);
   const [filterMenuID, setFilterMenuID] = useState ("filterUnclicked");
@@ -238,7 +240,7 @@ function RegistryGallery() {
   }
  
   useEffect(() => {
-    axios.get('http://35.93.190.42:9965/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false')
+    axios.get(`http://${HOST}:9965/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false`)
   .then(function (response) {
     try {
       let maxItems = response.data.result.filteredItemTotal;

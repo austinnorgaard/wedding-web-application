@@ -5,6 +5,8 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import useToken from '../../Utilities/TokenComponent/TokenComponent';
 
+const HOST = "localhost"
+
 function RegistrationPage() {
   const [userName, setUserName] = useState();
   const [userEmail, setUserEmail] = useState();
@@ -15,12 +17,12 @@ function RegistrationPage() {
   const { token, setToken } = useToken();
   const [localToken, setLocalToken] = useState();
   const [isExisting, setIsExisting] = useState(false);
-  const [isMissing, setIsMissing] = useState(false)
+  const [isMissing, setIsMissing] = useState(false);
 
   async function handleSubmit (e) {
     e.preventDefault();
     try {
-      axios.post(`http://35.93.190.42:8080/users`, {userName: userName, userEmail: userEmail, userPhoneNumber: userPhoneNumber, userIsAdmin: 0, userPassword: userPassword})
+      axios.post(`http://${HOST}:8080/users`, {userName: userName, userEmail: userEmail, userPhoneNumber: userPhoneNumber, userIsAdmin: 0, userPassword: userPassword})
       .then((res) => {
         setToken(res.data)
       })
