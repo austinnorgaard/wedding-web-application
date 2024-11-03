@@ -31,7 +31,7 @@ function MenuBar() {
 }
 
 useEffect (() => {
-  axios.get(`http://localhost:8080/users`)
+  axios.get(`http://35.93.190.42:8080/users`)
   .then((res) => {
     try {
       setLoggedIn(res.data[0].isAdmin);

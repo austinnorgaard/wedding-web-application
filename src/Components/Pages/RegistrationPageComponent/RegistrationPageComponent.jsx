@@ -20,7 +20,7 @@ function RegistrationPage() {
   async function handleSubmit (e) {
     e.preventDefault();
     try {
-      axios.post(`http://localhost:8080/users`, {userName: userName, userEmail: userEmail, userPhoneNumber: userPhoneNumber, userIsAdmin: 0, userPassword: userPassword})
+      axios.post(`http://35.93.190.42:8080/users`, {userName: userName, userEmail: userEmail, userPhoneNumber: userPhoneNumber, userIsAdmin: 0, userPassword: userPassword})
       .then((res) => {
         setToken(res.data)
       })

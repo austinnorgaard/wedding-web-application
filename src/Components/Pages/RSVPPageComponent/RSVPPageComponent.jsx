@@ -59,7 +59,7 @@ function RSVPPage() {
   }
 
   async function retrieveGuests() {
-    await axios.get('http://localhost:8080/guests')
+    await axios.get('http://35.93.190.42:8080/guests')
     .then((res) => {
       try {
         setGuestList(res.data)
