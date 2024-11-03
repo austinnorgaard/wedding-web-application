@@ -12,6 +12,7 @@ app.use(express.json())
 const saltRounds = 10
 
 const PORT = process.env.PORT || 8080
+const HOSTNAME = process.env.HOSTNAME || 'localhost'
 
 const loggingMiddleware = (req, res, next) => {
     console.log(`${req.method} - ${req.url}`)
@@ -101,6 +102,6 @@ app.post("/login", async (req, res) => {
    
 })
 
-app.listen(PORT, () => {
-    console.log("The server is running on port", PORT)
+app.listen(PORT, HOSTNAME, () => {
+    console.log("The server is running on http://",HOSTNAME ,":", PORT)
 })

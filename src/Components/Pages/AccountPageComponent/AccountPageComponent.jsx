@@ -10,7 +10,7 @@ function AccountPage() {
   const [user, setUser] = useState({})
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/users/${localStorage.getItem("id")}`)
+    axios.get(`http://35.93.190.42:8080/users/${localStorage.getItem("id")}`)
     .then((res) => {
       setUser(res.data)
     })

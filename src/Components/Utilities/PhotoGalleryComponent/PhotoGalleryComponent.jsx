@@ -19,8 +19,8 @@ function PhotoGallery() {
 
   useEffect(() => {
     axios.all([
-      axios.get('http://localhost:9965/https://libertykifer.smugmug.com/services/api/json/1.4.0/?galleryType=album&albumId=416997567&albumKey=rx2Ptc&nodeId=b7VTN9&PageNumber=0&imageId=0&imageKey=&returnModelList=true&PageSize=24&imageSizes=L%2CXL&method=rpc.gallery.getalbum'),
-      axios.get("http://localhost:9965/https://libertykifer.smugmug.com/services/api/json/1.4.0/?galleryType=album&albumId=416997567&albumKey=rx2Ptc&nodeId=b7VTN9&PageNumber=2&imageId=0&imageKey=&returnModelList=true&PageSize=24&method=rpc.gallery.getalbum")
+      axios.get('http://35.93.190.42:9965/https://libertykifer.smugmug.com/services/api/json/1.4.0/?galleryType=album&albumId=416997567&albumKey=rx2Ptc&nodeId=b7VTN9&PageNumber=0&imageId=0&imageKey=&returnModelList=true&PageSize=24&imageSizes=L%2CXL&method=rpc.gallery.getalbum'),
+      axios.get("http://35.93.190.42:9965/https://libertykifer.smugmug.com/services/api/json/1.4.0/?galleryType=album&albumId=416997567&albumKey=rx2Ptc&nodeId=b7VTN9&PageNumber=2&imageId=0&imageKey=&returnModelList=true&PageSize=24&method=rpc.gallery.getalbum")
     ]).then((responses) => {
       responses.forEach((resp) => {
         imagesResponse.push(resp.data.Images);
