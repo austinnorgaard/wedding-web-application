@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import axios from 'axios';
 
+const HOST = "localhost"
+
 
 function RSVPPage() {
   const [guestList, setGuestList] = useState([])
@@ -19,7 +21,7 @@ function RSVPPage() {
       setIsVerified([2, isVerified[1]])
     }
     else {
-      axios.post("http://localhost:8080/guests", { guestName: guests[isVerified[1]].name, guestCount: 0})
+      axios.post(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: 0})
       .catch ((err) => {
         console.log("Error: " + err)
       })
@@ -29,7 +31,7 @@ function RSVPPage() {
 
   async function handleNumber (e) {
     e.preventDefault()
-    axios.post("http://localhost:8080/guests", { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
+    axios.post(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
     .catch ((err) => {
       console.log("Error: " + err)
     })
@@ -59,7 +61,7 @@ function RSVPPage() {
   }
 
   async function retrieveGuests() {
-    await axios.get('http://35.93.190.42:8080/guests')
+    await axios.get(`http://${HOST}:8080/guests`)
     .then((res) => {
       try {
         setGuestList(res.data)
