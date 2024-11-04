@@ -8,7 +8,7 @@ const pool = mysql.createPool({
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE,
-    ssl: {ca:fs.readFileSync(process.env.MYSQL_SSL_FILE_PATH)}
+    ssl:{ca:fs.readFileSync("DigiCertGlobalRootCA.crt.pem")}
 }).promise()
 
 export async function getUser(userId) {

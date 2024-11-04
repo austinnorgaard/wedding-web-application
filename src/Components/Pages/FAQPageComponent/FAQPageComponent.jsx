@@ -5,7 +5,15 @@ import FAQList from '../../Utilities/FAQListComponent/FAQListComponent';
 
 function FAQPage() {
   useEffect(() => {
-    window.scrollTo(0, 0)
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const question = urlParams.get('question')
+    if (question === "gifts") {
+      window.scrollTo(0, 5000)
+    }
+    else {
+      window.scrollTo(0, 0)
+    }
   })
 
   return (

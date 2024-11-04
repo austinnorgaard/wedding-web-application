@@ -51,9 +51,6 @@ function FAQList() {
   questions.push(questionList);
   answers.push(answerList);
 
-  console.log(questions);
-  console.log(answers);
-
   return (
     <div className="FAQList">
       
