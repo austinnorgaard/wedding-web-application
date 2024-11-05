@@ -1,7 +1,7 @@
 import '../../../Styles/CSS/FAQListComponent.css';
 import React from 'react';
 import faqlist from "../../../Resources/Other/faqlist.txt";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function FAQList() {
   const [faqtext, setText] = useState("");
@@ -12,6 +12,18 @@ function FAQList() {
   var answers = [];
   var isQuestion = true;
   var questionCount = 1;
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const questionParam = urlParams.get('question')
+
+  useEffect(() => {
+    if (questionParam === "gifts") {
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+    else {
+      window.scrollTo(0, 0)
+    }
+  }, [faqtext])
 
   fetch(faqlist)
   .then(r => r.text())

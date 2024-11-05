@@ -5,7 +5,6 @@ import downarrow from "../../../Resources/Photos/arrow-down-3101.png"
 import amazonlogo from "../../../Resources/Photos/amazonlogo.webp"
 import venmoqr from "../../../Resources/Photos/venmoqr.jpg"
 import axios from "axios";
-import { preload } from 'react-dom';
 
 const HOST = "localhost"
 
@@ -314,7 +313,7 @@ function RegistryGallery() {
               <h1>Our Wish List</h1>
               <button className="RegistryItemList Filters" id={filterMenuID} onClick={updateFilterMenu}>Filters</button>
             </div>
-            <Link id="addressQCont" to="/faq?question=gifts" onClick={() => preload("../FAQListComponent/FAQListComponent.jsx", {as: "script"})}>
+            <Link id="addressQCont" to="/faq?question=gifts">
               <Link id="addressQuestion" to="/faq?question=gifts">Where do I send all this?</Link>
               <p id="clickMeAddress">Click Me</p>
             </Link>

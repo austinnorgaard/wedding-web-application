@@ -247,7 +247,7 @@ body {
   padding-right: 10%;
 }
 
-.QuestionBox:hover {
+.QuestionBox:hover, .QuestionBox:focus {
   box-shadow: 0px 0px 10px 6px rgba(194, 158, 41, 0.5);
   transform: scale(1.02);
 }
