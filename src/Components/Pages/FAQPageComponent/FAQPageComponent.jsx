@@ -1,21 +1,21 @@
 import '../../../Styles/CSS/FAQPageComponent.css';
-import React, { useEffect } from 'react';
+import React, { lazy, Suspense } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
-import FAQList from '../../Utilities/FAQListComponent/FAQListComponent';
+import Loading from './Loading';
 
 function FAQPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  })
+  const FAQList = lazy(() => import('../../Utilities/FAQListComponent/FAQListComponent'));
 
   return (
-    <div className="FAQPage">
+    <Suspense fallback={<Loading />}>
+      <div className="FAQPage">
       
-      <div className="MainContainer" id="FAQMainContainer">
-        <MenuBar />
-        <FAQList />
+        <div className="MainContainer" id="FAQMainContainer">
+          <MenuBar />
+          <FAQList />
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 }
 

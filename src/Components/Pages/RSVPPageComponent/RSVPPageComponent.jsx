@@ -12,8 +12,13 @@ function RSVPPage() {
   const [load, setLoad] = useState("unloaded")
   const [isVerified, setIsVerified] = useState([-1, -1])
   const [selection, setSelection] = useState("none")
+  const [name, setNameVal] = useState("")
+  const [phone, setPhoneVal] = useState("")
+  const [zip, setZipVal] = useState("")
   const [numberOfGuests, setNumberOfGuests] = useState(0)
   const [verificationVal, setVerificationVal] = useState("invalid")
+  const [isAdmin, setIsAdmin] = useState(0)
+  const [duplicateError, setDuplicateError] = useState(false)
 
   async function handleSubmit (e) {
     e.preventDefault()
@@ -21,7 +26,7 @@ function RSVPPage() {
       setIsVerified([2, isVerified[1]])
     }
     else {
-      axios.post(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: 0})
+      axios.put(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: 0})
       .catch ((err) => {
         console.log("Error: " + err)
       })
@@ -31,7 +36,7 @@ function RSVPPage() {
 
   async function handleNumber (e) {
     e.preventDefault()
-    axios.post(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
+    axios.put(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
     .catch ((err) => {
       console.log("Error: " + err)
     })
@@ -60,10 +65,43 @@ function RSVPPage() {
     setSelection("none")
   }
 
+  async function handleAddGuest(e) {
+    e.preventDefault()
+    axios.post(`http://${HOST}:8080/guests`, { guestName: name, guestPhoneNumber: phone, guestZip: zip })
+    .then((res) => {
+      if (res.data === 400) {
+        console.log("Response: " + res.data)
+        setDuplicateError(true)
+      }
+      else if (res.data === 201) {
+        setDuplicateError(false)
+        var form = document.getElementById("add-guest-wrapper");
+        form.reset();
+        setLoad("load")
+      }
+      else {
+        console.log("Response: " + res.data)
+      }
+    })
+    .catch ((err) => {
+      console.log("Error: " + err)
+    })
+  }
+
   async function retrieveGuests() {
     await axios.get(`http://${HOST}:8080/guests`)
     .then((res) => {
       try {
+        setGuestList([])
+        setGuests([])
+        const elements = document.getElementsByClassName("guestListing");
+
+        // Convert HTMLCollection to Array to avoid issues with live collections
+        const elementsArray = Array.from(elements);
+
+        elementsArray.forEach(element => {
+          element.remove();
+        })
         setGuestList(res.data)
       } catch (Err) {
         console.log("Error handling: " + res.data);
@@ -84,7 +122,14 @@ function RSVPPage() {
 
   useEffect(() => {
     retrieveGuests()
-    window.scrollTo(0, 0)
+    axios.get(`http://${HOST}:8080/users/${localStorage.getItem("id")}`)
+    .then((res) => {
+      if (res.data.isAdmin === 1) {
+        setIsAdmin(true)
+      }
+      console.log(res.data.isAdmin)
+    })
+    window.scrollTo(0, document.body.scrollHeight);
   }, 
   [load])
 
@@ -94,9 +139,41 @@ function RSVPPage() {
             <MenuBar/>
             <h1>Guest List</h1>
             <div id="guest-list-wrapper">
+            {isAdmin ?  
+              duplicateError ?
+                <form onSubmit={handleAddGuest} id="add-guest-wrapper">
+                <label>
+                  <p id="badGuest">Duplicate Guest!</p>
+                </label>
+                <label>Party Name(s):</label>
+                <input name="names" autoComplete='name' onChange={e => setNameVal(e.target.value)}/>
+                <label>Phone Number:</label>
+                <input name="phone" type="tel" autoComplete="tel-national" onChange={e => setPhoneVal(e.target.value)}/>
+                <label>Zip Code:</label>
+                <input name="zip" autoComplete="postal-code" onChange={e => setZipVal(e.target.value)}/>
+                <button type="submit">Save</button>
+              </form>  
+                : 
+              <form onSubmit={handleAddGuest} id="add-guest-wrapper">
+                <label>Party Name(s):</label>
+                <input name="names" autoComplete='name' onChange={e => setNameVal(e.target.value)}/>
+                <label>Phone Number:</label>
+                <input name="phone" type="tel" autoComplete="tel-national" onChange={e => setPhoneVal(e.target.value)}/>
+                <label>Zip Code:</label>
+                <input name="zip" autoComplete="postal-code" onChange={e => setZipVal(e.target.value)}/>
+                <button type="submit">Save</button>
+              </form>  
+              : 
+            null
+            }
             {guests.map((guest, id) => (
             <ul className="guestListing" id={'guest'+id} key={id}>
               <p id="guestName">{guest.name}</p>
+              {isAdmin ? 
+              <div>
+                <label>Guest Count: {guest.numberOfGuests}</label>
+              </div>
+              : null}
               {isVerified[0] > -1 ? 
                 id === isVerified[1] ? 
                   isVerified[0] === 0 ?
