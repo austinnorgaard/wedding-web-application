@@ -9,7 +9,6 @@ import axios from "axios";
 const HOST = "localhost"
 
 function RegistryGallery() {
-  const [items, setItems] = useState([]);
   const [filterMenuID, setFilterMenuID] = useState ("filterUnclicked");
   const [filterMenuClick, setFilterMenuClicked] = useState (false);
   const [priceChecked, setPriceChecked] = useState (["", ""]);
@@ -73,47 +72,7 @@ function RegistryGallery() {
     { label: "Available", value: "available" },
     { label: "Purchased", value: "purchased" }
   ];
-  const quantityNeeded = [
-    { label: "serta", value: 1 },
-    { label: "ring", value: 1 },
-    { label: "amazon", value: 1},
-    { label: "venmo", value: 1}
-  ];
-  const [storeItems, setStoreItems] = useState ([
-    { 
-      storeName: "Venmo",
-      productName: "Newlywed House Funds",
-      productUrl: "/venmo",
-      imageUrl: venmoqr,
-      productPrice: parseFloat(5000.00),
-      qtyNeeded: quantityNeeded[0].value,
-      priority: 1,
-      canAddToStandardCart: true,
-      isOnPage: true
-    },
-    { 
-      storeName: "Serta",
-      productName: "Serta iComfortECO Foam Mattress", 
-      productUrl: "https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523534500",
-      imageUrl: "https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000",
-      productPrice: parseFloat(2499.00),
-      qtyNeeded: quantityNeeded[0].value,
-      priority: 2,
-      canAddToStandardCart: true,
-      isOnPage: true
-    },
-    {
-      storeName: "Ring",
-      productName: "Ring Wired Doorbell Pro",
-      productUrl: "https://ring.com/products/video-doorbell-pro-2",
-      imageUrl: "https://images.ctfassets.net/a3peezndovsu/variant-31961428492377/e8d3f08c98ee484eef46c383b85cb785/variant-31961428492377.jpg",
-      productPrice: parseFloat(229.99),
-      qtyNeeded: quantityNeeded[1].value,
-      priority: 3,
-      canAddToStandardCart: true,
-      isOnPage: true
-    }
-  ]);
+  const [storeItems, setStoreItems] = useState ([]);
   const sortFilters = [
     { label: "Featured", value: "feat" },
     { label: "Price high to low", value: "htl" },
@@ -240,43 +199,35 @@ function RegistryGallery() {
   }
  
   useEffect(() => {
-    axios.get(`http://${HOST}:9965/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false`)
+    const tempItems = [...storeItems]
+    axios.get(`http://${HOST}:8080/registry`)
   .then(function (response) {
     try {
-      let maxItems = response.data.result.filteredItemTotal;
-      for (let i = 0; i < maxItems; i++) {
-        setItems(response.data.result.minimalRegistryItems); 
+      const data = response.data
+      const len = data.length
+      for (let i = 0; i < len; i++) {
+        tempItems.push({
+          storeName: data[i].storeName,
+          productName: data[i].productName,
+          productUrl: data[i].productUrl,
+          imageUrl: data[i].imageUrl,
+          productPrice: data[i].price,
+          qtyNeeded: data[i].stock,
+          priority: data[i].priority,
+          canAddToStandardCart: data[i].stock > 0 ? true : false,
+          isOnPage: data[i].priority < 12 ? true : false
+        })
       }
     } catch (Err) {
       console.log(response.data);
     }
-  }).then (function () {
-    // eslint-disable-next-line
-    items.map((item, key) => {
-      let prio = key+4;
-      if (item.mustHave === true) {
-        prio = 4;
-      }
-      let price = parseFloat(item.itemPrice.amount)
-      storeItems.push({
-        storeName: "amazon", 
-        productName: item.productTitle,
-        productUrl: "https://www.amazon.com" + item.productUrl, 
-        imageUrl: item.imageUrl, 
-        productPrice: price, 
-        qtyNeeded: item.qtyNeeded,
-        priority: prio,
-        canAddToStandardCart: item.canAddToStandardCart,
-        isOnPage: ((key < 12) ? true : false)
-      })
-    })
-    setLoad("loaded")
-    setPageCount(storeItems.length / 12)
-    for (let i = 1; i < storeItems.length / 12; i++) {
-      pages.push({
-        pageNumber: i+1
-      })
-    }})
+  })
+  .then (function () {
+    setLoad("loaded");
+  })
+  .catch((err) => {
+    console.log("Error: " + err)
+  })
   }, // eslint-disable-next-line
   [load]);
 

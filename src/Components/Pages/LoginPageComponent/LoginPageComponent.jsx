@@ -39,6 +39,7 @@ function LoginPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    localStorage.removeItem("id")
     setLocalToken(setToken(localStorage.getItem("token")));
   }, [token, localToken])
 
