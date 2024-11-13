@@ -5,8 +5,6 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import useToken from '../../Utilities/TokenComponent/TokenComponent';
 
-const HOST = "localhost"
-
 function RegistrationPage() {
   const [userName, setUserName] = useState();
   const [userEmail, setUserEmail] = useState();
@@ -22,7 +20,7 @@ function RegistrationPage() {
   async function handleSubmit (e) {
     e.preventDefault();
     try {
-      axios.post(`http://${HOST}:8080/users`, {userName: userName, userEmail: userEmail, userPhoneNumber: userPhoneNumber, userIsAdmin: 0, userPassword: userPassword})
+      axios.post(`https://weddingbackend.norgaardfamily.com/users`, {userName: userName, userEmail: userEmail, userPhoneNumber: userPhoneNumber, userIsAdmin: 0, userPassword: userPassword})
       .then((res) => {
         setToken(res.data)
       })

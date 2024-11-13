@@ -6,8 +6,6 @@ import amazonlogo from "../../../Resources/Photos/amazonlogo.webp"
 import venmoqr from "../../../Resources/Photos/venmoqr.jpg"
 import axios from "axios";
 
-const HOST = "localhost"
-
 function RegistryGallery() {
   const [filterMenuID, setFilterMenuID] = useState ("filterUnclicked");
   const [filterMenuClick, setFilterMenuClicked] = useState (false);
@@ -200,7 +198,7 @@ function RegistryGallery() {
  
   useEffect(() => {
     const tempItems = [...storeItems]
-    axios.get(`http://${HOST}:8080/registry`)
+    axios.get(`https://weddingbackend.norgaardfamily.com/registry`)
   .then(function (response) {
     try {
       const data = response.data

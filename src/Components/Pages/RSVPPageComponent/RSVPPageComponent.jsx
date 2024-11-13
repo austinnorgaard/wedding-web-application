@@ -3,9 +3,6 @@ import React, { useEffect, useState } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import axios from 'axios';
 
-const HOST = "localhost"
-
-
 function RSVPPage() {
   const [guestList, setGuestList] = useState([])
   const [guests, setGuests] = useState([])
@@ -26,7 +23,7 @@ function RSVPPage() {
       setIsVerified([2, isVerified[1]])
     }
     else {
-      axios.put(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: 0})
+      axios.put(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: guests[isVerified[1]].name, guestCount: 0})
       .catch ((err) => {
         console.log("Error: " + err)
       })
@@ -36,7 +33,7 @@ function RSVPPage() {
 
   async function handleNumber (e) {
     e.preventDefault()
-    axios.put(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
+    axios.put(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
     .catch ((err) => {
       console.log("Error: " + err)
     })
@@ -67,7 +64,7 @@ function RSVPPage() {
 
   async function handleAddGuest(e) {
     e.preventDefault()
-    axios.post(`http://${HOST}:8080/guests`, { guestName: name, guestPhoneNumber: phone, guestZip: zip })
+    axios.post(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: name, guestPhoneNumber: phone, guestZip: zip })
     .then((res) => {
       if (res.data === 400) {
         console.log("Response: " + res.data)
@@ -89,7 +86,7 @@ function RSVPPage() {
   }
 
   async function retrieveGuests() {
-    await axios.get(`http://${HOST}:8080/guests`)
+    await axios.get(`https://weddingbackend.norgaardfamily.com/guests`)
     .then((res) => {
       try {
         setGuestList([])
@@ -122,7 +119,7 @@ function RSVPPage() {
 
   useEffect(() => {
     retrieveGuests()
-    axios.get(`http://${HOST}:8080/users/${localStorage.getItem("id")}`)
+    axios.get(`https://weddingbackend.norgaardfamily.com/users/${localStorage.getItem("id")}`)
     .then((res) => {
       if (res.data.isAdmin === 1) {
         setIsAdmin(true)

@@ -13,12 +13,10 @@ function LoginPage() {
   const [localToken, setLocalToken] = useState();
   const [isBadLogin, setBadLogin] = useState(false);
 
-  const HOST = "localhost"
-
   async function handleSubmit (e) {
     e.preventDefault();
     try {
-      axios.post(`http://${HOST}:8080/login`, {userName: userName, userPassword: userPassword})
+      axios.post(`https://weddingbackend.norgaardfamily.com/login`, {userName: userName, userPassword: userPassword})
       .then((res) => {
         console.log(res.data)
         setToken(res.data)

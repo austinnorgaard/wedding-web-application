@@ -4,15 +4,13 @@ import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const HOST = "localhost"
-
 function AccountPage() {
   const [token, setToken] = useState()
   const navigate = useNavigate()
   const [user, setUser] = useState({})
 
   useEffect(() => {
-    axios.get(`http://${HOST}:8080/users/${localStorage.getItem("id")}`)
+    axios.get(`https://weddingbackend.norgaardfamily.com/users/${localStorage.getItem("id")}`)
     .then((res) => {
       setUser(res.data)
     })
