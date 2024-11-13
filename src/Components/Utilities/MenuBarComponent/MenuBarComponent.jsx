@@ -6,8 +6,6 @@ import exiticon from '../../../Resources/Photos/exit.svg';
 import axios from 'axios';
 import useToken from '../TokenComponent/TokenComponent';
 
-const HOST = "localhost"
-
 function MenuBar() {
   const [main_class, setMainClass] = useState ("menuUnclicked");
   const [button, setButtonClass] = useState ("unclicked");
@@ -33,7 +31,7 @@ function MenuBar() {
 }
 
 useEffect (() => {
-  axios.get(`http://${HOST}:8080/users`)
+  axios.get(`https://weddingbackend.norgaardfamily.com/users`)
   .then((res) => {
     try {
       setLoggedIn(res.data[0].isAdmin);

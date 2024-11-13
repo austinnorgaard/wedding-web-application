@@ -3,9 +3,6 @@ import React, { useEffect, useState } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import axios from 'axios';
 
-const HOST = "localhost"
-
-
 function RSVPPage() {
   const [guestList, setGuestList] = useState([])
   const [guests, setGuests] = useState([])
@@ -26,7 +23,7 @@ function RSVPPage() {
       setIsVerified([2, isVerified[1]])
     }
     else {
-      axios.put(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: 0})
+      axios.put(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: guests[isVerified[1]].name, guestCount: 0})
       .catch ((err) => {
         console.log("Error: " + err)
       })
@@ -36,7 +33,7 @@ function RSVPPage() {
 
   async function handleNumber (e) {
     e.preventDefault()
-    axios.put(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
+    axios.put(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
     .catch ((err) => {
       console.log("Error: " + err)
     })
@@ -67,7 +64,7 @@ function RSVPPage() {
 
   async function handleAddGuest(e) {
     e.preventDefault()
-    axios.post(`http://${HOST}:8080/guests`, { guestName: name, guestPhoneNumber: phone, guestZip: zip })
+    axios.post(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: name, guestPhoneNumber: phone, guestZip: zip })
     .then((res) => {
       if (res.data === 400) {
         console.log("Response: " + res.data)
@@ -89,7 +86,7 @@ function RSVPPage() {
   }
 
   async function retrieveGuests() {
-    await axios.get(`http://${HOST}:8080/guests`)
+    await axios.get(`https://weddingbackend.norgaardfamily.com/guests`)
     .then((res) => {
       try {
         setGuestList([])
@@ -122,7 +119,7 @@ function RSVPPage() {
 
   useEffect(() => {
     retrieveGuests()
-    axios.get(`http://${HOST}:8080/users/${localStorage.getItem("id")}`)
+    axios.get(`https://weddingbackend.norgaardfamily.com/users/${localStorage.getItem("id")}`)
     .then((res) => {
       if (res.data.isAdmin === 1) {
         setIsAdmin(true)
@@ -138,10 +135,9 @@ function RSVPPage() {
         <div className="MainContainer" id="RSVPMainContainer">
             <MenuBar/>
             <h1>Guest List</h1>
-            <div id="guest-list-wrapper">
             {isAdmin ?  
               duplicateError ?
-                <form onSubmit={handleAddGuest} id="add-guest-wrapper">
+              <form onSubmit={handleAddGuest} id="add-guest-wrapper">
                 <label>
                   <p id="badGuest">Duplicate Guest!</p>
                 </label>
@@ -166,14 +162,10 @@ function RSVPPage() {
               : 
             null
             }
+            <div id="guest-list-wrapper">
             {guests.map((guest, id) => (
             <ul className="guestListing" id={'guest'+id} key={id}>
               <p id="guestName">{guest.name}</p>
-              {isAdmin ? 
-              <div>
-                <label>Guest Count: {guest.numberOfGuests}</label>
-              </div>
-              : null}
               {isVerified[0] > -1 ? 
                 id === isVerified[1] ? 
                   isVerified[0] === 0 ?
@@ -209,12 +201,22 @@ function RSVPPage() {
                     </div>
                     :null: null :
                   isVerified[1] !== -1 && id === isVerified[1] ?
-                  <div id="rsvp-error-wrapper">
-                    <p>Please Try Again!</p>
-                    <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
+                  <div id="guestRighthand">
+                    {isAdmin ? 
+                    <label id="guestCounter">Guest Count: {guest.numberOfGuests}</label>
+                    : null}
+                    <div id="rsvp-error-wrapper">
+                      <p>Please Try Again!</p>
+                      <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
+                  </div>
                   </div>
                   :
-                  <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
+                  <div id="guestRighthand">
+                    {isAdmin ? 
+                    <label id="guestCounter">Guest Count: {guest.numberOfGuests}</label>
+                    : null}
+                    <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
+                  </div>
               }
             </ul>
             ))}
