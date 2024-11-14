@@ -1,7 +1,8 @@
 import '../../../Styles/CSS/RegistryPageComponent.css';
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect, lazy } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
-import RegistryGallery from '../../Utilities/RegistryGalleryComponent/RegistryGalleryComponent';
+const RegistryGallery = lazy(() => import('../../Utilities/RegistryGalleryComponent/RegistryGalleryComponent'));
+import Loading from '../FAQPageComponent/Loading';
 
 function RegistryPage() {
   useEffect(() => {
@@ -11,11 +12,13 @@ function RegistryPage() {
   return (
     <div className="RegistryPage">
       
-      <div className="MainContainer" id="RegistryMainContainer">
-        <MenuBar />
-        <RegistryGallery />
+        <div className="MainContainer" id="RegistryMainContainer">
+          <MenuBar />
+          <Suspense fallback={<Loading/>}>
+            <RegistryGallery />
+          </Suspense>
+        </div>
       </div>
-    </div>
   );
 }
 
