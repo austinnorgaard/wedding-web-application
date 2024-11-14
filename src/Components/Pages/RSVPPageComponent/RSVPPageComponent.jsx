@@ -3,17 +3,19 @@ import React, { useEffect, useState } from 'react';
 import MenuBar from '../../Utilities/MenuBarComponent/MenuBarComponent';
 import axios from 'axios';
 
-const HOST = "localhost"
-
-
 function RSVPPage() {
   const [guestList, setGuestList] = useState([])
   const [guests, setGuests] = useState([])
   const [load, setLoad] = useState("unloaded")
   const [isVerified, setIsVerified] = useState([-1, -1])
   const [selection, setSelection] = useState("none")
+  const [name, setNameVal] = useState("")
+  const [phone, setPhoneVal] = useState("")
+  const [zip, setZipVal] = useState("")
   const [numberOfGuests, setNumberOfGuests] = useState(0)
   const [verificationVal, setVerificationVal] = useState("invalid")
+  const [isAdmin, setIsAdmin] = useState(0)
+  const [duplicateError, setDuplicateError] = useState(false)
 
   async function handleSubmit (e) {
     e.preventDefault()
@@ -21,7 +23,7 @@ function RSVPPage() {
       setIsVerified([2, isVerified[1]])
     }
     else {
-      axios.post(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: 0})
+      axios.put(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: guests[isVerified[1]].name, guestCount: 0})
       .catch ((err) => {
         console.log("Error: " + err)
       })
@@ -31,7 +33,7 @@ function RSVPPage() {
 
   async function handleNumber (e) {
     e.preventDefault()
-    axios.post(`http://${HOST}:8080/guests`, { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
+    axios.put(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
     .catch ((err) => {
       console.log("Error: " + err)
     })
@@ -60,10 +62,43 @@ function RSVPPage() {
     setSelection("none")
   }
 
+  async function handleAddGuest(e) {
+    e.preventDefault()
+    axios.post(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: name, guestPhoneNumber: phone, guestZip: zip })
+    .then((res) => {
+      if (res.data === 400) {
+        console.log("Response: " + res.data)
+        setDuplicateError(true)
+      }
+      else if (res.data === 201) {
+        setDuplicateError(false)
+        var form = document.getElementById("add-guest-wrapper");
+        form.reset();
+        setLoad("load")
+      }
+      else {
+        console.log("Response: " + res.data)
+      }
+    })
+    .catch ((err) => {
+      console.log("Error: " + err)
+    })
+  }
+
   async function retrieveGuests() {
-    await axios.get(`http://${HOST}:8080/guests`)
+    await axios.get(`https://weddingbackend.norgaardfamily.com/guests`)
     .then((res) => {
       try {
+        setGuestList([])
+        setGuests([])
+        const elements = document.getElementsByClassName("guestListing");
+
+        // Convert HTMLCollection to Array to avoid issues with live collections
+        const elementsArray = Array.from(elements);
+
+        elementsArray.forEach(element => {
+          element.remove();
+        })
         setGuestList(res.data)
       } catch (Err) {
         console.log("Error handling: " + res.data);
@@ -84,7 +119,14 @@ function RSVPPage() {
 
   useEffect(() => {
     retrieveGuests()
-    window.scrollTo(0, 0)
+    axios.get(`https://weddingbackend.norgaardfamily.com/users/${localStorage.getItem("id")}`)
+    .then((res) => {
+      if (res.data.isAdmin === 1) {
+        setIsAdmin(true)
+      }
+      console.log(res.data.isAdmin)
+    })
+    window.scrollTo(0, document.body.scrollHeight);
   }, 
   [load])
 
@@ -93,6 +135,33 @@ function RSVPPage() {
         <div className="MainContainer" id="RSVPMainContainer">
             <MenuBar/>
             <h1>Guest List</h1>
+            {isAdmin ?  
+              duplicateError ?
+              <form onSubmit={handleAddGuest} id="add-guest-wrapper">
+                <label>
+                  <p id="badGuest">Duplicate Guest!</p>
+                </label>
+                <label>Party Name(s):</label>
+                <input name="names" autoComplete='name' onChange={e => setNameVal(e.target.value)}/>
+                <label>Phone Number:</label>
+                <input name="phone" type="tel" autoComplete="tel-national" onChange={e => setPhoneVal(e.target.value)}/>
+                <label>Zip Code:</label>
+                <input name="zip" autoComplete="postal-code" onChange={e => setZipVal(e.target.value)}/>
+                <button type="submit">Save</button>
+              </form>  
+                : 
+              <form onSubmit={handleAddGuest} id="add-guest-wrapper">
+                <label>Party Name(s):</label>
+                <input name="names" autoComplete='name' onChange={e => setNameVal(e.target.value)}/>
+                <label>Phone Number:</label>
+                <input name="phone" type="tel" autoComplete="tel-national" onChange={e => setPhoneVal(e.target.value)}/>
+                <label>Zip Code:</label>
+                <input name="zip" autoComplete="postal-code" onChange={e => setZipVal(e.target.value)}/>
+                <button type="submit">Save</button>
+              </form>  
+              : 
+            null
+            }
             <div id="guest-list-wrapper">
             {guests.map((guest, id) => (
             <ul className="guestListing" id={'guest'+id} key={id}>
@@ -132,12 +201,22 @@ function RSVPPage() {
                     </div>
                     :null: null :
                   isVerified[1] !== -1 && id === isVerified[1] ?
-                  <div id="rsvp-error-wrapper">
-                    <p>Please Try Again!</p>
-                    <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
+                  <div id="guestRighthand">
+                    {isAdmin ? 
+                    <label id="guestCounter">Guest Count: {guest.numberOfGuests}</label>
+                    : null}
+                    <div id="rsvp-error-wrapper">
+                      <p>Please Try Again!</p>
+                      <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
+                  </div>
                   </div>
                   :
-                  <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
+                  <div id="guestRighthand">
+                    {isAdmin ? 
+                    <label id="guestCounter">Guest Count: {guest.numberOfGuests}</label>
+                    : null}
+                    <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
+                  </div>
               }
             </ul>
             ))}

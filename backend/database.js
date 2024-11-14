@@ -41,6 +41,7 @@ export async function getGuests() {
     const [rows] = await pool.query(`
     SELECT * 
     FROM guest
+    ORDER BY guestName
     `)
     return rows   
 }
@@ -54,6 +55,14 @@ export async function updateGuestCount(guestName, guestCount) {
     return result
 }
 
+export async function createGuest(guestName, guestPhoneNumber, guestZip) {
+    const [result] = await pool.query(`
+    INSERT INTO guest
+    VALUES (default, ?, ?, ?, 0);
+    `, [guestName, guestPhoneNumber, guestZip])
+    return result
+};
+
 export async function createUser(userName, userEmail, userPhoneNumber, userIsAdmin, userPassword) {
     const [result] = await pool.query(`
     INSERT INTO user (userId, userName, email, phoneNumber, isAdmin, password)
@@ -61,7 +70,7 @@ export async function createUser(userName, userEmail, userPhoneNumber, userIsAdm
     `, [userName, userEmail, userPhoneNumber, userIsAdmin, userPassword])
     const id = result.insertId
     return getUser(id)
-}
+};
 
 export async function login (userName) {
     const [rows] = await pool.query(
@@ -72,4 +81,43 @@ export async function login (userName) {
     );
 
     return rows[0].password
+};
+
+async function getItem(itemId) {
+    const [rows] = await pool.query(`
+    SELECT * 
+    FROM item
+    WHERE itemId = ?
+    `, [itemId])
+    return rows[0]  
+}
+
+async function getItems() {
+    const [rows] = await pool.query(`
+    SELECT * 
+    FROM item
+    `)
+    return rows 
+}
+
+async function getStore(storeId) {
+    const [rows] = await pool.query(`
+    SELECT * 
+    FROM store
+    WHERE storeId = ?
+    `, [storeId])
+    return rows[0]  
+}
+
+async function getStores() {
+    const [rows] = await pool.query(`
+    SELECT * 
+    FROM store
+    `)
+    return rows 
+}
+ 
+export async function getRegistry() {
+    const rows = await getItems()
+    return rows  
 };
