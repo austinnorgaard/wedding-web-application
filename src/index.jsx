@@ -19,6 +19,7 @@ import RSVPPage from './Components/Pages/RSVPPageComponent/RSVPPageComponent';
 import LoginPage from './Components/Pages/LoginPageComponent/LoginPageComponent';
 import AccountPage from './Components/Pages/AccountPageComponent/AccountPageComponent';
 import RegistrationPage from './Components/Pages/RegistrationPageComponent/RegistrationPageComponent';
+import RegistryItemEditor from './Components/Pages/RegistryPageComponent/RegistryItemEditor';
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: "/account",
     element: <AccountPage/>,
+  },
+  {
+    path: "itemedit",
+    element: <RegistryItemEditor/>
   }
 ]);
 

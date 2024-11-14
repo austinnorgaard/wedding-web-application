@@ -1,10 +1,11 @@
 import '../../../Styles/CSS/RegistryGalleryComponent.css';
 import { Link } from 'react-router-dom';
-import { useEffect, useState, React } from 'react';
+import { useEffect, useState, React, Suspense } from 'react';
 import downarrow from "../../../Resources/Photos/arrow-down-3101.png"
 import amazonlogo from "../../../Resources/Photos/amazonlogo.webp"
 import venmoqr from "../../../Resources/Photos/venmoqr.jpg"
 import axios from "axios";
+import Loading from '../../Pages/FAQPageComponent/Loading';
 
 const HOST = "localhost"
 
@@ -79,41 +80,40 @@ function RegistryGallery() {
     { label: "amazon", value: 1},
     { label: "venmo", value: 1}
   ];
-  const [storeItems, setStoreItems] = useState ([
-    { 
-      storeName: "Venmo",
-      productName: "Newlywed House Funds",
-      productUrl: "/venmo",
-      imageUrl: venmoqr,
-      productPrice: parseFloat(5000.00),
-      qtyNeeded: quantityNeeded[0].value,
-      priority: 1,
-      canAddToStandardCart: true,
-      isOnPage: true
-    },
-    { 
-      storeName: "Serta",
-      productName: "Serta iComfortECO Foam Mattress", 
-      productUrl: "https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523534500",
-      imageUrl: "https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000",
-      productPrice: parseFloat(2499.00),
-      qtyNeeded: quantityNeeded[0].value,
-      priority: 2,
-      canAddToStandardCart: true,
-      isOnPage: true
-    },
-    {
-      storeName: "Ring",
-      productName: "Ring Wired Doorbell Pro",
-      productUrl: "https://ring.com/products/video-doorbell-pro-2",
-      imageUrl: "https://images.ctfassets.net/a3peezndovsu/variant-31961428492377/e8d3f08c98ee484eef46c383b85cb785/variant-31961428492377.jpg",
-      productPrice: parseFloat(229.99),
-      qtyNeeded: quantityNeeded[1].value,
-      priority: 3,
-      canAddToStandardCart: true,
-      isOnPage: true
-    }
-  ]);
+
+  const [storeItems, setStoreItems] = useState ([{ 
+    storeName: "Venmo",
+    productName: "Newlywed House Funds",
+    productUrl: "/venmo",
+    imageUrl: venmoqr,
+    productPrice: parseFloat(5000.00),
+    qtyNeeded: quantityNeeded[0].value,
+    priority: 1,
+    canAddToStandardCart: true,
+    isOnPage: true
+  },
+  { 
+    storeName: "Serta",
+    productName: "Serta iComfortECO Foam Mattress", 
+    productUrl: "https://www.bedbathandbeyond.com/Home-Garden/Serta-iComfortECO-F40HD-15.25-Memory-Foam-Plush-Mattress-Set/37844408/product.html?opre=1&option=75926570",
+    imageUrl: "https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000",
+    productPrice: parseFloat(3249.00),
+    qtyNeeded: quantityNeeded[0].value,
+    priority: 2,
+    canAddToStandardCart: true,
+    isOnPage: true
+  },
+  {
+    storeName: "Ring",
+    productName: "Ring Wired Doorbell Pro",
+    productUrl: "https://ring.com/products/video-doorbell-pro-2",
+    imageUrl: "https://images.ctfassets.net/a3peezndovsu/variant-31961428492377/e8d3f08c98ee484eef46c383b85cb785/variant-31961428492377.jpg",
+    productPrice: parseFloat(229.99),
+    qtyNeeded: quantityNeeded[1].value,
+    priority: 3,
+    canAddToStandardCart: true,
+    isOnPage: true
+  }]);
   const sortFilters = [
     { label: "Featured", value: "feat" },
     { label: "Price high to low", value: "htl" },
@@ -241,11 +241,11 @@ function RegistryGallery() {
  
   useEffect(() => {
     axios.get(`http://${HOST}:9965/https://www.amazon.com/wedding/items/2PMC8XDS4JY6F?page=1&filter=noFilter&sort=priority&direction=descending&prime=false`)
-  .then(function (response) {
+    .then(async function (response) {
     try {
-      let maxItems = response.data.result.filteredItemTotal;
+      let maxItems = await response.data.result.filteredItemTotal;
       for (let i = 0; i < maxItems; i++) {
-        setItems(response.data.result.minimalRegistryItems); 
+        setItems(await response.data.result.minimalRegistryItems); 
       }
     } catch (Err) {
       console.log(response.data);
@@ -281,111 +281,113 @@ function RegistryGallery() {
   [load]);
 
   return (
-    <div className="MainContainer Registry" id="content">
-      <div className="Container Registry">
-        <div className="Container RegistryProviders RegistryProviderMain">
-          {
-          // eslint-disable-next-line
-          storeOptions.length > 5 || (width <= 768 && storeOptions.length > 3) &&
-          <button className="Navigate" id="left" onClick={() => updateProviders(leftOrRight.left)}>&larr;</button>
-          }
-          <div className="Container RegistryProviders RegistryProviderInner">
-            <h1>Gift Providers</h1>
-            <div className='Container RegistryProviders RegistryProviderList'>
-              {storeOptions.map((store, id) => (
-                (store.index < 5) &&
-                <Link to={store.registryLink} target='_blank' className="RegistryProviders Box" id={"index"+store.index} key={id}>
-                  <img className="RegistryProviders Logo" id={store.value.toLowerCase()} src={store.registryImage} alt={store.label + " registry logo"}/>
-                  <Link to={store.registryLink} target='_blank' className="RegistryProviders Button">Shop Registry</Link>
-                </Link>
+      <div className="MainContainer Registry" id="content">
+        <div className="Container Registry">
+          <div className="Container RegistryProviders RegistryProviderMain">
+            {
+            // eslint-disable-next-line
+            storeOptions.length > 5 || (width <= 768 && storeOptions.length > 3) &&
+            <button className="Navigate" id="left" onClick={() => updateProviders(leftOrRight.left)}>&larr;</button>
+            }
+            <div className="Container RegistryProviders RegistryProviderInner">
+              <h1>Gift Providers</h1>
+              <div className='Container RegistryProviders RegistryProviderList'>
+                {storeOptions.map((store, id) => (
+                  (store.index < 5) &&
+                  <Link to={store.registryLink} target='_blank' className="RegistryProviders Box" id={"index"+store.index} key={id}>
+                    <img className="RegistryProviders Logo" id={store.value.toLowerCase()} src={store.registryImage} alt={store.label + " registry logo"}/>
+                    <Link to={store.registryLink} target='_blank' className="RegistryProviders Button">Shop Registry</Link>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            {
+            // eslint-disable-next-line
+            storeOptions.length > 4 || (width <= 768 && storeOptions.length > 3) &&
+              <button className='Navigate' id="right" onClick={() => updateProviders(leftOrRight.right)}>&rarr;</button>
+            }
+          </div>
+          <div className='Container RegistryItemList Main'>
+            <div id="HeadBox">
+              <div id="HeadBoxText">
+                <h1>Our Wish List</h1>
+                <button className="RegistryItemList Filters" id={filterMenuID} onClick={updateFilterMenu}>Filters</button>
+              </div>
+              <Link id="addressQCont" to="/faq?question=gifts">
+                <Link id="addressQuestion" to="/faq?question=gifts">Where do I send all this?</Link>
+                <p id="clickMeAddress">Click Me</p>
+              </Link>
+              <div className='Container RegistryItemList Box Sort'>
+                <label htmlFor="sort">Sort by</label>
+                <select className='RegistryItemList Sort' id="sortselect" name="Sort" onChange={() => onFilterChange(document.querySelector('#sortselect').value)}>
+                  {sortFilters.map((filter, id) => (
+                    <option value={filter.value} key={id}>{filter.label}</option>
+                  ))}
+                </select>
+                <img src={downarrow} alt="arrowdown"/>
+              </div>
+            </div>
+            <div className='Container RegistryItemList Inner' id={filterMenuID}>
+              <div className='Container RegistryItemList Filters List'>
+                <div className="Container RegistryItemList Filters Filter" id="price">
+                  <h1 className="Filters" id="price">Price</h1>
+                  {priceOptions.map((option, index) => (
+                    <div className="Container Filters CheckRow" id={"priceCheckRow"+index} key={index}>
+                      <input checked={priceChecked[0] === option.value[0] && priceChecked[1] === option.value[1]} onChange={() => onPriceChange(option.value)} type='checkbox' name={"price["+index+"]"}/>
+                      <p className="Filters CheckRow Label">{option.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="Container RegistryItemList Filters" id="store">
+                  <h1 className="Filters" id="store">Store</h1>
+                  {storeOptions.map((option, index) => (
+                    <div className="Container Filters CheckRow" id={"storeCheckRow"+index} key={index}>
+                      <input checked={storeChecked === option.value} onChange={() => onStoreChange(option.value)} type='checkbox' name={"store["+index+"]"}/>
+                      <p className="Filters CheckRow Label">{option.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="Container RegistryItemList Filters" id="status">
+                  <h1 className="Filters" id="status">Status</h1>
+                  {statusOptions.map((option, index) => (
+                    <div className="Container Filters CheckRow" id={"statusCheckRow"+index} key={index}>
+                      <input checked={statusChecked === option.value} onChange={() => onStatusChange(option.value)} type='checkbox' name={"status["+index+"]"}/>
+                      <p className="Filters CheckRow Label">{option.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="Container RegistryItemList Items">
+              <Suspense fallback={<Loading/>}>
+                {storeItems.map((store, id) => (
+                  ((storeChecked === store.storeName || storeChecked === "") && 
+                  ((parseFloat(priceChecked[0]) <= store.productPrice && 
+                  parseFloat(priceChecked[1]) >= store.productPrice) || 
+                  (store.canAddToStandardCart === true && priceChecked[0] === "" && priceChecked[1] === "")) && 
+                  ((statusChecked === 'available' && store.qtyNeeded > 0) || 
+                  (statusChecked === "purchased" && store.qtyNeeded === 0) || 
+                  (statusChecked === "")) && (store.isOnPage === true || width <= 768)) &&
+                  <Link to={store.productUrl} target='_blank' className="Item" key={id}>
+                    <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
+                    <div className="Container Item Text" id={store.storeName}>
+                      <h4 className='Item Title'>{store.productName}</h4>
+                      <h4 className="Item Price">${store.productPrice.toFixed(2)}</h4>
+                    </div>
+                  </Link>
+                ))}
+              </Suspense>
+              </div>
+            </div>
+            <div className='Container RegistryItemList PageSelect'>
+              {pages.map((page, id) => (
+                <button onClick={() => toPage(page.pageNumber)} id={currentPage === page.pageNumber ? "SelectedPage" : "Page"} key={id}>
+                  <button onClick={() => toPage(page.pageNumber)}>{page.pageNumber}</button>
+                </button>
               ))}
             </div>
-          </div>
-          {
-          // eslint-disable-next-line
-          storeOptions.length > 4 || (width <= 768 && storeOptions.length > 3) &&
-            <button className='Navigate' id="right" onClick={() => updateProviders(leftOrRight.right)}>&rarr;</button>
-          }
-        </div>
-        <div className='Container RegistryItemList Main'>
-          <div id="HeadBox">
-            <div id="HeadBoxText">
-              <h1>Our Wish List</h1>
-              <button className="RegistryItemList Filters" id={filterMenuID} onClick={updateFilterMenu}>Filters</button>
-            </div>
-            <Link id="addressQCont" to="/faq?question=gifts">
-              <Link id="addressQuestion" to="/faq?question=gifts">Where do I send all this?</Link>
-              <p id="clickMeAddress">Click Me</p>
-            </Link>
-            <div className='Container RegistryItemList Box Sort'>
-              <label htmlFor="sort">Sort by</label>
-              <select className='RegistryItemList Sort' id="sortselect" name="Sort" onChange={() => onFilterChange(document.querySelector('#sortselect').value)}>
-                {sortFilters.map((filter, id) => (
-                  <option value={filter.value} key={id}>{filter.label}</option>
-                ))}
-              </select>
-              <img src={downarrow} alt="arrowdown"/>
-            </div>
-          </div>
-          <div className='Container RegistryItemList Inner' id={filterMenuID}>
-            <div className='Container RegistryItemList Filters List'>
-              <div className="Container RegistryItemList Filters Filter" id="price">
-                <h1 className="Filters" id="price">Price</h1>
-                {priceOptions.map((option, index) => (
-                  <div className="Container Filters CheckRow" id={"priceCheckRow"+index} key={index}>
-                    <input checked={priceChecked[0] === option.value[0] && priceChecked[1] === option.value[1]} onChange={() => onPriceChange(option.value)} type='checkbox' name={"price["+index+"]"}/>
-                    <p className="Filters CheckRow Label">{option.label}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="Container RegistryItemList Filters" id="store">
-                <h1 className="Filters" id="store">Store</h1>
-                {storeOptions.map((option, index) => (
-                  <div className="Container Filters CheckRow" id={"storeCheckRow"+index} key={index}>
-                    <input checked={storeChecked === option.value} onChange={() => onStoreChange(option.value)} type='checkbox' name={"store["+index+"]"}/>
-                    <p className="Filters CheckRow Label">{option.label}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="Container RegistryItemList Filters" id="status">
-                <h1 className="Filters" id="status">Status</h1>
-                {statusOptions.map((option, index) => (
-                  <div className="Container Filters CheckRow" id={"statusCheckRow"+index} key={index}>
-                    <input checked={statusChecked === option.value} onChange={() => onStatusChange(option.value)} type='checkbox' name={"status["+index+"]"}/>
-                    <p className="Filters CheckRow Label">{option.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="Container RegistryItemList Items">
-              {storeItems.map((store, id) => (
-                ((storeChecked === store.storeName || storeChecked === "") && 
-                ((parseFloat(priceChecked[0]) <= store.productPrice && 
-                parseFloat(priceChecked[1]) >= store.productPrice) || 
-                (store.canAddToStandardCart === true && priceChecked[0] === "" && priceChecked[1] === "")) && 
-                ((statusChecked === 'available' && store.qtyNeeded > 0) || 
-                (statusChecked === "purchased" && store.qtyNeeded === 0) || 
-                (statusChecked === "")) && (store.isOnPage === true || width <= 768)) &&
-                <Link to={store.productUrl} target='_blank' className="Item" key={id}>
-                  <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
-                  <div className="Container Item Text" id={store.storeName}>
-                    <h4 className='Item Title'>{store.productName}</h4>
-                    <h4 className="Item Price">${store.productPrice.toFixed(2)}</h4>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className='Container RegistryItemList PageSelect'>
-            {pages.map((page, id) => (
-              <button onClick={() => toPage(page.pageNumber)} id={currentPage === page.pageNumber ? "SelectedPage" : "Page"} key={id}>
-                <button onClick={() => toPage(page.pageNumber)}>{page.pageNumber}</button>
-              </button>
-            ))}
           </div>
         </div>
       </div>
-    </div>
   );
 }
 export default RegistryGallery;
