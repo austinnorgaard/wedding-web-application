@@ -11,8 +11,7 @@ app.use(express.json())
 
 const saltRounds = 10
 
-const PORT = process.env.PORT || 8080
-const HOSTNAME = process.env.HOSTNAME || 'localhost'
+const PORT = 9966
 
 const loggingMiddleware = (req, res, next) => {
     console.log(`${req.method} - ${req.url}`)
@@ -119,6 +118,6 @@ app.get("/registry", async (req, res) => {
     res.send(registry)
 })
 
-app.listen(PORT, HOSTNAME, () => {
-    console.log("The server is running on http://",HOSTNAME ,":", PORT)
+app.listen(PORT, () => {
+    console.log("The server is running on http://localhost:", PORT)
 })

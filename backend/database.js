@@ -4,10 +4,11 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const pool = mysql.createPool({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
+    host: `wedding-backend.mysql.database.azure.com`,
+    user: "austinnorgaard",
+    port: 3306,
+    password: "*A11697n7*",
+    database: "wedding-services",
     ssl:{ca:fs.readFileSync("DigiCertGlobalRootCA.crt.pem")}
 }).promise()
 
