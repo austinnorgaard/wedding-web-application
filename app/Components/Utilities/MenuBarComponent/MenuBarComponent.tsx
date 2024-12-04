@@ -1,10 +1,10 @@
-import { useState, React, useEffect } from 'react';
+'use client';
+
+import { useState } from 'react';
 import '../../../Styles/CSS/MenuBarComponent.css';
 import { Link } from 'react-router-dom';
 import menuicon from '../../../Resources/Photos/menu-icon.svg';
 import exiticon from '../../../Resources/Photos/exit.svg';
-import axios from 'axios';
-import useToken from '../TokenComponent/TokenComponent';
 
 function MenuBar() {
   const [main_class, setMainClass] = useState ("menuUnclicked");
@@ -12,7 +12,6 @@ function MenuBar() {
   const [click, setClicked] = useState (false);
   const [icon, setIcon] = useState (menuicon);
   const [loggedIn, setLoggedIn] = useState(false);
-  const { token } = useToken();
   const [localToken, setLocalToken] = useState();
 
   // Toggle button/menu
@@ -29,18 +28,6 @@ function MenuBar() {
     }
     setClicked (!click);
 }
-
-useEffect (() => {
-  axios.get(`https://weddingbackend.norgaardfamily.com/users`)
-  .then((res) => {
-    try {
-      setLoggedIn(res.data[0].isAdmin);
-    } catch (e) {
-      setLoggedIn(false)
-    }
-  })
-  setLocalToken(localStorage.getItem("token"))
-},[loggedIn, token, localToken]);
 
   return (
     <div className="MenuBar" id={main_class}>
