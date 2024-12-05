@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, React } from 'react';
+import { useState, useEffect } from 'react';
 import '@/app/ui/Styles/CSS/TravelMapComponent.css';
 import postlewaitImg from "@/app/ui/Resources/Photos/postlewaits.png"
 import markerImg from '@/app/ui/Resources/Photos/marker.png'
