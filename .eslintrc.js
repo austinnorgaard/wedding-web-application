@@ -6,15 +6,9 @@ module.exports = {
     extends: ['eslint:recommended', 'plugin:react/recommended'],
     parserOptions: {
       ecmaFeatures: {
-        jsx: true
+        jsx: false
       },
       ecmaVersion: 11,
       sourceType: 'module'
     },
-    plugins: ['react'],
-    rules: {
-        'no-extra-semi': "error",
-        "react/jsx-key": [2, { "checkFragmentShorthand": true }],
-        "react/prop-types": "off"
-    }
   };
