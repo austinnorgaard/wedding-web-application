@@ -7,8 +7,8 @@ export default async function PhotoGallery() {
   const imageArray = await fetchData();
 
   async function fetchData () {
-    const imagesResponse = [];
-    var imageArray = [];
+    const imagesResponse: any[] = [];
+    var imageArray: any[] = [];
     await axios.all([
       axios.get(`https://weddingapi.norgaardfamily.com/https://libertykifer.smugmug.com/services/api/json/1.4.0/?galleryType=album&albumId=416997567&albumKey=rx2Ptc&nodeId=b7VTN9&PageNumber=0&imageId=0&imageKey=&returnModelList=true&PageSize=24&imageSizes=L%2CXL&method=rpc.gallery.getalbum`),
       axios.get(`https://weddingapi.norgaardfamily.com/https://libertykifer.smugmug.com/services/api/json/1.4.0/?galleryType=album&albumId=416997567&albumKey=rx2Ptc&nodeId=b7VTN9&PageNumber=2&imageId=0&imageKey=&returnModelList=true&PageSize=24&method=rpc.gallery.getalbum`)
