@@ -17,7 +17,7 @@ const links = [
     { name: 'Travel', href: '/travel', id: 'travellink' },
     { name: 'Registry', href: '/registry', id: 'registrylink' },
     { name: 'RSVP', href: '/rsvp', id: 'rsvplink' },
-    { name: 'Account', href: '/account', id: 'accountlink' },
+    // { name: 'Account', href: '/account', id: 'accountlink' },
   ];
 
 export default function MenuBar() {
