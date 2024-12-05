@@ -40,29 +40,29 @@ export default function RegistryGallery() {
     { label: "$150+", value: ["150.00", "999999999.99"] }
   ];
   const [storeOptions, setStoreOptions] = useState([
-    { 
-      label: "Venmo", 
+    {
+      label: "Venmo",
       value: "Venmo",
       registryLink: "/venmo",
       registryImage: venmoqr,
       index: 0
     },
-    { 
-      label: "Amazon", 
+    {
+      label: "Amazon",
       value: "amazon",
       registryLink: "https://www.amazon.com/wedding/a/registry/2PMC8XDS4JY6F?tag=wedch-995-20",
       registryImage: amazonlogo,
       index: 1
     },
-    { 
-      label: "Serta", 
+    {
+      label: "Serta",
       value: "Serta",
       registryLink: "https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link",
       registryImage: "https://ringofire.com/wp-content/uploads/2020/10/Serta_Logo.png",
       index: 2
     },
-    { 
-      label: "Ring", 
+    {
+      label: "Ring",
       value: "Ring",
       registryLink: "https://ring.com/products/video-doorbell-pro-2",
       registryImage: "https://download.logo.wine/logo/Ring_Inc./Ring_Inc.-Logo.wine.png",
@@ -84,34 +84,6 @@ export default function RegistryGallery() {
   // eslint-disable-next-line
   const [filterType, setFilterType] = useState("feat");
 
-  function toPage(pageNumber: any) {
-    setCurrentPage(pageNumber);
-    if (pageNumber === 1 && storeItems.length) {
-      for (let i = 0; i < storeItems.length; i++) {
-        if (i < 12) {
-          storeItems.at(i).isOnPage = true
-        }
-        else {
-          storeItems.at(i).isOnPage = false
-        }
-      }
-    }
-    else {
-      let end = pageNumber * 12;
-      if (storeItems.length - 1 < end) {
-        end = storeItems.length - 1
-      }
-      for (let i = 0; i < storeItems.length; i++) {
-        if (i < (pageNumber-1) * 12 || i > end) {
-          storeItems.at(i).isOnPage = false
-        }
-        else {
-          storeItems.at(i).isOnPage = true
-        }
-      }
-    }
-    setStoreItems(storeItems)
-  }
 /*
   function onFilterChange (value: any) {
     setFilterType(value);
@@ -203,9 +175,7 @@ export default function RegistryGallery() {
           imageUrl: data[i].imageUrl,
           productPrice: data[i].price,
           qtyNeeded: data[i].stock,
-          priority: data[i].priority,
-          canAddToStandardCart: data[i].stock > 0 ? true : false,
-          isOnPage: data[i].priority < 12 ? true : false
+          priority: data[i].priority
         })
       }
       console.log(data)
@@ -311,13 +281,13 @@ export default function RegistryGallery() {
             <div className="Container RegistryItemList Items">
             <Suspense>
               {storeItems.map((store: any, id: any) => (
-                ((storeChecked === store.storeName || storeChecked === "") && 
+                /*((storeChecked === store.storeName || storeChecked === "") && 
                 ((parseFloat(priceChecked[0]) <= store.productPrice && 
                 parseFloat(priceChecked[1]) >= store.productPrice) || 
                 (store.canAddToStandardCart === true && priceChecked[0] === "" && priceChecked[1] === "")) && 
                 ((statusChecked === 'available' && store.qtyNeeded > 0) || 
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
-                (statusChecked === "")) && (store.isOnPage === true)) &&
+                (statusChecked === "")) && (store.isOnPage === true)) &&*/
                 <Link href={store.productUrl} target='_blank' className="Item" key={id}>
                   <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
                   <div className="Container Item Text" id={store.storeName}>
@@ -329,7 +299,7 @@ export default function RegistryGallery() {
             </Suspense>
             </div>
           </div>
-          {/*  */}<div className='Container RegistryItemList PageSelect'>
+          {/*<div className='Container RegistryItemList PageSelect'>
             {pages.map((page, id) => (
               <button 
               onClick={() => toPage(page.pageNumber)} 
@@ -343,6 +313,7 @@ export default function RegistryGallery() {
               </button>
             ))}
           </div>
+          */}
         </div>
       </div>
   );

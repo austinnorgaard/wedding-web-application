@@ -274,7 +274,8 @@ body {
   margin-top: 6%;
   margin-bottom: 4%;
   width: 98%;
-  height: 100%;
+  height: fit-content;
+  justify-content: center;
 }
 
 .Container.RegistryItemList.Items {
@@ -282,9 +283,8 @@ body {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  margin-left: 2%;
   max-width: 80%;
-  height: 100%;
+  height: fit-content;
 }
 
 .Container.RegistryItemList.Items > * {
@@ -830,8 +830,6 @@ h1.Filters {
     width: 72%;
   }
   .Container.RegistryItemList.Inner {
-    max-height: 100vh !important;
-    overflow: hidden;
     border-bottom: #c29e29 solid 1px;
   }
   .Container.RegistryItemList.Items {

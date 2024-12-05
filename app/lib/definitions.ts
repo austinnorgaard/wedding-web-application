@@ -17,7 +17,5 @@ export type Item = {
   imageUrl: string,
   productPrice: number,
   qtyNeeded: number,
-  priority: number,
-  canAddToStandardCart: boolean,
-  isOnPage: boolean
+  priority: number
 }
