@@ -1,0 +1,11 @@
+@use 'app';
+
+#FAQMainContainer > .MenuBar > * > #faqlink {
+    border-bottom-color: app.$secondary-color;
+}
+
+@media screen and (max-width: 768px) {
+    #FAQMainContainer > .MenuBar > * > #faqlink {
+        border-left: 3px solid black;
+    }
+}

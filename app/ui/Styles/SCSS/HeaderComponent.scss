@@ -1,0 +1,138 @@
+@use 'app';
+
+.Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: static;
+    padding-top: 4vh;
+    z-index: 5;
+}
+
+#HeaderMainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#bgleaves {
+    max-width: 100%;
+    margin-top: -5%;
+    height: fit-content;
+    filter: brightness(0) saturate(100%) invert(96%) sepia(8%) saturate(6567%) hue-rotate(335deg) brightness(80%) contrast(86%);
+}
+
+.HeaderText#mobileText {
+    display: none;
+    visibility: hidden;
+}
+
+.HeaderText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: white;
+    max-width: 100%;
+    max-height: 20%;
+}
+
+#headernames {
+    transform: scale(1.6);
+}
+
+#headersavethedate {
+    padding-top: 5%;
+}
+
+#headersavethedate, #countdown {
+    transform: scale(0.9);
+}
+
+#headernames, #headersavethedate, #countdown {
+    letter-spacing: 3.2px;
+    text-transform: uppercase;
+    color: white;
+    font-family: Abhaya Libre;
+}
+
+#bgLogo {
+    display: none;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .Header {
+        position: absolute;
+        width: 100%;
+        background-color: #c4d9bc;
+        z-index: 10;
+    }
+
+    #bgLogo, #bglogoLink {
+        display: block;
+        visibility: visible;
+        position: absolute;
+        right: 1%;
+        width: 15vw;
+        height: 15vw;
+        filter: brightness(0) saturate(100%) invert(96%) sepia(8%) saturate(6567%) hue-rotate(335deg) brightness(80%) contrast(86%);
+    }
+
+    #bglogoLink {
+        z-index: 20;
+    }
+
+    .HeaderText#mobileText {
+        height: 15vw;
+        width: 100vw;
+        position: relative;
+        display: flex;
+        visibility: visible;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #mobiletext #headernames {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        top: 0;
+        left: 0;
+        transform: scale(1);
+        width: 100vw;
+        margin-left: 15%;
+        max-width: 70%;
+        height: 15vw;
+        font-size: 100%;
+    }
+
+    .HeaderText#desktopText {
+        display: none;
+        visibility: hidden;
+    }
+
+    #bgleaves {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    #headernames {
+        font-size: 52px;
+        transform: scale(1);
+    }
+    #headersavethedate, #countdown {
+        font-size: 20px;
+    }
+}

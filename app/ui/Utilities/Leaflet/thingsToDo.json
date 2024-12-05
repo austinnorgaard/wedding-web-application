@@ -1,0 +1,62 @@
+[
+    {   
+        "name": "Deepwood Museum & Gardens",
+        "price": "$10+",
+        "city": "Salem",
+        "state": "OR",
+        "lat": "44.92985545111539",
+        "lng": "-123.03189035733998",
+        "rating": "4.7",
+        "reviews": "528",
+        "type": "Museum",
+        "image_url": "https://lh3.ggpht.com/p/AF1QipM-Bf_sry9nBvRsvYJ4PePmoVdF48lN46oUfHVF=s1024"
+    },
+    {   
+        "name": "Get Air Trampoline Park",
+        "price": "$20+",
+        "city": "Salem",
+        "state": "OR",
+        "lat": "44.91690530071269",
+        "lng": "-122.98285431132169",
+        "rating": "4.3",
+        "reviews": "1,216",
+        "type": "Amusement Center",
+        "image_url": "https://lh3.ggpht.com/p/AF1QipPCj8I4fZoj7x29kGcCf65Bssmo5LDaMtaG2CWz=s1024"
+    },
+    {   
+        "name": "Wings & Waves Waterpark",
+        "price": "$20-30+",
+        "city": "McMinnville",
+        "state": "OR",
+        "lat": "45.20520563816408",
+        "lng": "-123.1502876440917",
+        "rating": "4.1",
+        "reviews": "2,697",
+        "type": "Water Park",
+        "image_url": "https://lh3.ggpht.com/p/AF1QipN8JFX2AiQEGKzwA00lmZEk_lN8VqT-NJEo7Qnp=s1024"
+    },
+    {   
+        "name": "Funtastic Arcade Woodburn",
+        "price": "$10+",
+        "city": "Woodburn",
+        "state": "OR",
+        "lat": "45.162189926356625",
+        "lng": "-122.8825950428827",
+        "rating": "4.6",
+        "reviews": "310",
+        "type": "Arcade",
+        "image_url": "https://lh3.ggpht.com/p/AF1QipMMU2WzZzRvGUfLLrQcCRUoRZhSDH2nn4wP3qDU=s1024"
+    },
+    {   
+        "name": "Bullwinkle's",
+        "price": "$30+",
+        "city": "Wilsonville",
+        "state": "OR",
+        "lat": "45.309668740244376",
+        "lng": "-122.76683317346732",
+        "rating": "4.4",
+        "reviews": "3,953",
+        "type": "Amusement Center",
+        "image_url": "https://lh3.ggpht.com/p/AF1QipM_sFsMUCVxedhFsuJ_Zm9x6Ks8StHtBpgewTvr=s1536"
+    }
+]

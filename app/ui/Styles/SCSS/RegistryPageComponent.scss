@@ -1,0 +1,11 @@
+@use 'app';
+
+#RegistryMainContainer > .MenuBar > * > #registrylink {
+    border-bottom-color: app.$secondary-color;
+}
+
+@media screen and (max-width: 768px) {
+    #RegistryMainContainer > .MenuBar > * > #registrylink {
+        border-left: 3px solid black;
+    }
+}
