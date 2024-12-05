@@ -4,7 +4,7 @@ import restaurants from './Leaflet/food.json'
 import fun from './Leaflet/thingsToDo.json'
 import Link from 'next/link';
 
-export default async function TravelList() {
+export default function TravelList() {
     let locations: any[] = [];
 
     hotels.map((hotel) => (

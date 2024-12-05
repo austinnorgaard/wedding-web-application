@@ -19,7 +19,7 @@ import "leaflet/dist/leaflet.css"
 import Link from 'next/link';
 import Image from 'next/image';
 
-function TravelMap() {
+export default function TravelMap() {
     const [lockImg, setLockImg] = useState(lockedLock)
     const [map, setMap]: any = useState(null); //state that will contain the map object
     // eslint-disable-next-line
@@ -191,5 +191,3 @@ function TravelMap() {
         </div>
     );
 }
-
-export default TravelMap;

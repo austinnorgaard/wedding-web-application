@@ -1,9 +1,16 @@
-import '@/app/ui/Styles/CSS/TravelPageComponent.css';
-import TravelKey from '@/app/ui/Utilities/travelkey';
-import TravelMap from '@/app/ui/Utilities/travelmap';
-import TravelList from '@/app/ui/Utilities/travellist';
+'use client';
 
-export default async function TravelPage() {
+import '@/app/ui/Styles/CSS/TravelPageComponent.css';
+import TravelList from '@/app/ui/Utilities/travellist';
+import TravelKey from '@/app/ui/Utilities/travelkey';
+import dynamic from 'next/dynamic'
+
+const TravelMap = dynamic(
+  () => import('@/app/ui/Utilities/travelmap'),
+  { ssr: false }
+)
+
+export default function TravelPage() {
   return (
     <div className="TravelPage">
       <div className="MainContainer" id="TravelMainContainer">
