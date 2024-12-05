@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 
-import './Styles/CSS/index.css'
-import Header from "./Components/Utilities/HeaderComponent/HeaderComponent";
-import MenuBar from "./Components/Utilities/MenuBarComponent/MenuBarComponent";
-import Footer from "./Components/Utilities/FooterComponent/FooterComponent";
+import '@/app/ui/global.css'
+import Header from "@/app/ui/header";
+import MenuBar from "@/app/ui/sidenav";
+import Footer from "@/app/ui/footer";
+
+export const experimental_ppr = true;
 
 export const metadata: Metadata = {
   title: "Norgaard and South Wedding",

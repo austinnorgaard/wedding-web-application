@@ -1,0 +1,11 @@
+@use 'app';
+
+#PhotoMainContainer > .MenuBar > * > #photoslink {
+    border-bottom-color: app.$secondary-color;
+}
+
+@media screen and (max-width: 768px) {
+    #PhotoMainContainer > .MenuBar > * > #photoslink {
+        border-left: 3px solid black;
+    }
+}

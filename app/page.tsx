@@ -1,11 +1,7 @@
-import './Styles/CSS/HomePageComponent.css';
-
-import Header from './Components/Utilities/HeaderComponent/HeaderComponent';
-import Footer from './Components/Utilities/FooterComponent/FooterComponent';
-import MenuBar from './Components/Utilities/MenuBarComponent/MenuBarComponent';
+import '@/app/ui/Styles/CSS/HomePageComponent.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import bgImage from './Resources/Photos/bg.jpg';
+import bgImage from '@/app/ui/Resources/Photos/bg.jpg';
 
 export default function Home() {
   return (
@@ -22,7 +18,7 @@ export default function Home() {
         </div>
         <div id="rsvpoverhead">
           <Link href="/rsvp" id="rsvpcont">
-            <Link href="/rsvp" id="rsvp">RSVP</Link>
+            <p id="rsvp">RSVP</p>
           </Link>
         </div>
         <div id="rsvpsectioncont">

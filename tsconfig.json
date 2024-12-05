@@ -1,35 +1,36 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "noEmit": true,
-    "incremental": true,
-    "module": "esnext",
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": [
     "next-env.d.ts",
-    ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "**/*.mjs",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/lib/placeholder-data.ts",
+    "scripts/seed.js"
+, "app/ui/FooterComponent.jsx", "app/ui/Utilities/travelmap.js"  ],
+  "exclude": ["node_modules"]
 }
