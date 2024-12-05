@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState, useState } from 'react';
+import { useActionState } from 'react';
 import { authenticate } from '@/app/lib/actions';
 import {
   ExclamationCircleIcon,
