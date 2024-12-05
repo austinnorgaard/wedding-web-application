@@ -5,8 +5,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function RSVPPage() {
-  const [guestList, setGuestList] = useState([])
-  const [guests, setGuests] = useState([])
+  const [guestList, setGuestList]: any[] = useState([])
+  const [guests, setGuests] : any[] = useState([])
   const [load, setLoad] = useState("unloaded")
   const [isVerified, setIsVerified] = useState([-1, -1])
   const [selection, setSelection] = useState("none")
@@ -18,7 +18,7 @@ export default function RSVPPage() {
   const [isAdmin, setIsAdmin] = useState(0)
   const [duplicateError, setDuplicateError] = useState(false)
 
-  async function handleSubmit (e) {
+  async function handleSubmit (e: any) {
     e.preventDefault()
     if (selection === "yes") {
       setIsVerified([2, isVerified[1]])
@@ -32,7 +32,7 @@ export default function RSVPPage() {
     }
   }
 
-  async function handleNumber (e) {
+  async function handleNumber (e: any) {
     e.preventDefault()
     axios.put(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: guests[isVerified[1]].name, guestCount: numberOfGuests})
     .catch ((err) => {
@@ -46,7 +46,7 @@ export default function RSVPPage() {
     }
   }
 
-  async function handleVerify (e) {
+  async function handleVerify (e: any) {
     e.preventDefault()
     if (verificationVal === guests[isVerified[1]].phone) {
       setIsVerified([1, isVerified[1]])
@@ -56,14 +56,14 @@ export default function RSVPPage() {
     }
   }
 
-  async function handleRSVP (id) {
+  async function handleRSVP (id: any) {
     setNumberOfGuests(0)
     setIsVerified([0, id])
     setVerificationVal("invalid")
     setSelection("none")
   }
 
-  async function handleAddGuest(e) {
+  async function handleAddGuest(e: any) {
     e.preventDefault()
     axios.post(`https://weddingbackend.norgaardfamily.com/guests`, { guestName: name, guestPhoneNumber: phone, guestZip: zip })
     .then((res) => {
@@ -73,7 +73,7 @@ export default function RSVPPage() {
       }
       else if (res.data === 201) {
         setDuplicateError(false)
-        var form = document.getElementById("add-guest-wrapper");
+        var form: any = document.getElementById("add-guest-wrapper");
         form.reset();
         setLoad("load")
       }
@@ -105,7 +105,7 @@ export default function RSVPPage() {
         console.log("Error handling: " + res.data);
       }
     }).then(() => {
-      guestList.map((guest) => {
+      guestList.map((guest: any) => {
         guests.push({
           name: guest.guestName,
           phone: guest.guestPhoneNumber,
@@ -123,7 +123,7 @@ export default function RSVPPage() {
     axios.get(`https://weddingbackend.norgaardfamily.com/users/${localStorage.getItem("id")}`)
     .then((res) => {
       if (res.data.isAdmin === 1) {
-        setIsAdmin(true)
+        setIsAdmin(1)
       }
       console.log(res.data.isAdmin)
     })
@@ -163,7 +163,7 @@ export default function RSVPPage() {
             null
             */}
             <div id="guest-list-wrapper">
-            {guests.map((guest, id) => (
+            {guests.map((guest: any, id: any) => (
             <ul className="guestListing" id={'guest'+id} key={id}>
               <p id="guestName">{guest.name}</p>
               {isVerified[0] > -1 ?
@@ -190,7 +190,7 @@ export default function RSVPPage() {
                     isVerified[0] === 2 ?
                     <form onSubmit={handleNumber} id="guest-count-wrapper">
                         <label>How many (including yourself) will be attending?</label>
-                        <input type="number" onChange={e => setNumberOfGuests(e.target.value)}/>
+                        <input type="number" onChange={e => setNumberOfGuests(Number(e.target.value))}/>
                         <button type="submit">Save</button>
                         <button onClick={() => setIsVerified([-1, -1])}>Cancel</button>
                     </form>

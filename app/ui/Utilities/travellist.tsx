@@ -6,8 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default async function TravelList() {
-    // eslint-disable-next-line
-    var locations = []
+    let locations: any[] = [];
 
     hotels.map((hotel) => (
         locations.push(hotel)
