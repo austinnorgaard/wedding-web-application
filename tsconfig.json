@@ -31,6 +31,6 @@
     ".next/types/**/*.ts",
     "app/lib/placeholder-data.ts",
     "scripts/seed.js"
-, "app/ui/FooterComponent.jsx", "app/ui/Utilities/travelmap.js"  ],
+, "app/ui/FooterComponent.jsx", "app/ui/Utilities/travelmap.js", "app/lib/localstorage.js", "app/lib/localstorage.js", "app/lib/localstorage.js"  ],
   "exclude": ["node_modules"]
 }

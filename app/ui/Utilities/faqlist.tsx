@@ -1,37 +1,22 @@
 'use client';
 
 import '@/app/ui/Styles/CSS/FAQListComponent.css';
-// import faqlist from "@/app/ui/Resources/Other/faqlist.txt";
-// import { useState, useEffect } from 'react';
+import faqlist from "@/app/ui/Resources/Other/faqlist.json";
+import { useState, useEffect } from 'react';
 
 export default function FAQList() {
-  /*
-  const [faqtext, setText] = useState("");
-  const ceremonyTime = "3:30";
-  var questionList = [""];
-  var answerList = [""];
-  var questions = [];
-  var answers = [];
-  var isQuestion = true;
-  var questionCount = 1;
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const questionParam = urlParams.get('question')
+  const [faqtext, setText]: any = useState("");
+  const ceremonyTime: any = "3:30";
+  var questionList: any = [""];
+  var answerList: any = [""];
+  var questions: any = [];
+  var answers: any = [];
+  var isQuestion: any = true;
+  var questionCount: any = 1;
 
   useEffect(() => {
-    if (questionParam === "gifts") {
-      window.scrollTo(0, document.body.scrollHeight);
-    }
-    else {
-      window.scrollTo(0, 0)
-    }
+    setText(faqlist.text);
   }, [faqtext])
-
-  fetch(faqlist)
-  .then(r => r.text())
-  .then(text => {
-    setText(text);
-  });
 
   for (let i = 0; i < faqtext.length; i++) {
     if (isQuestion && faqtext[i] !== "\n") {
@@ -64,7 +49,7 @@ export default function FAQList() {
 
   questions.push(questionList);
   answers.push(answerList);
-*/
+
   return (
     <div className="FAQList">
       <div className="MainContainer" id="FAQListMainContainer">
@@ -75,12 +60,12 @@ export default function FAQList() {
             </div>
           </div>
           <div className='OrderedList' id="questionsList">
-          {/*questionList.map((question, key) => (
+          {questionList.map((question: any, key: any) => (
             <div className="QuestionBox" id={"Question"+key} key={key}>
               <h3 className="Question">{question}</h3>
               <p className="Answer">{answerList[key]}</p>
             </div>
-          ))*/}
+          ))}
           </div>
         </div>
       </div>

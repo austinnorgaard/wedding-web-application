@@ -19,37 +19,36 @@ import "leaflet/dist/leaflet.css"
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function TravelMap() {
-    /*
+function TravelMap() {
     const [lockImg, setLockImg] = useState(lockedLock)
+    const [map, setMap]: any = useState(null); //state that will contain the map object
     // eslint-disable-next-line
     const [centerPoint, setCenter] = useState({ lat: 45.180279, lng: -122.721680 })
     const ZOOM_LEVEL = 10;
-    const markerIcon = new L.icon ({
-        iconUrl: markerImg,
+    const markerIcon = new (L.icon as any) ({
+        iconUrl: markerImg.src,
         iconSize: [35, 35],
         iconAnchor: [17, 36],
         popupAnchor: [0, -36]
     })
-    const hotelIcon = new L.icon ({
-        iconUrl: hotelpin,
+    const hotelIcon = new (L.icon as any) ({
+        iconUrl: hotelpin.src,
         iconSize: [35, 35],
         iconAnchor: [17, 36],
         popupAnchor: [0, -36]
     });
-    const foodIcon = new L.icon ({
-        iconUrl: foodpin,
+    const foodIcon = new (L.icon as any) ({
+        iconUrl: foodpin.src,
         iconSize: [35, 35],
         iconAnchor: [17, 36],
         popupAnchor: [0, -36]
     });
-    const funIcon = new L.icon ({
-        iconUrl: funpin,
+    const funIcon = new (L.icon as any) ({
+        iconUrl: funpin.src,
         iconSize: [35, 35],
         iconAnchor: [17, 36],
         popupAnchor: [0, -36]
     });
-    const [map, setMap] = useState(null); //state that will contain the map object
     let [editMode, setEditMode] = useState(false); // state to toggle the edit buttons
 
     useEffect(() => {
@@ -75,11 +74,10 @@ export default function TravelMap() {
             }
         setEditMode((prevState) => !prevState);
     }
-*/
+
     return (
         <div className="TravelMap">
             <div className="MainContainer" id="TravelMapMainContainer">
-                {/*
                 <MapContainer 
                     center={centerPoint} 
                     zoom={ZOOM_LEVEL} 
@@ -94,7 +92,7 @@ export default function TravelMap() {
                     <Marker position={centerPoint} icon={markerIcon}>
                         <Popup closeButton={false} className='Postlewait'>
                             <div className='LocationImageContainer'>
-                                <Image src={postlewaitImg} alt="postlewait" className='LocationImage' width={100} height={100} objectFit='contain'/>
+                                <Image src={postlewaitImg} alt="postlewait" className='LocationImage'/>
                             </div>
                             <div className='LocationContainer'>
                                 <div className='LocationInfoContainer'>
@@ -104,7 +102,7 @@ export default function TravelMap() {
                                     </div>
                                     <div className='LocationHeroContainer'>
                                         <p className='LocationType'>Wedding venue - </p>
-                                        <Image src={markerImg} alt="" className='LocationHeroItem' width={100} height={100} objectFit='contain'/>
+                                        <Image src={markerImg} alt="" className='LocationHeroItem'/>
                                     </div>
                                 </div>
                                 <div className='LocationButtonContainer'>
@@ -113,10 +111,10 @@ export default function TravelMap() {
                             </div>
                         </Popup>
                         {hotels.map((hotel, id) => (
-                            <Marker position={[hotel.lat, hotel.lng]} icon={hotelIcon} key={id} id={hotel.name}>
+                            <Marker position={[Number(hotel.lat), Number(hotel.lng)]} icon={hotelIcon} key={id}>
                                 <Popup closeButton={false} className={hotel.name}>
                                 <div className='LocationImageContainer'>
-                                    <Image src={hotel.image_url} alt={hotel.name} className='LocationImage' width={100} height={100} objectFit='contain'/>
+                                    <img src={hotel.image_url} alt={hotel.name} className='LocationImage'/>
                                 </div>
                                 <div className='LocationContainer'>
                                     <div className='LocationInfoContainer'>
@@ -126,7 +124,7 @@ export default function TravelMap() {
                                         </div>
                                         <div className='LocationHeroContainer'>
                                             <p className='LocationType'>{hotel.city} - </p>
-                                            <Image src={markerImg} alt="" className='LocationHeroItem' width={100} height={100} objectFit='contain'/>
+                                            <Image src={markerImg} alt="" className='LocationHeroItem'/>
                                         </div>
                                     </div>
                                     <div className='LocationButtonContainer'>
@@ -137,10 +135,10 @@ export default function TravelMap() {
                         </Marker>
                         ))}
                         {restaurants.map((restaurant, id) => (
-                            <Marker position={[restaurant.lat, restaurant.lng]} icon={foodIcon} key={id} id={restaurant.name}>
+                            <Marker position={[Number(restaurant.lat), Number(restaurant.lng)]} icon={foodIcon} key={id}>
                                 <Popup closeButton={false} className={restaurant.name}>
                                 <div className='LocationImageContainer'>
-                                    <Image src={restaurant.image_url} alt={restaurant.name} className='LocationImage' width={100} height={100} objectFit='contain'/>
+                                    <img src={restaurant.image_url} alt={restaurant.name} className='LocationImage'/>
                                 </div>
                                 <div className='LocationContainer'>
                                     <div className='LocationInfoContainer'>
@@ -150,7 +148,7 @@ export default function TravelMap() {
                                         </div>
                                         <div className='LocationHeroContainer'>
                                             <p className='LocationType'>{restaurant.city} - </p>
-                                            <Image src={markerImg} alt="" className='LocationHeroItem' width={100} height={100} objectFit='contain'/>
+                                            <Image src={markerImg} alt="" className='LocationHeroItem'/>
                                         </div>
                                     </div>
                                     <div className='LocationButtonContainer'>
@@ -161,10 +159,10 @@ export default function TravelMap() {
                         </Marker>
                         ))}
                         {fun.map((toDo, id) => (
-                            <Marker position={[toDo.lat, toDo.lng]} icon={funIcon} key={id} id={toDo.name}>
+                            <Marker position={[Number(toDo.lat), Number(toDo.lng)]} icon={funIcon} key={id}>
                                 <Popup closeButton={false} className={toDo.name}>
                                 <div className='LocationImageContainer'>
-                                    <Image src={toDo.image_url} alt={toDo.name} className='LocationImage' width={100} height={100} objectFit='contain'/>
+                                    <img src={toDo.image_url} alt={toDo.name} className='LocationImage'/>
                                 </div>
                                 <div className='LocationContainer'>
                                     <div className='LocationInfoContainer'>
@@ -174,7 +172,7 @@ export default function TravelMap() {
                                         </div>
                                         <div className='LocationHeroContainer'>
                                             <p className='LocationType'>{toDo.city} - </p>
-                                            <Image src={markerImg} alt="" className='LocationHeroItem' width={100} height={100} objectFit='contain'/>
+                                            <Image src={markerImg} alt="" className='LocationHeroItem'/>
                                         </div>
                                     </div>
                                     <div className='LocationButtonContainer'>
@@ -187,10 +185,11 @@ export default function TravelMap() {
                     </Marker>
                 </MapContainer>
                 <div className='MapLockContainer'>
-                    <button className='MapLock' onClick={lockToggle}><Image src={lockImg} alt='lock' width={50} height={50} objectFit='contain'/></button>
+                    <button className='MapLock' onClick={lockToggle}><Image src={lockImg} alt='lock'/></button>
                 </div>
-                */}
             </div>
         </div>
     );
 }
+
+export default TravelMap;

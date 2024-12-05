@@ -554,6 +554,7 @@ h1.Filters {
   width: auto;
   height: auto;
   border: 0.05em solid #000;
+  box-shadow: none;
   border-radius: 15%;
   display: grid;
   place-content: center;

@@ -127,7 +127,6 @@ export default function RSVPPage() {
       }
       console.log(res.data.isAdmin)
     })
-    window.scrollTo(0, document.body.scrollHeight);
   },
   [load])
 

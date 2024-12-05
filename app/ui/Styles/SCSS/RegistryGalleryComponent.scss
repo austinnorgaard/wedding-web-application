@@ -1,7 +1,5 @@
 @use 'app';
 
-// || General Styles
-
 #addressQuestion {
     font-size: 1.5vw;
     text-align: center;
@@ -412,6 +410,7 @@ h1.Filters { // Registry Filter Headers
     width: auto;
     height: auto;
     border: 0.05em solid #000;
+    box-shadow: none;
     border-radius: 15%;
     display: grid;
     place-content: center;
@@ -432,7 +431,7 @@ h1.Filters { // Registry Filter Headers
 
 .Container.Filters.CheckRow input:checked::before { // Registry Filters Checkmark After
     transform: scale(1);
-    color: app.$secondary-color
+    color: app.$secondary-color;
 }
 
 // || Item Styles

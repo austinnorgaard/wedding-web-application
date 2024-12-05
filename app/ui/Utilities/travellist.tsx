@@ -3,7 +3,6 @@ import hotels from './Leaflet/hotels.json'
 import restaurants from './Leaflet/food.json'
 import fun from './Leaflet/thingsToDo.json'
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default async function TravelList() {
     let locations: any[] = [];
@@ -25,12 +24,9 @@ export default async function TravelList() {
                     <div className='TravelListLocations' key={id}>
                         <div className='TravelListLocation'>
                             <div className='TravelListLocationImage'>
-                                <Image
+                                <img
                                     src={location.image_url}
                                     alt={location.name}
-                                    width={100}
-                                    height={100}
-                                    quality={100}
                                 />
                             </div>
                             <div className='TravelListLocationRight'>

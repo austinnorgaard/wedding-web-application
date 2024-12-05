@@ -26,8 +26,6 @@ export default function MenuBar() {
     const [button, setButtonClass] = useState ("unclicked");
     const [click, setClicked] = useState (false);
     const [icon, setIcon] = useState (menuicon);
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [localToken, setLocalToken] = useState();
 
     // Toggle button/menu
     function updateMenu () {
