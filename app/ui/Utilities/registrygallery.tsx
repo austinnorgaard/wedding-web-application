@@ -74,12 +74,12 @@ export default function RegistryGallery() {
     { label: "Purchased", value: "purchased" }
   ];
 
-  const [storeItems, setStoreItems] = useState ([{ 
+  const [storeItems, setStoreItems]: any = useState ([{ 
     storeName: "Venmo",
     productName: "Newlywed House Funds",
     productUrl: "/venmo",
     imageUrl: venmoqr,
-    productPrice: parseFloat(5000.00),
+    productPrice: parseFloat('5000.00'),
     qtyNeeded: 1,
     priority: 1,
     canAddToStandardCart: true,
@@ -90,7 +90,7 @@ export default function RegistryGallery() {
     productName: "Serta iComfortECO Foam Mattress", 
     productUrl: "https://www.bedbathandbeyond.com/Home-Garden/Serta-iComfortECO-F40HD-15.25-Memory-Foam-Plush-Mattress-Set/37844408/product.html?opre=1&option=75926570",
     imageUrl: "https://www.serta.com/cdn/shop/files/gzbe2putpha6vcmgtqu8_abf8b5e4-b0c4-44ca-a774-2e2b0380b62d.jpg?v=1697066047&width=2000",
-    productPrice: parseFloat(3249.00),
+    productPrice: parseFloat('3249.00'),
     qtyNeeded: 1,
     priority: 2,
     canAddToStandardCart: true,
@@ -101,7 +101,7 @@ export default function RegistryGallery() {
     productName: "Ring Wired Doorbell Pro",
     productUrl: "https://ring.com/products/video-doorbell-pro-2",
     imageUrl: "https://images.ctfassets.net/a3peezndovsu/variant-31961428492377/e8d3f08c98ee484eef46c383b85cb785/variant-31961428492377.jpg",
-    productPrice: parseFloat(229.99),
+    productPrice: parseFloat('229.99'),
     qtyNeeded: 1,
     priority: 3,
     canAddToStandardCart: true,
@@ -115,7 +115,7 @@ export default function RegistryGallery() {
   // eslint-disable-next-line
   const [filterType, setFilterType] = useState("feat");
 
-  function toPage(pageNumber) {
+  function toPage(pageNumber: any) {
     setCurrentPage(pageNumber);
     if (pageNumber === 1) {
       for (let i = 0; i < storeItems.length; i++) {
@@ -142,25 +142,24 @@ export default function RegistryGallery() {
       }
     }
     setStoreItems(storeItems)
-    forceRender((prev) => !prev);
   }
 
-  function onFilterChange (value) {
+  function onFilterChange (value: any) {
     setFilterType(value);
     if (value === "feat") {
-      setStoreItems(storeItems.sort((a, b) => a.priority < b.priority ? -1 : 1));
+      setStoreItems(storeItems.sort((a: any, b: any) => a.priority < b.priority ? -1 : 1));
     }
     else if (value === "htl") {
-      setStoreItems(storeItems.sort((a, b) => a.productPrice > b.productPrice ? -1.00 : 1.00));
+      setStoreItems(storeItems.sort((a: any, b: any) => a.productPrice > b.productPrice ? -1.00 : 1.00));
     }
     else if (value === "lth") {
-      setStoreItems(storeItems.sort((a, b) => a.productPrice < b.productPrice ? -1.00 : 1.00));
+      setStoreItems(storeItems.sort((a: any, b: any) => a.productPrice < b.productPrice ? -1.00 : 1.00));
     }
     toPage(1);
   }
 
 
-  function onPriceChange (value) {
+  function onPriceChange (value: any) {
     if (priceChecked[0] === value[0] && priceChecked[1] === value[1]) {
       setPriceChecked(["", ""]);
     }
@@ -170,7 +169,7 @@ export default function RegistryGallery() {
     toPage(1);
   }
 
-  function onStoreChange (value) {
+  function onStoreChange (value: any) {
     if (storeChecked === value) {
       setStoreChecked("");
     }
@@ -180,7 +179,7 @@ export default function RegistryGallery() {
     toPage(1);
   }
 
-  function onStatusChange (value) {
+  function onStatusChange (value: any) {
     if (statusChecked === value) {
       setStatusChecked("");
     }
@@ -190,7 +189,7 @@ export default function RegistryGallery() {
     toPage(1);
   }
 
-  function updateProviders (direction) {
+  function updateProviders (direction: any) {
     if (direction === "right") {
       let newOptions = storeOptions;
       newOptions[0].index = storeOptions.length;
@@ -199,7 +198,6 @@ export default function RegistryGallery() {
       }
       newOptions = newOptions.sort((a, b) => a.index < b.index ? -1 : 1);
       setStoreOptions(newOptions);
-      forceRender((prev) => !prev);
     }
     else if (direction === "left") {
       let newOptions = storeOptions;
@@ -209,7 +207,6 @@ export default function RegistryGallery() {
       }
       newOptions = newOptions.sort((a, b) => a.index < b.index ? -1 : 1);
       setStoreOptions(newOptions);
-      forceRender((prev) => !prev);
     }
   }
 
@@ -291,17 +288,16 @@ export default function RegistryGallery() {
               <button className="RegistryItemList Filters" id={filterMenuID} onClick={updateFilterMenu}>Filters</button>
             </div>
             <Link id="addressQCont" href="/faq?question=gifts">
-              <p id="addressQuestion" href="/faq?question=gifts">Where do I send all this?</p>
+              <p id="addressQuestion">Where do I send all this?</p>
               <p id="clickMeAddress">Click Me</p>
             </Link>
             <div className='Container RegistryItemList Box Sort'>
               <label htmlFor="sort">Sort by</label>
-              <select className='RegistryItemList Sort' id="sortselect" name="Sort" onChange={() => onFilterChange(document.querySelector('#sortselect').value)}>
+              <select className='RegistryItemList Sort' id="sortselect" name="Sort" onChange={(e: any) => onFilterChange(e.value)}>
                 {sortFilters.map((filter, id) => (
                   <option value={filter.value} key={id}>{filter.label}</option>
                 ))}
               </select>
-              <img src={downarrow} alt="arrowdown"/>
             </div>
           </div>
           <div className='Container RegistryItemList Inner' id={filterMenuID}>
@@ -336,7 +332,7 @@ export default function RegistryGallery() {
             </div>
             <div className="Container RegistryItemList Items">
             <Suspense>
-              {storeItems.map((store, id) => (
+              {storeItems.map((store: any, id: any) => (
                 ((storeChecked === store.storeName || storeChecked === "") && 
                 ((parseFloat(priceChecked[0]) <= store.productPrice && 
                 parseFloat(priceChecked[1]) >= store.productPrice) || 
