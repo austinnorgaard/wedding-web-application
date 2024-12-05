@@ -8,6 +8,7 @@ import axios from "axios";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Item } from '@/app/lib/definitions';
+import Loading from '@/app/(pages)/registry/Loading';
 
 export default function RegistryGallery() {
   const [filterMenuID, setFilterMenuID] = useState ("filterUnclicked");
@@ -159,6 +160,10 @@ export default function RegistryGallery() {
     }
     setFilterMenuClicked (!filterMenuClick);
   } */
+    
+  async function markPurchased(e: any) {
+    console.log("Purchased!: " + e)
+  }
  
   useEffect(() => {
     const tempItems = [...storeItems]
@@ -279,7 +284,7 @@ export default function RegistryGallery() {
               </div>
             </div> */}
             <div className="Container RegistryItemList Items">
-            <Suspense>
+            <Suspense fallback={<Loading/>}>
               {storeItems.map((store: any, id: any) => (
                 /*((storeChecked === store.storeName || storeChecked === "") && 
                 ((parseFloat(priceChecked[0]) <= store.productPrice && 
@@ -288,13 +293,14 @@ export default function RegistryGallery() {
                 ((statusChecked === 'available' && store.qtyNeeded > 0) || 
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
                 (statusChecked === "")) && (store.isOnPage === true)) &&*/
-                <Link href={store.productUrl} target='_blank' className="Item" key={id}>
+                <div className="Item" id="storeItem" key={id}>
+                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow" key={id}>Shop</Link><button onClick={(e) => markPurchased(e)} id="markPurchased">Mark Purchased</button></div>
                   <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
                   <div className="Container Item Text" id={store.storeName}>
                     <h4 className='Item Title'>{store.productName}</h4>
                     <h4 className="Item Price">${store.productPrice.toFixed(2)}</h4>
                   </div>
-                </Link>
+                </div>
               ))}
             </Suspense>
             </div>
