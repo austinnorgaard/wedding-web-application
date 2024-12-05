@@ -2,13 +2,12 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
-import type { User } from '@/app/lib/definitions';
 import bcrypt from 'bcrypt';
 import { getPool } from './app/lib/tidb';
 
 const pool = await getPool();
 
-export async function getUser(email: string): Promise<User | undefined> {
+export async function getUser( email: string) {
   try {
     const [user]: any = await pool.query('SELECT * FROM user WHERE email=?;', [email]);
     return user[0];
