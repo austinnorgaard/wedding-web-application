@@ -8,14 +8,11 @@ export const authConfig = {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isOnAccount = nextUrl.pathname.startsWith('/account');
-      const isOnLogin = nextUrl.pathname.startsWith('/login');
       if (isOnAccount) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page
       } else if (isLoggedIn) {
-        if (isOnLogin) {
-          return Response.redirect(new URL('/account', nextUrl));
-        }
+        return Response.redirect(new URL('/account', nextUrl));
       }
       return true;
     },
