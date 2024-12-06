@@ -163,14 +163,21 @@ export default function RSVPPage() {
             */}
             <div id="guest-list-wrapper">
             {guests.map((guest: any, id: any) => (
-            <ul className="guestListing" id={'guest'+id} key={id}>
-              <p id="guestName">{guest.name}</p>
-              {isVerified[0] > -1 ?
+              <div className="guestListingContainer" id={'guest'+id} key={id}>
+                {isVerified[0] == -1 ?
+                  <ul className="guestListing">
+                    <p id="guestName">{guest.name}</p>
+                  </ul> :
+                  null
+                }
+                {isVerified[0] > -1 ?
                 id === isVerified[1] ?
                   isVerified[0] === 0 ?
                     <form onSubmit={handleVerify} id="verify-guest-wrapper">
-                      <label>Please verify your Phone Number</label>
-                      <input onChange={e => setVerificationVal(e.target.value)}/>
+                      <label>Please verify your Phone Number <br/>(No Dashes - Ex: 0123456789)</label>
+                      <div className="inputdiv">
+                        <input onChange={e => setVerificationVal(e.target.value)}/>
+                      </div>
                       <button type="submit">Save</button>
                       <button onClick={() => setIsVerified([-1, -1])}>Cancel</button>
                     </form>
@@ -178,10 +185,16 @@ export default function RSVPPage() {
                   isVerified[0] === 1 ?
                     <form onSubmit={handleSubmit} id="guest-attendance-wrapper">
                       <label>Will your party be attending?</label>
-                      <input type="radio" value="yes" name="selection" onChange={e => setSelection(e.target.value)}/>
-                      <label id="yes">Yes</label>
-                      <input type="radio" value="no" name="selection" onChange={e => setSelection(e.target.value)}/>
-                      <label id="no">No</label>
+                      <div className="inputdiv">
+                        <div>
+                          <input type="radio" value="yes" name="selection" onChange={e => setSelection(e.target.value)}/>
+                          <label id="yes">Yes</label>
+                        </div>
+                        <div>
+                          <input type="radio" value="no" name="selection" onChange={e => setSelection(e.target.value)}/>
+                          <label id="no">No</label>
+                        </div>
+                      </div>
                       <button id="submit" type="submit">Save</button>
                       <button id="cancel" onClick={() => setIsVerified([-1, -1])}>Cancel</button>
                     </form>
@@ -189,7 +202,9 @@ export default function RSVPPage() {
                     isVerified[0] === 2 ?
                     <form onSubmit={handleNumber} id="guest-count-wrapper">
                         <label>How many (including yourself) will be attending?</label>
-                        <input type="number" onChange={e => setNumberOfGuests(Number(e.target.value))}/>
+                        <div className="inputdiv">
+                          <input type="number" onChange={e => setNumberOfGuests(Number(e.target.value))}/>
+                        </div>
                         <button type="submit">Save</button>
                         <button onClick={() => setIsVerified([-1, -1])}>Cancel</button>
                     </form>
@@ -217,7 +232,7 @@ export default function RSVPPage() {
                     <button className="guestRSVP" id={`reserveButton${id}`} onClick={async () => await handleRSVP(id)}>RSVP</button>
                   </div>
               }
-            </ul>
+              </div>
             ))}
             </div>
         </div>
