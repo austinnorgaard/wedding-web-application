@@ -72,15 +72,24 @@
         width: 100%;
         background-color: #c4d9bc;
         z-index: 10;
+        padding-top: 0;
+    }
+
+    #HeaderMainContainer {
+        display: flex;
+        width: 65%;
+        margin-left: 35%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
 
     #bgLogo, #bglogoLink {
         display: block;
         visibility: visible;
-        position: absolute;
-        right: 1%;
-        width: 15vw;
-        height: 15vw;
+        margin-right: 5%;
+        width: 80px;
+        height: 80px;
         filter: brightness(0) saturate(100%) invert(96%) sepia(8%) saturate(6567%) hue-rotate(335deg) brightness(80%) contrast(86%);
     }
 
@@ -89,8 +98,9 @@
     }
 
     .HeaderText#mobileText {
-        height: 15vw;
-        width: 100vw;
+        height: 12vw;
+        max-width: 50%;
+        font-size: small;
         position: relative;
         display: flex;
         visibility: visible;

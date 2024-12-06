@@ -122,3 +122,23 @@ export async function getRegistry() {
     const rows = await getItems()
     return rows  
 };
+
+export async function updateItem(id) {
+    const newStock = getItem(id)
+                    .then((res) =>{
+                        return (res.data.stock)
+                    })
+                    .catch((err) => {
+                        return err;
+                    });
+
+    return newStock;
+
+    //const [result] = await pool.query(`
+    //UPDATE item 
+    //SET stock=?
+    //WHERE itemId=?
+    //`, [newStock, id])
+
+    // return result;
+};
