@@ -124,9 +124,9 @@ export async function getRegistry() {
 };
 
 export async function updateItem(id) {
-    const newStock = getItem(id)
+    var newStock = getItem(id)
                     .then((res) =>{
-                        return (res.stock - 1)
+                        return (res.stock)
                     })
                     .catch((err) => {
                         return err;
@@ -136,7 +136,7 @@ export async function updateItem(id) {
     UPDATE item
     SET stock=?
     WHERE itemId=?
-    `, [newStock, id])
+    `, [newStock - 1, id])
 
     return result;
 };
