@@ -136,7 +136,7 @@ export async function updateItem(id) {
     const [result] = await pool.query(`
     UPDATE item
     SET stock = ?
-    WHERE guestName = ?;
+    WHERE itemId = ?;
     `, [newStock, id])
 
     return result;
