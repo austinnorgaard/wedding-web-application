@@ -180,8 +180,11 @@ export default function RegistryGallery() {
       alert("Purchased added successfully!");
     //    window.location.reload();
     })
-
-    console.log("Purchased!: ")
+    .catch((err) => {
+      console.log(err);
+      //alert("Purchased failed!");
+    //    window.location.reload();
+    })
   }
  
   useEffect(() => {
