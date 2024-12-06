@@ -44,25 +44,26 @@ export default function MenuBar() {
 
     return (
         <div className="MenuBar" id={main_class}>
-            <div className="flex flex-row items-center w-full justify-center" id={main_class}>
+            <div className="md:flex md:flex-row md:items-center md:w-full md:justify-center" id={main_class}>
                 <button className={button} onClick={updateMenu} id="menuButton"><Image src={icon} alt="hamburgerMenu"/></button>
                 <span id="lineSpan"></span>
                 {links.map((link) => {
                     return (
-                    <Link
+                    <div className='MenuBarMainContainer' id={main_class} key={link.name}>
+                        <Link
                         id={link.id}
-                        key={link.name}
                         href={link.href}
                         onClick={updateMenu}
                         className={clsx(
-                        'px-8 text-white transition-all duration-[250ms] no-underline underline-offset-[15px] decoration-transparent hover:underline hover:decoration-gold-100 text-4xl',
+                        'md:px-8 text-white transition-all duration-[250ms] no-underline underline-offset-[15px] decoration-transparent md:hover:underline hover:decoration-gold-100 md:text-4xl',
                         {
-                            '!transition-none !underline !decoration-gold-100': pathname === link.href,
+                            '!transition-none md:!underline md:!decoration-gold-100': pathname === link.href,
                         },
                         )}
-                    >
-                        <p className="hidden md:block">{link.name}</p>
-                    </Link>
+                        >
+                            <p>{link.name}</p>
+                        </Link>
+                    </div>
                     );
                 })}
             </div>

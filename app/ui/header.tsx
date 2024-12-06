@@ -15,10 +15,10 @@ export default function Header() {
     <div className="Header">
       <div className="MainContainer" id="HeaderMainContainer">
         <Image id="bgleaves" src={leaves} alt="bgleaves"/>
-        <Link href="/" id="bglogoLink"><Image id="bgLogo" src={logo} alt="bgLogo"/></Link>
         <Link href="/" className="HeaderText" id="mobileText">
-          <h1 id="headernames">Austin &amp; Jessica</h1>
+          <p id="headernames">Austin &amp; Jessica</p>
         </Link>
+        <Link href="/" id="bglogoLink"><Image id="bgLogo" src={logo} alt="bgLogo"/></Link>
         <div className='HeaderText' id="desktopText">
           <h1 id="headernames">Austin &amp; Jessica</h1>
           <div id="headersavethedate">Friday, February 14, 2025</div>

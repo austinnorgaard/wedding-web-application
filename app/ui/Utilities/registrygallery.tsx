@@ -13,6 +13,8 @@ import Loading from '@/app/(pages)/registry/Loading';
 export default function RegistryGallery() {
   const [filterMenuID, setFilterMenuID] = useState ("filterUnclicked");
   const [filterMenuClick, setFilterMenuClicked] = useState (false);
+  const [itemClickedID, setItemClickedId] = useState ("itemUnclicked");
+  const [itemClicked, setItemClicked] = useState (false);
   const [priceChecked, setPriceChecked] = useState (["", ""]);
   const [storeChecked, setStoreChecked] = useState ("");
   const [statusChecked, setStatusChecked] = useState ("");
@@ -149,6 +151,16 @@ export default function RegistryGallery() {
     }
   }
 
+  function updateItemClicked () {
+    if (!itemClicked) {
+        setItemClickedId ("itemClicked");
+    }
+    else {
+        setItemClickedId ("itemUnclicked");
+    }
+    setItemClicked (!itemClicked);
+  }
+
   /* // Toggle button/menu
   function updateFilterMenu () {
     if (!filterMenuClick) {
@@ -159,8 +171,17 @@ export default function RegistryGallery() {
     }
     setFilterMenuClicked (!filterMenuClick);
   } */
-  async function markPurchased(e: any) {
-    console.log("Purchased!: " + e)
+
+
+  async function markPurchased(id: number) {
+    axios.put(`https://weddingbackend.norgaardfamily.com/item/${id}`)
+    .then((response) => {
+      console.log(response);
+      alert("Purchased added successfully!");
+    //    window.location.reload();
+    })
+
+    console.log("Purchased!: ")
   }
  
   useEffect(() => {
@@ -291,8 +312,8 @@ export default function RegistryGallery() {
                 ((statusChecked === 'available' && store.qtyNeeded > 0) || 
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
                 (statusChecked === "")) && (store.isOnPage === true)) &&*/
-                <div className="Item" id="storeItem" key={id}>
-                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow" key={id}>Shop</Link><button onClick={(e) => markPurchased(e)} id="markPurchased">Mark Purchased</button></div>
+                <div onClick={() => updateItemClicked()} className="Item" id={itemClickedID} key={id}>
+                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow" key={id}>Shop</Link><button onClick={() => markPurchased(id)} id="markPurchased">Mark Purchased</button></div>
                   <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
                   <div className="Container Item Text" id={store.storeName}>
                     <h4 className='Item Title'>{store.productName}</h4>
