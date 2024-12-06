@@ -126,19 +126,17 @@ export async function getRegistry() {
 export async function updateItem(id) {
     const newStock = getItem(id)
                     .then((res) =>{
-                        return (res.stock)
+                        return (res.stock - 1)
                     })
                     .catch((err) => {
                         return err;
                     });
 
-    return newStock;
+    const [result] = await pool.query(`
+    UPDATE item
+    SET stock=?
+    WHERE itemId=?
+    `, [newStock, id])
 
-    //const [result] = await pool.query(`
-    //UPDATE item 
-    //SET stock=?
-    //WHERE itemId=?
-    //`, [newStock, id])
-
-    // return result;
+    return result;
 };
