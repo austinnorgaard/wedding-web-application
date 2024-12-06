@@ -160,7 +160,6 @@ export default function RegistryGallery() {
     }
     setFilterMenuClicked (!filterMenuClick);
   } */
-    
   async function markPurchased(e: any) {
     console.log("Purchased!: " + e)
   }
