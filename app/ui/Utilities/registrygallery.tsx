@@ -149,7 +149,6 @@ export default function RegistryGallery() {
     }
   }
 
-
   /* // Toggle button/menu
   function updateFilterMenu () {
     if (!filterMenuClick) {
