@@ -1,7 +1,5 @@
 @use 'app';
 
-// || General Styles
-
 #addressQuestion {
     font-size: 1.5vw;
     text-align: center;
@@ -128,7 +126,8 @@
     margin-top: 6%;
     margin-bottom: 4%;
     width: 98%;
-    height: 100%;
+    height: fit-content;
+    justify-content: center;
 }
 
 .Container.RegistryItemList.Items { // Registry Items Container
@@ -136,9 +135,9 @@
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    margin-left: 2%;
     max-width: 80%;
-    height: 100%;
+    height: fit-content;
+    
 }
 
 .Container.RegistryItemList.Items > * { // Registry Items
@@ -155,11 +154,50 @@
     text-decoration-color: transparent;
     color:#000;
     border-radius: 5px;
+    position: relative;
 }
 
 .Container.RegistryItemList.Items > *:hover { // Registry Items on Hover
     border-color: app.$secondary-color;
     border-radius: 5px;
+    position: relative;
+}
+
+#shopNow, #markPurchased {
+    position:relative;
+    display: none;
+    width: fit-content;
+    height: fit-content;
+}
+
+.Container.RegistryItemList.Items > * > #overlayItem {
+    transition: all 0.25s;
+    width:100%;
+    height:100%;
+    display:none;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+.Container.RegistryItemList.Items > *:hover > #overlayItem { // Registry Items on Hover
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.Container.RegistryItemList.Items > *:hover > #overlayItem > * {
+    display: block;
+    color: black;
+    background-color: white;
+    border: app.$secondary-color 1px solid;
+    border-radius: 5px;
+    padding: 5%;
 }
 
 .Container.RegistryItemList.Main { // Registry Item List Main Container
@@ -412,6 +450,7 @@ h1.Filters { // Registry Filter Headers
     width: auto;
     height: auto;
     border: 0.05em solid #000;
+    box-shadow: none;
     border-radius: 15%;
     display: grid;
     place-content: center;
@@ -432,7 +471,7 @@ h1.Filters { // Registry Filter Headers
 
 .Container.Filters.CheckRow input:checked::before { // Registry Filters Checkmark After
     transform: scale(1);
-    color: app.$secondary-color
+    color: app.$secondary-color;
 }
 
 // || Item Styles
@@ -738,8 +777,6 @@ h1.Filters { // Registry Filter Headers
    }
 
    .Container.RegistryItemList.Inner {
-    max-height: 100vh !important;
-    overflow: hidden;
     border-bottom: app.$secondary-color solid 1px;
    }
 

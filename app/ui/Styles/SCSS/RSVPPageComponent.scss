@@ -67,6 +67,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 #guestName {
@@ -74,12 +75,13 @@
 }
 
 button.guestRSVP {
-    margin-right: 4%;
     border: 1px solid app.$secondary-color;
     border-radius: 15px;
     padding: 0 0;
+    position: absolute;
     transition: all 0.25s;
-    width: 100px;
+    width: 15%;
+    right: 5%;
     height: 50px;
 }
 

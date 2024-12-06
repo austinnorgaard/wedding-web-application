@@ -4,6 +4,7 @@ const nextConfig = {
   experimental: {
     ppr: 'incremental',
   },
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {
@@ -61,6 +62,10 @@ const nextConfig = {
       },{
         protocol: 'https',
         hostname: "images.bestwestern.com",
+        port: '',
+      },{
+        protocol: 'https',
+        hostname: "drive.google.com",
         port: '',
       },
     ],

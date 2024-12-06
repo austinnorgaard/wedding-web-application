@@ -17,7 +17,7 @@ const links = [
     { name: 'Travel', href: '/travel', id: 'travellink' },
     { name: 'Registry', href: '/registry', id: 'registrylink' },
     { name: 'RSVP', href: '/rsvp', id: 'rsvplink' },
-    { name: 'Account', href: '/account', id: 'accountlink' },
+    // { name: 'Account', href: '/account', id: 'accountlink' },
   ];
 
 export default function MenuBar() {
@@ -26,8 +26,6 @@ export default function MenuBar() {
     const [button, setButtonClass] = useState ("unclicked");
     const [click, setClicked] = useState (false);
     const [icon, setIcon] = useState (menuicon);
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [localToken, setLocalToken] = useState();
 
     // Toggle button/menu
     function updateMenu () {

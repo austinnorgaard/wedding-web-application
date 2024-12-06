@@ -14,19 +14,19 @@ export default function TravelKey() {
         </div>
         <div className='TravelKeyItemsContainer'>
             <div className='TravelKeyItemContainer'>
-                <Image src={markerImg} alt="wedding venue" width={20} height={100} />
+                <Image src={markerImg} alt="wedding venue" />
                 <h2> - Wedding Venue</h2>
             </div>
             <div className='TravelKeyItemContainer'>
-                <Image src={hotelpin} alt="hotel" width={20} height={100} />
+                <Image src={hotelpin} alt="hotel" />
                 <h2> - Hotel</h2>
             </div>
             <div className='TravelKeyItemContainer'>
-                <Image src={foodpin} alt="restaurant" width={20} height={100} />
+                <Image src={foodpin} alt="restaurant" />
                 <h2> - Restaurant</h2>
             </div>
             <div className='TravelKeyItemContainer'>
-                <Image src={funpin} alt="fun" width={20} height={100} />
+                <Image src={funpin} alt="fun" />
                 <h2> - Fun / Entertainment</h2>
             </div>
         </div>
