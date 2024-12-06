@@ -43,10 +43,10 @@ app.put("/guests", async (req,res) => {
     res.send(200)
 })
 
-app.put("/item", async (req,res) => {
-    const { id } = req.body
-    const item = updateItem(id)
-    res.send(200)
+app.put("/item/:id", async (req,res) => {
+    const id = req.params.id
+    const item = await updateItem(id)
+    res.send(item)
 })
 
 app.post("/guests", async (req,res) => {

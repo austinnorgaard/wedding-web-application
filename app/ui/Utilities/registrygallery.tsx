@@ -313,7 +313,7 @@ export default function RegistryGallery() {
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
                 (statusChecked === "")) && (store.isOnPage === true)) &&*/
                 <div onClick={() => updateItemClicked()} className="Item" id={itemClickedID} key={id}>
-                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow" key={id}>Shop</Link><button onClick={() => markPurchased(id)} id="markPurchased">Mark Purchased</button></div>
+                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow" key={id}>Shop</Link><button onClick={() => markPurchased(id+1)} id="markPurchased">Mark Purchased</button></div>
                   <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
                   <div className="Container Item Text" id={store.storeName}>
                     <h4 className='Item Title'>{store.productName}</h4>
