@@ -46,7 +46,8 @@ app.put("/guests", async (req,res) => {
 app.put("/item/:id", async (req,res) => {
     const id = req.params.id
     const item = await updateItem(id)
-    res.send(item)
+    console.log(item)
+    res.send(200)
 })
 
 app.post("/guests", async (req,res) => {
