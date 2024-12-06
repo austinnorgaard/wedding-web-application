@@ -126,7 +126,7 @@ export async function getRegistry() {
 export async function updateItem(id) {
     const newStock = getItem(id)
                     .then((res) =>{
-                        return (res.data.stock)
+                        return (res.stock)
                     })
                     .catch((err) => {
                         return err;
