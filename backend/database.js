@@ -131,12 +131,13 @@ export async function updateItem(id) {
                     .catch((err) => {
                         return err;
                     });
+    newStock = Number(newStock) - 1;
 
     const [result] = await pool.query(`
     UPDATE item
-    SET stock=?
-    WHERE itemId=?
-    `, [newStock - 1, id])
+    SET stock = ?
+    WHERE guestName = ?;
+    `, [newStock, id])
 
     return result;
 };
