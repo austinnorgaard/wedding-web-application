@@ -20,6 +20,7 @@ export default function RegistryGallery() {
   const [statusChecked, setStatusChecked] = useState ("");
   const [load, setLoad] = useState ("unloaded");
   const [, forceRender] = useState(undefined);
+  const [stocked, setStocked] = useState("inStock")
     // eslint-disable-next-line
   const [pages, setPages] = useState([
     {
@@ -178,12 +179,12 @@ export default function RegistryGallery() {
     .then((response) => {
       console.log(response);
       alert("Purchased added successfully!");
-    //    window.location.reload();
+      window.location.reload();
     })
     .catch((err) => {
       console.log(err);
-      //alert("Purchased failed!");
-    //    window.location.reload();
+      alert("Purchased failed!");
+      window.location.reload();
     })
   }
  
@@ -316,7 +317,7 @@ export default function RegistryGallery() {
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
                 (statusChecked === "")) && (store.isOnPage === true)) &&*/
                 <div onClick={() => updateItemClicked()} className="Item" id={itemClickedID} key={id}>
-                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow" key={id}>Shop</Link><button onClick={() => markPurchased(id+1)} id="markPurchased">Mark Purchased</button></div>
+                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow" key={id}>Shop</Link>{store.qtyNeeded > 0 ? <button onClick={() => markPurchased(id+1)} id='markPurchased'>Mark Purchased</button> : null }</div>
                   <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
                   <div className="Container Item Text" id={store.storeName}>
                     <h4 className='Item Title'>{store.productName}</h4>
