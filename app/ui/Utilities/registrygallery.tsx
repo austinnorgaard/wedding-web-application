@@ -153,13 +153,15 @@ export default function RegistryGallery() {
   }
 
   function updateItemClicked () {
-    if (!itemClicked) {
+    if (window.innerWidth <= 768) {
+      if (!itemClicked) {
         setItemClickedId ("itemClicked");
+      }
+      else {
+          setItemClickedId ("itemUnclicked");
+      }
+      setItemClicked (!itemClicked);
     }
-    else {
-        setItemClickedId ("itemUnclicked");
-    }
-    setItemClicked (!itemClicked);
   }
 
   /* // Toggle button/menu
@@ -187,7 +189,7 @@ export default function RegistryGallery() {
       window.location.reload();
     })
   }
- 
+  
   useEffect(() => {
     const tempItems = [...storeItems]
     axios.get(`https://weddingbackend.norgaardfamily.com/registry`)
@@ -206,7 +208,6 @@ export default function RegistryGallery() {
           priority: data[i].priority
         })
       }
-      console.log(data)
     } catch (Err) {
       console.log(response.data);
     }
@@ -316,14 +317,17 @@ export default function RegistryGallery() {
                 ((statusChecked === 'available' && store.qtyNeeded > 0) || 
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
                 (statusChecked === "")) && (store.isOnPage === true)) &&*/
-                <div onClick={() => updateItemClicked()} className="Item" id={itemClickedID} key={id}>
-                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow" key={id}>Shop</Link>{store.qtyNeeded > 0 ? <button onClick={() => markPurchased(id+1)} id='markPurchased'>Mark Purchased</button> : null }</div>
+                <button onClick={() => updateItemClicked()} className="Item" id={itemClickedID} key={id}>
+                  {store.qtyNeeded > 0 ?
+                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow">Shop</Link><div onClick={async () => await markPurchased(id+1)} id='markPurchased'>Mark Purchased</div></div> : 
+                  <div id="overlayItem"><p id='markPurchased'>Already Purchased!</p></div>
+                  }
                   <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
                   <div className="Container Item Text" id={store.storeName}>
                     <h4 className='Item Title'>{store.productName}</h4>
                     <h4 className="Item Price">${store.productPrice.toFixed(2)}</h4>
                   </div>
-                </div>
+                </button>
               ))}
             </Suspense>
             </div>
