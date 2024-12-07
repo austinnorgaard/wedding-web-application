@@ -262,7 +262,7 @@ body {
     display: none;
   }
   .TravelListLocationHeroContainer {
-    margin-top: -35px;
+    margin-bottom: 10px;
   }
   .TravelListLocationInfoContainer {
     position: relative;
@@ -271,12 +271,13 @@ body {
     flex-wrap: wrap;
     left: 10px;
     width: 100%;
-    height: 100%;
+    height: 220px;
     align-content: flex-end;
   }
   .TravelListLocationImage {
     width: 100%;
-    position: relative;
+    height: 100px;
+    position: absolute;
     overflow: visible;
   }
   .TravelListLocationImage > img {
