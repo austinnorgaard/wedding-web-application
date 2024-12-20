@@ -249,14 +249,18 @@ export default function RegistryGallery() {
           }
         </div>
         <div className='Container RegistryItemList Main'>
-          <div id="HeadBox">
+          <div id="HeadBox" className='md:flex-row flex-col flex'>
             <div id="HeadBoxText">
               <h1>Our Wish List</h1>
               {/* <button className="RegistryItemList Filters" id={filterMenuID} 
               //onClick={updateFilterMenu}
               >Filters</button> */}
             </div>
-            <Link className='mr-8' id="addressQCont" href="/faq?question=gifts">
+            <div className="md:max-w-[50%]" id="addressQCont">
+              <p className='text-sm'>Please only click "Mark as Purchased" after you have purchased an item.</p>
+              <p className='text-sm'>If you pressed it by accident or need help, please contact Austin or Jess :)</p>
+            </div>
+            <Link className='md:mr-8' id="addressQCont" href="/faq?question=gifts">
               <p id="addressQuestion">Where do I send all this?</p>
               <p id="clickMeAddress">Click Me</p>
             </Link>
@@ -319,7 +323,11 @@ export default function RegistryGallery() {
                 (statusChecked === "")) && (store.isOnPage === true)) &&*/
                 <button onClick={() => updateItemClicked()} className="Item" id={itemClickedID} key={id}>
                   {store.qtyNeeded > 0 ?
-                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow">Shop</Link><div onClick={async () => await markPurchased(id+1)} id='markPurchased'>Mark Purchased</div></div> : 
+                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow">Shop</Link>
+                  {id !== 0 ?
+                    <div onClick={async () => await markPurchased(id+1)} id='markPurchased'>Mark Purchased</div> : null
+                  }
+                  </div> : 
                   <div id="overlayItem"><p id='markPurchased'>Already Purchased!</p></div>
                   }
                   <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>

@@ -98,7 +98,6 @@
     padding-top: 2%;
     max-height: 7%;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
@@ -704,14 +703,13 @@ h1.Filters { // Registry Filter Headers
         padding-top: 2%;
         max-height: 7%;
         display: flex;
-        flex-direction: row;
         align-items: center;
+        justify-content: center;
     }
     
     #HeadBoxText > h1 { // Registry Item List Header Text
         font-size: 4vw; 
         width: 100%;
-        margin-left: 2%;
     }
     
     select.RegistryItemList.Sort { // Registry Item List Sort Box
@@ -788,6 +786,10 @@ h1.Filters { // Registry Filter Headers
 
     #addressQuestion {
         font-size: 3vw;
+    }
+
+    #addressQCont {
+        margin-top: 5%;
     }
     
     #clickMeAddress {

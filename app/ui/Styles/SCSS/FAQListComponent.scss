@@ -139,12 +139,15 @@
 
     #FaqHeaderImage {
         position: relative;
-        background-attachment: scroll;
         height: 200px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-attachment:unset;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     #FAQTitle {
