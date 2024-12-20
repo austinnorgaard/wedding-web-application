@@ -32,9 +32,7 @@
 
 #guest-list-wrapper {
     width: 72%;
-    height: 100%;
-    max-height: 100vh;
-    overflow-y: scroll;
+    height: fit-content;
     margin-left: 14%;
     background-color: white;
     display: flex;
@@ -354,8 +352,6 @@ button.guestRSVP:hover {
 
     #guest-list-wrapper {
         width: 100%;
-        max-height: fit-content;
-        overflow-y:auto;
         margin-left: 0;
         margin-bottom: 100px;
         text-align: center;

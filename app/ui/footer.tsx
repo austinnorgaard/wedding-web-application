@@ -1,3 +1,5 @@
+'use client';
+
 import '@/app/ui/Styles/CSS/FooterComponent.css';
 
 export default function Footer() {

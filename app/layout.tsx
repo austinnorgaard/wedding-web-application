@@ -4,6 +4,7 @@ import '@/app/ui/global.css'
 import Header from "@/app/ui/header";
 import MenuBar from "@/app/ui/sidenav";
 import Footer from "@/app/ui/footer";
+import TopOfPage from "./ui/top-of-page";
 
 export const experimental_ppr = true;
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body>
         <Header/>
         <MenuBar/>
+        <TopOfPage/>
         {children}
         <Footer/>
       </body>

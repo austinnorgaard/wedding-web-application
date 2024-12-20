@@ -1,10 +1,12 @@
+'use client';
+
 import '@/app/ui/Styles/CSS/HeaderComponent.css'
 import leaves from '@/app/ui/Resources/Photos/bgleaves.png';
 import logo from '@/app/ui/Resources/Photos/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default async function Header() {
+export default function Header() {
 
   var saveTheDate = new Date(Date.UTC(2025, 1, 14, 19))
   var today = new Date (Date.now())

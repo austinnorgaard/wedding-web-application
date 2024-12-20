@@ -149,151 +149,15 @@ body {
   background-color: #c4d9bc;
 }
 
-.FAQList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: fit-content;
-  margin-bottom: 6%;
-}
-
-.FaqHeader {
-  width: 100%;
-  text-align: center;
-  position: relative;
-}
-
-#faqHeaderImage {
-  /* The image used */
-  background-image: url("../../Resources/Photos/postlewaits2.jpg");
-  /* Set a specific height */
-  height: 30vh;
-  width: 100%;
+#toTop {
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#FAQListMainContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: fit-content5%;
-}
-
-.QuestionsContainer {
-  width: 90%;
-  height: 100%;
-  min-height: 40%;
-  border-color: #c29e29;
-  border-width: 0.1vw;
-  border-style: solid;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-}
-
-#FAQTitle {
-  width: 70%;
-  background-color: white;
-  font-family: "Abhaya Libre";
-  color: black;
-  font-weight: 600;
-}
-
-#questionsList {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 6%;
-  margin-bottom: 5%;
-  height: 100%;
-  align-items: center;
-}
-
-.QuestionBox {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2%;
-  border: 1px solid rgba(194, 158, 41, 0.5);
-  box-shadow: 0px 0px 10px 0px rgba(194, 158, 41, 0.5);
+  border: #c29e29 1px solid;
   border-radius: 5px;
-  transition: all 0.25s;
-  width: 70%;
-  height: 12rem;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-left: 10%;
-  padding-right: 10%;
+  background-color: white;
 }
 
-.QuestionBox:hover, .QuestionBox:focus {
-  box-shadow: 0px 0px 10px 6px rgba(194, 158, 41, 0.5);
-  transform: scale(1.02);
-}
-
-.Question {
-  margin: none;
-  padding: none;
-  font-family: "Abhaya Libre";
-  font-weight: 600;
-  color: black;
-}
-
-.Answer {
-  margin: none;
-  padding: none;
-  font-family: "Abhaya Libre";
-  font-size: larger;
-  color: black;
-}
-
-@media screen and (max-width: 768px) {
-  .FAQList {
-    margin-top: 10%;
-    margin-bottom: 10%;
-  }
-  .Question {
-    font-size: 130%;
-  }
-  .Answer {
-    font-size: 100%;
-    padding-top: 5%;
-    padding-bottom: 2%;
-  }
-  .QuestionBox {
-    padding-top: 2%;
-    margin-top: 5%;
-    height: fit-content;
-    width: 90%;
-  }
-  #FAQHeaderImage {
-    background-attachment: scroll;
-  }
-  #FAQTitle {
-    position: absolute;
-    margin: 0%;
-    width: 90%;
-  }
-}
-@media screen and (min-width: 1080px) {
-  #FAQListMainContainer {
-    width: 80%;
-  }
-  #FAQHeaderImage {
-    background-position: 20px bottom;
-  }
-}
-
-/*# sourceMappingURL=FAQListComponent.css.map */
+/*# sourceMappingURL=TopOfPage.css.map */

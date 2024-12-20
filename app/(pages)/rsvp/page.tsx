@@ -1,6 +1,6 @@
 'use client';
 
-import '@/app/ui/Styles/CSS/RSVPPageComponent.css';
+import '@/app/ui/Styles/SCSS/RSVPPageComponent.scss';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 

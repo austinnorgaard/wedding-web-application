@@ -1,0 +1,12 @@
+@use 'app';
+
+#toTop {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: app.$secondary-color 1px solid;
+    border-radius: 5px;
+    background-color: white;
+}
