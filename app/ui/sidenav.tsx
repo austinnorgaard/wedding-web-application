@@ -55,9 +55,9 @@ export default function MenuBar() {
                         href={link.href}
                         onClick={updateMenu}
                         className={clsx(
-                        'md:px-8 text-white transition-all duration-[250ms] no-underline underline-offset-[15px] decoration-transparent md:hover:underline hover:decoration-gold-100 md:text-4xl',
+                        'md:px-8 md:min-w-max text-white transition-all duration-[250ms] no-underline underline-offset-[15px] md:hover:underline decoration-gold-100 md:text-3xl 2xl:text-4xl',
                         {
-                            '!transition-none md:!underline md:!decoration-gold-100': pathname === link.href,
+                            '!transition-none md:underline md:decoration-gold-100': pathname === link.href,
                         },
                         )}
                         >

@@ -4,12 +4,12 @@ import logo from '@/app/ui/Resources/Photos/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
-var saveTheDate = new Date(Date.UTC(2025, 1, 14, 19))
-var today = new Date (Date.now())
+export default async function Header() {
 
-var countdownDate = ((saveTheDate.valueOf()/1000) / 86400) - (((today.valueOf())/1000) / 86400);
+  var saveTheDate = new Date(Date.UTC(2025, 1, 14, 19))
+  var today = new Date (Date.now())
 
-export default function Header() {
+  var countdownDate = ((saveTheDate.valueOf()/1000) / 86400) - (((today.valueOf())/1000) / 86400);
 
   return (
     <div className="Header">

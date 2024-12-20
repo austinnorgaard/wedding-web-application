@@ -257,8 +257,8 @@ export default function RegistryGallery() {
               >Filters</button> */}
             </div>
             <div className="md:max-w-[50%]" id="addressQCont">
-              <p className='text-sm'>Please only click "Mark as Purchased" after you have purchased an item.</p>
-              <p className='text-sm'>If you pressed it by accident or need help, please contact Austin or Jess :)</p>
+              <p className='text-sm text-center'>Please only click "Mark as Purchased" after you have purchased an item.</p>
+              <p className='text-sm text-center'>If you pressed it by accident or need help, please contact Austin or Jess :)</p>
             </div>
             <Link className='md:mr-8' id="addressQCont" href="/faq?question=gifts">
               <p id="addressQuestion">Where do I send all this?</p>
