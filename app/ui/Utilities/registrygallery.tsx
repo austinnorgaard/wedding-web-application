@@ -109,7 +109,7 @@ export default function RegistryGallery() {
       for (let i = 0; i < storeOptions.length; i++) {
         newOptions[i].index = storeOptions[i].index - 1;
       }
-      newOptions = newOptions.sort((a, b) => a.index < b.index ? -1 : 1);
+      newOptions = newOptions.sort((a: Store, b: Store) => a.index < b.index ? -1 : 1);
       setStoreOptions(newOptions);
     }
     else if (direction === "left") {
@@ -118,7 +118,7 @@ export default function RegistryGallery() {
       for (let i = 0; i < storeOptions.length; i++) {
         newOptions[i].index = storeOptions[i].index + 1;
       }
-      newOptions = newOptions.sort((a, b) => a.index < b.index ? -1 : 1);
+      newOptions = newOptions.sort((a: Store, b: Store) => a.index < b.index ? -1 : 1);
       setStoreOptions(newOptions);
     }
   }
