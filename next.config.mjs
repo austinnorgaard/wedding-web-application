@@ -67,7 +67,15 @@ const nextConfig = {
         protocol: 'https',
         hostname: "drive.google.com",
         port: '',
-      },
+      },{
+        protocol: 'https',
+        hostname: "wedding.norgaardfamily.com",
+        port: '',
+      },{
+        protocol: 'https',
+        hostname: "torontolife.mblycdn.com",
+        port: '',
+      }
     ],
   }
 };
