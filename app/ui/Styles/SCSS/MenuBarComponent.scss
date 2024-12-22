@@ -49,6 +49,11 @@
         z-index: 100;
     }
 
+    .MenuBarMainContainer#menuUnclicked {
+        display: none;
+        height: 0;
+    }
+
     .MenuBar#menuClicked ~ * {
         display: none;
     }

@@ -303,7 +303,7 @@
     color:#000;
     min-width: 18%;
     max-width: 18%;
-    margin-right: 2%; 
+    margin-right: 2%;
 }
 
 .Container.RegistryProviders.RegistryProviderList > *:hover {
@@ -321,7 +321,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-height: 10%;
+    height: 220px;
 }
 
 .RegistryProviders.Box#index5 { // 5th Registry Provider Item
@@ -329,9 +329,14 @@
     visibility: hidden;
 }
 
+.RegistryProviders {
+    position: relative;
+}
+
 .RegistryProviders.Button { // Registry Provider Button
-    margin-bottom: 10%;
     text-decoration: none;
+    position: absolute;
+    bottom: 5%;
     color: #000;
     border: 0.2vw solid app.$secondary-color;
     border-radius: 25px;
@@ -348,20 +353,22 @@
 }
 
 .RegistryProviders.Logo { // Registry Provider Logo
-    max-width: 80%;
+    width: 100px;
+    height: 100px;
     margin-top: 25%;
 }
 
+.RegistryProviders.Logo#amazon {
+    transform: scale(1.5);
+}
+
 .RegistryProviders.Logo#ring { // Ring Provider Logo
-    max-width: 50%;
     margin-top: 25%;
     -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(0%) hue-rotate(13deg) brightness(95%) contrast(105%);
     filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(0%) hue-rotate(13deg) brightness(95%) contrast(105%);
 }
 
 .RegistryProviders.Logo#serta { // Serta Provider Logo
-    max-width: 55%;
-    max-height: 70%;
     margin-top: 22.5%;
     margin-bottom: 20%;
     -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(0%) hue-rotate(13deg) brightness(95%) contrast(105%);
@@ -369,7 +376,6 @@
 }
 
 .RegistryProviders.Logo#venmo { // Venmo Provider Logo
-    max-width: 50%;
     margin-top: 15%;
 }
 
@@ -382,6 +388,7 @@ button.Navigate { // Registry Provider Navigation Buttons
     width: 2%;
     height: 5vh;
     z-index: 5;
+    display: none;
 }
 
 button.Navigate:hover {
@@ -657,32 +664,12 @@ h1.Filters { // Registry Filter Headers
         box-shadow: 0px 0px 6px 2px app.$secondary-color;
     }
     
-    .RegistryProviders.Logo#amazon { // Amazon Provider Logo
-        -webkit-filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
-        filter: invert(35%) sepia(5%) saturate(464%) hue-rotate(22deg) brightness(95%) contrast(83%);
-    }
-    
-    .RegistryProviders.Logo#ring { // Ring Provider Logo
-        max-width: 50%;
-        margin-top: 25%;
-        -webkit-filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
-        filter: invert(80%) sepia(9%) saturate(0%) hue-rotate(22deg) brightness(98%) contrast(0%);
-    }
-    
-    .RegistryProviders.Logo#serta { // Serta Provider Logo
-        max-width: 55%;
-        max-height: 70%;
-        margin-top: 22.5%;
-        margin-bottom: 20%;
-        -webkit-filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
-        filter: invert(60%) sepia(9%) saturate(257%) hue-rotate(22deg) brightness(98%) contrast(90%);
-    }
-    
     button.Navigate { // Registry Provider Navigation Button
         padding: 0;
         position: absolute;
         width: 30px;
         height: 30px;
+        display: block;
     }
 
     button.Navigate#left {

@@ -1,9 +1,7 @@
 'use client';
 
 import '@/app/ui/Styles/CSS/RegistryGalleryComponent.css';
-import { useEffect, useState, Suspense } from 'react';
-import amazonlogo from "@/app/ui/Resources/Photos/amazonlogo.webp"
-import venmoqr from "@/app/ui/Resources/Photos/venmoqr.jpg"
+import { useEffect, useState, Suspense, useReducer } from 'react';
 import axios from "axios";
 import Link from 'next/link';
 import Image from 'next/image';
@@ -19,7 +17,7 @@ export default function RegistryGallery() {
   const [storeChecked, setStoreChecked] = useState ("");
   const [statusChecked, setStatusChecked] = useState ("");
   const [load, setLoad] = useState ("unloaded");
-  const [, forceRender] = useState(undefined);
+  const [, forceRender] = useReducer(x => x + 1, 0);
   const [stocked, setStocked] = useState("inStock")
     // eslint-disable-next-line
   const [pages, setPages] = useState([
@@ -33,7 +31,8 @@ export default function RegistryGallery() {
   const [currentPage, setCurrentPage] = useState(1);
   // eslint-disable-next-line
   const [leftOrRight, setLeftOrRight] = useState(
-    { left: "left",
+    {
+      left: "left",
       right: "right"
     }
   );
@@ -43,13 +42,13 @@ export default function RegistryGallery() {
     { label: "$100-149", value: ["100.00", "149.99"] },
     { label: "$150+", value: ["150.00", "999999999.99"] }
   ];
-  const [storeOptions, setStoreOptions]: any = useState<Store[]>([]);
+  const [storeOptions, setStoreOptions] = useState<Store[]>([]);
   const statusOptions = [
     { label: "Available", value: "available" },
     { label: "Purchased", value: "purchased" }
   ];
 
-  const [storeItems, setStoreItems]: any = useState<Item[]>([]);
+  const [storeItems, setStoreItems] = useState<Item[]>([]);
 
   const sortFilters = [
     { label: "Featured", value: "feat" },
@@ -102,25 +101,25 @@ export default function RegistryGallery() {
     }
   }
  */
-  function updateProviders (direction: any) {
+  function updateProviders (direction: "left" | "right") {
+    var newOptions = storeOptions;
     if (direction === "right") {
-      let newOptions = storeOptions;
       newOptions[0].index = storeOptions.length;
       for (let i = 0; i < storeOptions.length; i++) {
         newOptions[i].index = storeOptions[i].index - 1;
       }
-      newOptions = newOptions.sort((a: Store, b: Store) => a.index < b.index ? -1 : 1);
+      newOptions = newOptions.sort((a, b) => a.index < b.index ? -1 : 1);
       setStoreOptions(newOptions);
     }
     else if (direction === "left") {
-      let newOptions = storeOptions;
       newOptions[newOptions.length - 1].index = -1;
       for (let i = 0; i < storeOptions.length; i++) {
         newOptions[i].index = storeOptions[i].index + 1;
       }
-      newOptions = newOptions.sort((a: Store, b: Store) => a.index < b.index ? -1 : 1);
+      newOptions = newOptions.sort((a, b) => a.index < b.index ? -1 : 1);
       setStoreOptions(newOptions);
     }
+    forceRender()
   }
 
   function updateItemClicked () {
@@ -162,7 +161,7 @@ export default function RegistryGallery() {
   }
 
   useEffect(() => {
-    const tempItems = [...storeItems]
+    let tempItems = [...storeItems]
     axios.get(`https://weddingbackend.norgaardfamily.com/registry`)
   .then(function (response) {
     try {
@@ -190,7 +189,7 @@ export default function RegistryGallery() {
     console.log("Error: " + err)
   })
 
-  const providerItems = [...storeOptions]
+  let providerItems = [...storeOptions]
     axios.get(`https://weddingbackend.norgaardfamily.com/stores`)
   .then(function (response) {
     try {
@@ -215,8 +214,12 @@ export default function RegistryGallery() {
   .catch((err) => {
     console.log("Error: " + err)
   })
-  setStoreOptions(providerItems)
-  setStoreItems(tempItems)
+  if (storeOptions.length === 0) {
+    setStoreOptions(providerItems)
+  }
+  if (storeItems.length === 0) {
+    setStoreItems(tempItems)
+  }
   }, // eslint-disable-next-line
   [load]);
 
@@ -224,26 +227,26 @@ export default function RegistryGallery() {
       <div className="Container Registry">
         <div className="Container RegistryProviders RegistryProviderMain">
           {
-          // eslint-disable-next-line
-          storeOptions.length > 5 &&
-          <button className="Navigate" id="left" onClick={() => updateProviders(leftOrRight.left)}>&larr;</button>
+          storeOptions.length > 2 &&
+          <button className="Navigate" id="left" onClick={() => updateProviders("left")}>&larr;</button>
           }
           <div className="Container RegistryProviders RegistryProviderInner">
             <h1>Gift Providers</h1>
-            <div className='Container RegistryProviders RegistryProviderList'>
-              {storeOptions.map((store: any, id: any) => (
-                (store.index < 5) &&
-                <Link href={store.registryLink} target='_blank' className="RegistryProviders Box" id={"index"+store.index} key={id}>
-                  <Image className="RegistryProviders Logo" id={store.value.toLowerCase()} src={store.registryImage} alt={store.label + " registry logo"} width={200} height={200} style={{objectFit: 'contain'}}/>
-                  <p className="RegistryProviders Button">Shop Registry</p>
-                </Link>
-              ))}
-            </div>
+            <Suspense fallback={<Loading/>}>
+              <div className='Container RegistryProviders RegistryProviderList'>
+                {storeOptions.map((store: Store, id: number) => (
+                  (store.index < 5) &&
+                  <Link href={store.registryLink} target='_blank' className="RegistryProviders Box" id={"index"+id} key={id}>
+                    <Image className="RegistryProviders Logo" id={store.value.toLowerCase()} src={store.registryImage} alt={store.label + " registry logo"} width={200} height={200} style={{objectFit: 'contain'}}/>
+                    <p className="RegistryProviders Button">Shop Registry</p>
+                  </Link>
+                ))}
+              </div>
+            </Suspense>
           </div>
           {
-          // eslint-disable-next-line
-          storeOptions.length > 4 &&
-            <button className='Navigate' id="right" onClick={() => updateProviders(leftOrRight.right)}>&rarr;</button>
+          storeOptions.length > 2 &&
+            <button className='Navigate' id="right" onClick={() => updateProviders("right")}>&rarr;</button>
           }
         </div>
         <div className='Container RegistryItemList Main'>
@@ -311,7 +314,7 @@ export default function RegistryGallery() {
             </div> */}
             <div className="Container RegistryItemList Items">
             <Suspense fallback={<Loading/>}>
-              {storeItems.map((store: any, id: any) => (
+              {storeItems.map((item: Item, id: number) => (
                 /*((storeChecked === store.storeName || storeChecked === "") && 
                 ((parseFloat(priceChecked[0]) <= store.productPrice && 
                 parseFloat(priceChecked[1]) >= store.productPrice) || 
@@ -320,18 +323,18 @@ export default function RegistryGallery() {
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
                 (statusChecked === "")) && (store.isOnPage === true)) &&*/
                 <button onClick={() => updateItemClicked()} className="Item" id={itemClickedID} key={id}>
-                  {store.qtyNeeded > 0 ?
-                  <div id="overlayItem"><Link href={store.productUrl} target='_blank' id="shopNow">Shop</Link>
+                  {item.qtyNeeded > 0 ?
+                  <div id="overlayItem"><Link href={item.productUrl} target='_blank' id="shopNow">Shop</Link>
                   {id !== 0 ?
                     <div onClick={async () => await markPurchased(id+1)} id='markPurchased'>Mark Purchased</div> : null
                   }
                   </div> :
                   <div id="overlayItem"><p id='markPurchased'>Already Purchased!</p></div>
                   }
-                  <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
-                  <div className="Container Item Text" id={store.storeName}>
-                    <h4 className='Item Title'>{store.productName}</h4>
-                    <h4 className="Item Price">${store.productPrice.toFixed(2)}</h4>
+                  <img className='Item Logo' src={item.imageUrl} alt={item.productName}/>
+                  <div className="Container Item Text" id={item.storeName}>
+                    <h4 className='Item Title'>{item.productName}</h4>
+                    <h4 className="Item Price">${item.productPrice.toFixed(2)}</h4>
                   </div>
                 </button>
               ))}
