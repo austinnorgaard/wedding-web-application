@@ -19,3 +19,11 @@ export type Item = {
   qtyNeeded: number,
   priority: number
 }
+
+export type Store = {
+  label: string,
+  value: string,
+  registryLink: string,
+  registryImage: string,
+  index: number
+}

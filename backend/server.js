@@ -3,7 +3,7 @@ import cors from 'cors'
 import bcrypt from 'bcrypt'
 import crypto from 'crypto'
 
-import { getUser, getUserId, getUsers, createUser, login, getGuests, createGuest, updateGuestCount, getRegistry, updateItem } from './database.js'
+import { getUser, getUserId, getUsers, createUser, login, getGuests, createGuest, updateGuestCount, getRegistry, getStores, updateItem } from './database.js'
 
 const app = express()
 app.use(cors())
@@ -118,6 +118,11 @@ app.post("/login", async (req, res) => {
         }
     });
    
+})
+
+app.get("/stores", async (req, res) => {
+    const stores = await getStores()
+    res.send(stores)
 })
 
 app.get("/registry", async (req, res) => {

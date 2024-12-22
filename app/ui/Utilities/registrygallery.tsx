@@ -7,7 +7,7 @@ import venmoqr from "@/app/ui/Resources/Photos/venmoqr.jpg"
 import axios from "axios";
 import Link from 'next/link';
 import Image from 'next/image';
-import { Item } from '@/app/lib/definitions';
+import { Item, Store } from '@/app/lib/definitions';
 import Loading from '@/app/(pages)/registry/Loading';
 
 export default function RegistryGallery() {
@@ -43,36 +43,7 @@ export default function RegistryGallery() {
     { label: "$100-149", value: ["100.00", "149.99"] },
     { label: "$150+", value: ["150.00", "999999999.99"] }
   ];
-  const [storeOptions, setStoreOptions] = useState([
-    {
-      label: "Venmo",
-      value: "Venmo",
-      registryLink: "/venmo",
-      registryImage: venmoqr,
-      index: 0
-    },
-    {
-      label: "Amazon",
-      value: "amazon",
-      registryLink: "https://www.amazon.com/wedding/a/registry/2PMC8XDS4JY6F?tag=wedch-995-20",
-      registryImage: amazonlogo,
-      index: 1
-    },
-    {
-      label: "Serta",
-      value: "Serta",
-      registryLink: "https://www.serta.com/products/icomforteco-foam-mattress?variant=44416523665572&irclickid=1vTVaR1g5xyKWK-Vd7WwnQt3UkCzJVQpMxZYzU0&irgwc=1&utm_campaign=Skimbit%20Ltd.&utm_source=impact&utm_medium=affliate&utm_content=Online%20Tracking%20Link",
-      registryImage: "https://ringofire.com/wp-content/uploads/2020/10/Serta_Logo.png",
-      index: 2
-    },
-    {
-      label: "Ring",
-      value: "Ring",
-      registryLink: "https://ring.com/products/video-doorbell-pro-2",
-      registryImage: "https://download.logo.wine/logo/Ring_Inc./Ring_Inc.-Logo.wine.png",
-      index: 3
-    }
-  ]);
+  const [storeOptions, setStoreOptions]: any = useState<Store[]>([]);
   const statusOptions = [
     { label: "Available", value: "available" },
     { label: "Purchased", value: "purchased" }
@@ -189,7 +160,7 @@ export default function RegistryGallery() {
       window.location.reload();
     })
   }
-  
+
   useEffect(() => {
     const tempItems = [...storeItems]
     axios.get(`https://weddingbackend.norgaardfamily.com/registry`)
@@ -218,6 +189,33 @@ export default function RegistryGallery() {
   .catch((err) => {
     console.log("Error: " + err)
   })
+
+  const providerItems = [...storeOptions]
+    axios.get(`https://weddingbackend.norgaardfamily.com/stores`)
+  .then(function (response) {
+    try {
+      const data = response.data
+      const len = data.length
+      for (let i = 0; i < len; i++) {
+        providerItems.push({
+          label: data[i].storeName,
+          value: data[i].storeName,
+          registryLink: data[i].storeUrl,
+          registryImage: data[i].storeImageUrl,
+          index: data[i].storeId
+        })
+      }
+    } catch (Err) {
+      console.log(response.data);
+    }
+  })
+  .then (function () {
+    setLoad("loaded");
+  })
+  .catch((err) => {
+    console.log("Error: " + err)
+  })
+  setStoreOptions(providerItems)
   setStoreItems(tempItems)
   }, // eslint-disable-next-line
   [load]);
@@ -233,7 +231,7 @@ export default function RegistryGallery() {
           <div className="Container RegistryProviders RegistryProviderInner">
             <h1>Gift Providers</h1>
             <div className='Container RegistryProviders RegistryProviderList'>
-              {storeOptions.map((store, id) => (
+              {storeOptions.map((store: any, id: any) => (
                 (store.index < 5) &&
                 <Link href={store.registryLink} target='_blank' className="RegistryProviders Box" id={"index"+store.index} key={id}>
                   <Image className="RegistryProviders Logo" id={store.value.toLowerCase()} src={store.registryImage} alt={store.label + " registry logo"} width={200} height={200} style={{objectFit: 'contain'}}/>
@@ -327,7 +325,7 @@ export default function RegistryGallery() {
                   {id !== 0 ?
                     <div onClick={async () => await markPurchased(id+1)} id='markPurchased'>Mark Purchased</div> : null
                   }
-                  </div> : 
+                  </div> :
                   <div id="overlayItem"><p id='markPurchased'>Already Purchased!</p></div>
                   }
                   <img className='Item Logo' src={store.imageUrl} alt={store.productName}/>
