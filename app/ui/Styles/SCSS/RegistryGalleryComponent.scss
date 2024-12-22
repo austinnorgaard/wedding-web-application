@@ -359,7 +359,7 @@
 }
 
 .RegistryProviders.Logo#amazon {
-    transform: scale(1.5);
+    transform: scale(1.25);
 }
 
 .RegistryProviders.Logo#ring { // Ring Provider Logo
@@ -642,6 +642,10 @@ h1.Filters { // Registry Filter Headers
         margin-right: 5%;
     }
 
+    .RegistryProviders.Logo#amazon {
+        transform: scale(1);
+    }
+
     // || Registry Provider Styles
     .RegistryProviders.Box#index4 { // Registry Provider #4
         display: none;
@@ -662,6 +666,10 @@ h1.Filters { // Registry Filter Headers
         background-color: app.$secondary-color !important;
         color: white;
         box-shadow: 0px 0px 6px 2px app.$secondary-color;
+    }
+
+    .RegistryProviders.Box {
+        height: 170px;
     }
     
     button.Navigate { // Registry Provider Navigation Button

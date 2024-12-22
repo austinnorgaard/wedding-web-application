@@ -505,7 +505,7 @@ body {
 }
 
 .RegistryProviders.Logo#amazon {
-  transform: scale(1.5);
+  transform: scale(1.25);
 }
 
 .RegistryProviders.Logo#ring {
@@ -759,6 +759,9 @@ h1.Filters {
     transition: none;
     margin-right: 5%;
   }
+  .RegistryProviders.Logo#amazon {
+    transform: scale(1);
+  }
   .RegistryProviders.Box#index4 {
     display: none;
     visibility: hidden;
@@ -775,6 +778,9 @@ h1.Filters {
     background-color: #c29e29 !important;
     color: white;
     box-shadow: 0px 0px 6px 2px #c29e29;
+  }
+  .RegistryProviders.Box {
+    height: 170px;
   }
   button.Navigate {
     padding: 0;
