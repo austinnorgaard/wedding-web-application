@@ -110,7 +110,7 @@ async function getStore(storeId) {
     return rows[0]  
 }
 
-async function getStores() {
+export async function getStores() {
     const [rows] = await pool.query(`
     SELECT * 
     FROM store
