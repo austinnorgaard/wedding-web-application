@@ -58,7 +58,6 @@ export default function RegistryGallery() {
   // eslint-disable-next-line
   const [filterType, setFilterType] = useState("feat");
 
-/*
   function onFilterChange (value: any) {
     setFilterType(value);
     if (value === "feat") {
@@ -100,7 +99,7 @@ export default function RegistryGallery() {
       setStatusChecked(value);
     }
   }
- */
+
   function updateProviders (direction: "left" | "right") {
     var newOptions = storeOptions;
     if (direction === "right") {
@@ -134,7 +133,7 @@ export default function RegistryGallery() {
     }
   }
 
-  /* // Toggle button/menu
+  // Toggle button/menu
   function updateFilterMenu () {
     if (!filterMenuClick) {
         setFilterMenuID ("filterClicked");
@@ -143,7 +142,7 @@ export default function RegistryGallery() {
         setFilterMenuID ("filterUnclicked");
     }
     setFilterMenuClicked (!filterMenuClick);
-  } */
+  }
 
 
   async function markPurchased(id: number) {
@@ -253,9 +252,9 @@ export default function RegistryGallery() {
           <div id="HeadBox" className='md:flex-row flex-col flex'>
             <div id="HeadBoxText">
               <h1>Our Wish List</h1>
-              {/* <button className="RegistryItemList Filters" id={filterMenuID} 
-              //onClick={updateFilterMenu}
-              >Filters</button> */}
+              <button className="RegistryItemList Filters" id={filterMenuID} 
+              onClick={updateFilterMenu}
+              >Filters</button>
             </div>
             <div className="md:max-w-[50%]" id="addressQCont">
               <p className='text-sm text-center'>Please only click "Mark as Purchased" after you have purchased an item.</p>
@@ -265,25 +264,25 @@ export default function RegistryGallery() {
               <p id="addressQuestion">Where do I send all this?</p>
               <p id="clickMeAddress">Click Me</p>
             </Link>
-            {/*< div className='Container RegistryItemList Box Sort'>
+            < div className='Container RegistryItemList Box Sort'>
               <label htmlFor="sort">Sort by</label>
               <select className='RegistryItemList Sort' id="sortselect" name="Sort" 
-              //onChange={(e: any) => onFilterChange(e.value)}
+              onChange={(e: any) => onFilterChange(e.value)}
               >
                 {sortFilters.map((filter, id) => (
                   <option value={filter.value} key={id}>{filter.label}</option>
                 ))}
               </select>
-            </div> */}
+            </div>
           </div>
           <div className='Container RegistryItemList Inner' id={filterMenuID}>
-            {/* <div className='Container RegistryItemList Filters List'>
+            <div className='Container RegistryItemList Filters List'>
               <div className="Container RegistryItemList Filters Filter" id="price">
                 <h1 className="Filters" id="price">Price</h1>
                 {priceOptions.map((option, index) => (
                   <div className="Container Filters CheckRow" id={"priceCheckRow"+index} key={index}>
                     <input checked={priceChecked[0] === option.value[0] && priceChecked[1] === option.value[1]} 
-                    //onChange={() => onPriceChange(option.value)} 
+                    onChange={() => onPriceChange(option.value)} 
                     type='checkbox' name={"price["+index+"]"}/>
                     <p className="Filters CheckRow Label">{option.label}</p>
                   </div>
@@ -294,7 +293,7 @@ export default function RegistryGallery() {
                 {storeOptions.map((option, index) => (
                   <div className="Container Filters CheckRow" id={"storeCheckRow"+index} key={index}>
                     <input checked={storeChecked === option.value} 
-                    //onChange={() => onStoreChange(option.value)} 
+                    onChange={() => onStoreChange(option.value)} 
                     type='checkbox' name={"store["+index+"]"}/>
                     <p className="Filters CheckRow Label">{option.label}</p>
                   </div>
@@ -305,23 +304,23 @@ export default function RegistryGallery() {
                 {statusOptions.map((option, index) => (
                   <div className="Container Filters CheckRow" id={"statusCheckRow"+index} key={index}>
                     <input checked={statusChecked === option.value}
-                    //onChange={() => onStatusChange(option.value)} 
+                    onChange={() => onStatusChange(option.value)} 
                     type='checkbox' name={"status["+index+"]"}/>
                     <p className="Filters CheckRow Label">{option.label}</p>
                   </div>
                 ))}
               </div>
-            </div> */}
+            </div>
             <div className="Container RegistryItemList Items">
             <Suspense fallback={<Loading/>}>
               {storeItems.map((item: Item, id: number) => (
-                /*((storeChecked === store.storeName || storeChecked === "") && 
+                ((storeChecked === store.storeName || storeChecked === "") && 
                 ((parseFloat(priceChecked[0]) <= store.productPrice && 
                 parseFloat(priceChecked[1]) >= store.productPrice) || 
                 (store.canAddToStandardCart === true && priceChecked[0] === "" && priceChecked[1] === "")) && 
                 ((statusChecked === 'available' && store.qtyNeeded > 0) || 
                 (statusChecked === "purchased" && store.qtyNeeded === 0) || 
-                (statusChecked === "")) && (store.isOnPage === true)) &&*/
+                (statusChecked === "")) && (store.isOnPage === true)) &&
                 <button onClick={() => updateItemClicked()} className="Item" id={itemClickedID} key={id}>
                   {item.qtyNeeded > 0 ?
                   <div id="overlayItem"><Link href={item.productUrl} target='_blank' id="shopNow">Shop</Link>
@@ -341,7 +340,7 @@ export default function RegistryGallery() {
             </Suspense>
             </div>
           </div>
-          {/*<div className='Container RegistryItemList PageSelect'>
+          <div className='Container RegistryItemList PageSelect'>
             {pages.map((page, id) => (
               <button 
               onClick={() => toPage(page.pageNumber)} 
@@ -355,7 +354,6 @@ export default function RegistryGallery() {
               </button>
             ))}
           </div>
-          */}
         </div>
       </div>
   );
